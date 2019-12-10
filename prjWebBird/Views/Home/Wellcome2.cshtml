@@ -1,0 +1,619 @@
+﻿@{
+    ViewBag.Title = "Wellcome";
+}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- 字體 -->
+    <link href="https://fonts.googleapis.com/css?family=Mali:400,700|Noto+Sans+TC:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/index.css">
+    @*<title>HoMe .Find way鸚鵡回家</title>*@
+</head>
+<style>
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: linear-gradient(to right, rgba(10, 48, 23, 1)0%, rgba(10, 48, 23, 0)100%);
+        /* clip-path: polygon(0 100%, 0 0, 75% 0, 75% 5.5%, 80% 7.5%, 75% 9.5%, 75% 100%); */
+        overflow-x: hidden;
+        color: white;
+        transition: 0.5s;
+        /* padding-top: 60px; */
+    }
+
+    #movenav {
+        transition: margin-left .5s;
+    }
+
+    .mainhead3B {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 77% 100%, 75% 88%, 73% 100%, 0 100%);
+    }
+
+    .mainhead2B {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 52% 100%, 50% 88%, 48% 100%, 0 100%);
+    }
+
+    .mainhead1B {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 27% 100%, 25% 88%, 23% 100%, 0 100%);
+    }
+
+    .cliphead {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 60%, 15px 50%, 0 40%)
+    }
+
+    .nava {
+        background: linear-gradient(to right, rgb(255, 174, 0, 1)0%, rgba(253, 253, 253, 0)100%);
+        color: black;
+        border: none;
+    }
+
+    .fixedhead {
+        height: 55px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+    /* .searchbox {
+        width: 0;
+        height: 0;
+        transition: all 1s;
+    }
+
+    .searchboxshow {
+        width: 50vw;
+        height: 10vh;
+    } */
+</style>
+
+<body>
+    <nav id="mySidenav" class="sidenav">
+        <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+        <div class="border-bottom border-white d-flex align-items-center justify-content-start text" style="height: 150px;">
+            <!-- 點圖進入會員/登入功能 -->
+            <a href="" style="text-decoration: none;" class="text-nowrap text-white textdecnone " id="loginnavside" data-toggle="modal" data-target="#poplogin">
+                <img src="/images/LOGO-4white-nofont.svg" alt="" class=" rounded-circle bg-secondary m-2 ml-5 " style="width: 80px;height:80px;">
+                <small>未登入</small>
+            </a>
+        </div>
+
+
+        <a href="" class="  btn-block btn-group m-0 border-0 mb-1  " style="text-decoration: none; ">
+            <span class="btn  btn-block  text-left btn-danger  nava">首頁</span>
+        </a>
+        <div href="" class="btn-block btn-group m-0 border-0 mb-1  " style="text-decoration: none;">
+            <span class="btn  btn-block  text-left btn-danger nava">飛失</span><span class="btn-sm btn btn-danger bigfont px-3 " data-toggle="collapse" data-target="#flynavside">+</span>
+        </div>
+        <div id="flynavside" class="collapse">
+            <a href="" class="  btn-block btn-group m-0 border-0 mb-1  " style="text-decoration: none; ">
+                <span class="btn  btn-block  text-left btn-danger nava">清單</span>
+            </a>
+        </div>
+        <a href="" class="  btn-block btn-group m-0 border-0 mb-1  " style="text-decoration: none;">
+            <span class="btn  btn-block  text-left btn-warning nava">拾獲</span><span class="btn-sm btn btn-danger bigfont px-3">+</span>
+        </a>
+        <a href="" class="  btn-block btn-group m-0 border-0 mb-1  " style="text-decoration: none;">
+            <span class="btn  btn-block  text-left btn-warning nava">目擊</span><span class="btn-sm btn btn-danger bigfont px-3">+</span>
+        </a>
+        <a href="" class="  btn-block btn-group m-0 border-0 mb-1  " style="text-decoration: none;">
+            <span class="btn  btn-block  text-left btn-warning nava">送養</span>
+        </a>
+
+
+    </nav>
+    <div class="movenav" id="movenav">
+        <!-- 滾動前 -->
+        <div class="container-fluid topbody ">
+            <header class="row nav " id="cliphead">
+                <div class="col-1 ">
+                    <div class="HanbergerDiv btn mt-3  opennav">
+                        <div class="hanberger X1  mt-1"></div>
+                        <div class="hanberger X2  mt-1"></div>
+                        <div class="hanberger X3  mt-1 mb-1"></div>
+                    </div>
+                </div>
+
+                <div class="col  text-center  justify-content-center d-flex align-items-center ml-3 ">
+                    <h1 class="navbar-brand  text-white mt-2  bigfont" style="line-height: 19px">
+                        HoMe .Find Way<br>
+                        <small class="h6 text-white" style="font-family: cwtexyen;">鸚鵡回家</small>
+                    </h1>
+                </div>
+
+                <div class="col-1  justify-content-end d-flex align-items-center d-lg-none">
+                    <span class="far fa-user mr-3 d-lg-none btn" data-toggle="modal" data-target="#poplogin"></span>
+                </div>
+                <div class="col-lg-1 justify-content-end d-flex align-items-center d-none ">
+                    <span class="text-warning d-none d-lg-block mr-4 btn" data-toggle="modal" data-target="#poplogin">login</span>
+                </div>
+            </header>
+
+            <div class="row indexshow">
+                <div class="col ">
+                    <div class=" carousel slide" data-ride="carousel" data-interval="5000" id="headshow">
+                        <ul class="carousel-indicators right">
+                            <li data-target="#headshow" data-slide-to="0" class="active"></li>
+                            <li data-target="#headshow" data-slide-to="1" class=""></li>
+                            <li data-target="#headshow" data-slide-to="2" class=""></li>
+                            <li data-target="#headshow" data-slide-to="3" class=""></li>
+                        </ul>
+                        <div class=" carousel-inner ">
+                            <div class="carousel-item  active" style="background-image:url('images/LOGOv1.svg ');background-size: contain;"> </div>
+                            <div class=" carousel-item  " style="background-image:url('images/back/back1.jpg')">
+                            </div>
+                            <div class=" carousel-item  " style="background-image:url('images/back/back (3).jpg')">
+                            </div>
+                            <div class=" carousel-item  " style="background-image:url('images/back/back (7).jpg');background-position: bottom ">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row  my-3">
+                <div class="offset-1 col-10 d-flex  justify-content-around align-items-center">
+                    <button class="btn index_btn">飛失</button>
+                    <button class="btn index_btn">目擊</button>
+                    <button class="btn index_btn">拾獲</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 滾動後 -->
+        <div class="container-fluid" style="position: relative; overflow: hidden; ">
+            <!-- 頭 -->
+            <header class="row nav d-flex align-items-end justify-content-between mainfunchead sticky" id="mainhead" style="height: 55px;">
+                <div class="col-lg-3  text-center d-none d-lg-block ">
+                    <h1 class="h3 text-white mt-2  bigfont " style="line-height: 20px;white-space: nowrap;">
+                        HoMe .Find Way
+                        <br> <span class="text-white" style="font-size: 16px; font-family: cwtexyen;">鸚 鵡 回 家</span>
+                    </h1>
+                </div>
+
+                <div class=" HanbergerDiv HanbergerDivRow btn  d-lg-none opennav">
+                    <div class="hanberger X1  mt-1"></div>
+                    <div class="hanberger X2  mt-1"></div>
+                    <div class="hanberger X3  mt-1 mb-1"></div>
+                </div>
+
+
+                <div class="  btn-group d-lg-none mb-1">
+                    <button class="btn row_btn">飛失</button>
+                    <button class="btn row_btn">目擊</button>
+                    <button class="btn row_btn ">拾獲</button>
+                </div>
+
+
+                <div class="loginicon d-lg-none d-flex justify-content-center align-items-center ">
+                    <span class="far fa-user  d-lg-none btn " data-toggle="modal" data-target="#poplogin"></span>
+                </div>
+
+                <div class="col-lg-1 justify-content-center d-flex align-items-center d-none ">
+                    <span class="text-warning d-none d-lg-block mb-3 btn bigfont  " data-toggle="modal" data-target="#poplogin">
+                        log
+                        in
+                    </span>
+                </div>
+            </header>
+            <!-- /頭 -->
+            <!-- lg版的功能列-->
+            <div class="row mt-3 mb-0  ">
+                <div class="offset-2 col-4 d-none d-lg-block">
+                    <form action="" class="form-group ">
+                        <div class="input-group mb-3 badge-pill border bg-white" style="width: 400px">
+                            <input type="text" class="form-control border-0 badge-pill bg-transparent" placeholder="　腳環號/品種/" style="width: 60%;position: relative;left: -10px;">
+                            <button class="border-0 bg-transparent btn ml-5" type="button">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            <button class="border-0 bg-transparent btn text-info searchhelp" type="button" style="position: absolute;right: 55px;"><i class="fa fa-list"></i></button>
+
+                        </div>
+                    </form>
+                </div>
+                <div class="offset-3 col-auto  align-self-center d-none d-lg-block ">
+                    <ul>
+                        <a href="">
+                            <li class="list-unstyled d-inline ">圖示 </li>
+                        </a>
+                        <span>|</span>
+                        <a href="">
+                            <li class="list-unstyled d-inline ">清單 </li>
+                        </a>
+                        <span>|</span>
+                        <a href="">
+                            <li class="list-unstyled d-inline ">地圖</li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="offset-lg-3  searchbox bg-light rounded " style="width: 5px;height:0px; overflow: hidden;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui voluptatem asperiores, fugit vitae earum ratione maiores incidunt in tenetur consectetur harum nobis voluptas exercitationem nam perspiciatis! Magnam excepturi ad praesentium?</div>
+
+
+
+            </div>
+
+            <div class="row ">
+                <!-- 內容框框 -->
+
+
+                <div class="col-lg-2 d-none d-lg-block ">
+                    <section id="" class="lgFuncRight  m-auto " style="width: 150px;">
+
+
+                        <a href="" class="  btn-block btn-group m-0 border-0   " style="text-decoration: none; ">
+                            <span class="btn  btn-block  text-left   sectiona" style="border-radius: 5px 5px 0px 0px;">首頁</span>
+                        </a>
+                        <div href="" class="btn-block btn-group m-0 border-0 sectiona  " style="text-decoration: none;">
+                            <a href="" class="btn border-0  btn-block text-left text-white">飛失</a>
+                            <button class=" bigfont px-3 border-0  " data-toggle="collapse" data-target="#flysectionside">+</button>
+                        </div>
+                        <div id="flysectionside" class="collapse ">
+                            <a href="" class="  btn-block btn-group text-dark " style="text-decoration: none;background: rgba(5, 42, 31, 0.3);">
+                                <span class=" btn btn-block text-left " style="font-size: 15px; ">新增</span>
+                            </a>
+                            <a href="" class=" btn-block btn-group m-0 text-dark " style=" text-decoration: none;background: rgba(5, 42, 31, 0.3); ">
+                                <span class=" btn btn-block text-left " style=" font-size: 15px;">修改</span>
+                            </a>
+                        </div>
+                        <div href="" class="btn-block btn-group  sectiona  " style="text-decoration: none;">
+                            <a href="" class="btn border-0  btn-block text-left text-white">拾獲</a>
+                            <button class=" bigfont px-3 border-0  " data-toggle="collapse" data-target="#catchsectionside">+</button>
+                        </div>
+                        <div id="catchsectionside" class="collapse">
+                            <a href="" class="  btn-block btn-group text-dark " style="text-decoration: none;background: rgba(5, 42, 31, 0.3);">
+                                <span class=" btn btn-block text-left " style="font-size: 15px; ">新增</span>
+                            </a>
+                            <a href="" class=" btn-block btn-group m-0 text-dark " style=" text-decoration: none;background: rgba(5, 42, 31, 0.3); ">
+                                <span class=" btn btn-block text-left " style=" font-size: 15px;">修改</span>
+                            </a>
+                        </div>
+                        <div href="" class="btn-block btn-group  sectiona  " style="text-decoration: none;">
+                            <a href="" class="btn border-0  btn-block text-left text-white">目擊</a>
+                            <button class=" bigfont px-3 border-0  " data-toggle="collapse" data-target="#seesectionside">+</button>
+                        </div>
+                        <div id="seesectionside" class="collapse">
+                            <a href="" class="  btn-block btn-group text-dark " style="text-decoration: none;background: rgba(5, 42, 31, 0.3);">
+                                <span class=" btn btn-block text-left " style="font-size: 15px; ">新增</span>
+                            </a>
+
+
+                        </div>
+                        <a href="" class="  btn-block btn-group    " style="text-decoration: none;">
+                            <span class="btn  btn-block  text-left sectiona" style="border-radius:  0px 0px 5px 5px;" ">送養</span>
+                        </a>
+
+
+                    </section>
+
+
+                </div>
+
+                <!-- 主要內容 -->
+                <div class=" col-lg-9 p-1 d-flex flex-wrap funcmain">
+
+                    <div class="flybox   ">
+                        <div class="information " style="border-radius: 5px;  display: inline-block;
+    overflow: hidden;" data-toggle="modal" data-target="#popinfo">
+                            <img src="/images/back/back1.jpg" alt="" class="img-fluid">
+                        </div>
+                        <!-- 圖片內容 -->
+                        <div class="infotext  text-white  ">
+                            <span class="infotitle bigfont">
+                                和尚
+                            </span><span class=" badge badge-pill badge-primary  mt-1 ">今天</span>
+                            <p class="infobody  pl-2  bigfont ">
+                                <span class="small infotime  bigfont">
+                                    2019-04-14
+                                    <span class=" infoarea ">19:30</span>
+                                </span><br>新竹市北區
+                            </p>
+                            <p class="pl-2 small">飛失地址：<span>文化路一段122巷50-1號2樓之4</span></p>
+                            <P class="pl-2 small">腳環號：<span>RB15529Y</span>、<span>RB15529Y</span></P>
+                        </div>
+
+                    </div>
+
+                    <!-- 跳現框 -->
+                    <div class="modal fade " id="popinfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg ">
+                            <div class="modal-content bg-light">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                                </div>
+                                <div class="modal-body ">
+                                    <div class="row">
+                                        <div class="col-12 col-lg-6  ">
+                                            <img src="/images/back/back (5).jpg" alt="" class="img-thumbnail">
+                                        </div>
+                                        <div class="col-12 col-lg-6  my-2">
+                                            <p>品種：<span>玄鳳鸚鵡（</span><span>派特</span><span>珍珠</span>）</p>
+                                            <p>飛失時間：<span>2019-07-11</span>　<span>19:30</span></p>
+                                            <p>
+                                                飛失地點：<span>台北市大安區</span><span>文化路一段122巷50-1號2樓之4</span><span>從家裡陽台往某某路飛去</span>
+                                            </p>
+                                            <P>特徵：<span>頭毛少一搓</span></P>
+                                            <P>腳環號碼：<span>RB15529Y</span>、<span>RB15529Y</span></P>
+                                            <p>聯絡人：<span>陳小小</span></p>
+                                            <p>聯絡電話：<span>0919555093</span></p>
+
+
+                                        </div>
+                                        <div class="col-12">
+                                            <p>其他聯絡方式：<span>LINE</span></p>
+                                        </div>
+                                        <div class="col-12   bg-info border-danger border pt-2 mb-3">
+                                            <p>
+                                                備註：<br>
+                                                <span>學生電子商務郵箱一時連續原料訊息工廠人們擁有處罰著名解放辛苦，實業別的收到結合，整個趕緊湖口很少出現人數功能，那個語言廠商使得，關心真實性降低日韓，來源操作系統基層透明未知明星屬性每頁鄉民們近年來獎勵儀器國際，分別告知此次便利商店快捷登陸人類因為頓時忽然。</span>
+                                            </p>
+                                        </div>
+
+                                        <iframe width='100%' height='500' frameborder='0' scrolling='no' marginheight="0" marginwidth="0" src=http://maps.google.com.tw/maps?f =q&hl =zh-TW&geocode =&q =24.811522,120.968176&z =16&output =embed&t =>
+                                        </iframe>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal -->
+                    </div>
+                    <div class="flybox ">
+                        <div class="information text-white  " style="border-radius: 5px; background-image: url('/images/back/back (5).jpg');">
+                        </div>
+                    </div>
+                    <div class="flybox ">
+                        <div class="information text-white  " style="border-radius: 5px;  background-image: url('/images/back/back (6).jpg')">
+                        </div>
+                    </div>
+                    <div class="flybox ">
+                        <div class="information text-white  " style="border-radius: 5px;  background-image: url('/images/back/back (7).jpg')">
+                        </div>
+                    </div>
+                    <div class="flybox ">
+                        <div class="information text-white " style="border-radius: 5px;   background-image: url('/images/back/back (3).jpg')">
+                        </div>
+                    </div>
+                    <div class="flybox ">
+                        <div class="information text-white  " style="border-radius: 5px; "></div>
+                    </div>
+                    <div class="flybox ">
+                        <div class="information text-white  " style="border-radius: 5px; "></div>
+                    </div>
+                    <div class="flybox ">
+                        <div class="information text-white  " style="border-radius: 5px; "></div>
+                    </div>
+                    <div class="flybox ">
+                        <div class="information text-white  " style="border-radius: 5px; "></div>
+                    </div>
+
+
+
+
+
+                </div>
+                <!--/ 主要內容 -->
+
+
+
+
+                <div class="col-lg-1  d-none d-lg-block ">
+                    <!-- 電腦右側功能 -->
+
+                    <div class=" pt-5 ml-3 lgFuncRight">
+                        <a href="" class=" text-center " title="新增" data-toggle="tooltip" data-placement="left">
+                            <div class=" ">
+                                <i class="far fa-plus-square"></i>
+                            </div>
+                        </a>
+                        <a href="" class=" text-center " title="修改" data-toggle="tooltip" data-placement="left">
+                            <div class=" "> <i class="far fa-edit"></i></div>
+                        </a>
+                        <a href="" class=" text-center " title="搜尋" data-toggle="tooltip" data-placement="left">
+                            <div class=""><i class="fas fa-search"></i></div>
+                        </a>
+                        <a href="" class=" text-center " title="圖片檢視" data-toggle="tooltip" data-placement="left">
+                            <div class=""><i class="fas fa-th-large"></i></div>
+                        </a>
+                        <a href="" class=" text-center " title="清單檢視" data-toggle="tooltip" data-placement="left">
+                            <div class=" "><i class="fas fa-list-ul"></i></div>
+                        </a>
+                        <a href="" class=" text-center " title="地圖檢視" data-toggle="tooltip" data-placement="left">
+                            <div class=""><i class="fas fa-map-marked-alt"></i></div>
+                        </a>
+                    </div>
+
+                    <!-- /電腦右側功能 -->
+                </div>
+
+
+
+                <div>
+
+                    <!-- 內容清單 -->
+                </div>
+                <!-- 浮動捲上 -->
+                <a class="btn  add" id="BackTop" title="回到最上" data-toggle="tooltip" data-placement="top"><span class="up1"></span><span class="up2"></span></a>
+                <!-- data-toggle="modal" data-target="#popadd" href="AddEdit.html"  -->
+
+            </div>
+        </div>
+        <!-- footer -->
+        <div class="container-fluid mt-5">
+            <footer class="row  text-white  small d-flex justify-content-center align-items-center">
+
+                <img src="images/LOGO-4white-nofont.svg" alt="" class="icon d-none  d-md-block ">
+
+                <div class="col-3 text-right">
+                    <ul class="list-unstyled">
+                        <a href="" class="text-white ">
+                            <li class="my-2"> 網站地圖</l>
+                        </a>
+                        <a href="" class="text-white ">
+                            <li class="my-2"> 使用方法</li>
+                        </a>
+                        <a href="" class="text-white ">
+                            <li class="mt-2">感謝幫助</li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="col-3 text-center">
+                    <ul class="list-unstyled">
+                        <a href="" class="text-white">
+                            <li class="my-2">飛失列表</li>
+                        </a>
+                        <a href="" class="text-white">
+                            <li class="my-2">拾獲列表</li>
+                        </a>
+                        <a href="" class="text-white">
+                            <li class="my-2">目擊列表</li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="col-3 text-left ">
+                    <ul class="list-unstyled">
+                        <a href="" class="text-white">
+                            <li class="my-2">網站介紹</li>
+                        </a>
+                        <a href="" class="text-white">
+                            <li class="my-2">作者介紹</li>
+                        </a>
+                        <a href="" class="text-white">
+                            <li class="my-2">聯絡我們</li>
+                        </a>
+                    </ul>
+                </div>
+
+                <div class="col-12 text-white text-center">
+                    <span>&copy;2019 - HoMe .Find Way</span>
+                </div>
+            </footer>
+        </div>
+        <!-- /footer -->
+        <!-- 手持底部功能 -->
+        <div class="container-fluid fixed-bottom" id="bottomfunc">
+            <div class="row d-flex justify-content-between  bg-white text-nowrap d-lg-none p-1">
+                <a href="" class="bg-light col text-center text-dark ">
+                    <div class=" justify-content-center"><i class="far fa-plus-square"></i></div>
+                </a>
+                <a href="" class="bg-light col text-center text-dark">
+                    <div class="  text-center"> <i class="far fa-edit"></i></div>
+                </a>
+                <a href="" class="bg-light col text-center text-dark ">
+                    <div class=""><i class="fas fa-search"></i></div>
+                </a>
+                <a href="" class="bg-light col text-center text-dark">
+                    <div class=""><i class="fas fa-th-large"></i></div>
+                </a>
+                <a href="" class="bg-light col text-center text-dark">
+                    <div class=" "><i class="fas fa-list-ul"></i></div>
+                </a>
+                <a href="" class="bg-light col text-center text-dark">
+                    <div class=""><i class="fas fa-map-marked-alt"></i></div>
+                </a>
+            </div>
+        </div>
+        <!-- /手持底部功能 -->
+    </div>
+    <!-- /movenav -->
+    <!-- .登入modal -->
+    <div class="modal fade " id="poplogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog ">
+            <!-- .modal-content -->
+            <div class="modal-content bg-light">
+                <div class="modal-body ">
+
+                    <div class="container m-auto">
+                        <div class="row mb-3">
+                            <div class="col text-right close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </div>
+                        </div>
+                        <ul class="nav nav-tabs px-2" id="myTab" role="tablist">
+                            <li class="nav-item w-50 ">
+                                <a class="nav-link active" id="loginnav" data-toggle="tab" href="#login" role="tab" aria-controls="home" aria-selected="true">登入</a>
+                            </li>
+                            <li class="nav-item w-50 ">
+                                <a class="nav-link " id="registernav" data-toggle="tab" href="#register" role="tab" aria-controls="profile" aria-selected="false">註冊</a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div id="login" class=" tab-pane fade show active" role="tabpanel">
+
+                                <form action="" method="POST" class="p-sm-3 p-md-5 ">
+                                    <div class="form-group"><label for="userid" class="form-label">帳號</label><input type="text" class="form-control" placeholder="請輸入e-mail或帳號" id="userid" name="userid"></div>
+
+                                    <div class="form-group"><label for="password" class="form-label">密碼</label><input type="password" class=" form-control" id="password" name="password"></div>
+                                    <div class="form-group form-text">
+
+                                        <div class="form-check form-check-inline  badge-pill bg-light">
+                                            <input type="checkbox" name="forget" id="forget" class="form-check-input"><label for="forget" class="form-text">忘記密碼</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group  m-3">
+                                        <input type="submit" class=" btn btn-info btn-block" value="google登入">
+                                    </div>
+                                    <div class="form-group  m-3">
+                                        <input type="submit" class=" btn btn-warning btn-block" value="確認">
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div id="register" class=" tab-pane fade" role="tabpanel">
+                                <form action="" method="POST" class="p-sm-3 p-md-5 ">
+                                    <div class="form-group">
+                                        <label for="useridRE" class="form-label">帳號</label><input type="text" class="form-control " placeholder="" id="useridRE" name="useridRE">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="emailRE" class="form-label">E-mail</label><input type="email" class="form-control" placeholder="" id="emailRE" name="emailRE">
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="passwordRE" class="form-label">密碼</label><input type="password" class=" form-control" id="passwordRE" name="passwordRE">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="passwordRE2" class="form-label">密碼確認</label><input type="password" class=" form-control" id="passwordRE2" name="passwordRE2">
+                                    </div>
+                                    <div class="form-group  m-4">
+                                        <input type="submit" class=" btn btn-info btn-block" value="google帳號註冊">
+                                    </div>
+                                    <div class="form-group m-4">
+                                        <input type="submit" class=" btn btn-warning btn-block" value="註冊">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+    </div>
+    <!-- /.modal -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+</body>

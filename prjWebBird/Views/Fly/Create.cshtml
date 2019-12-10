@@ -1,0 +1,137 @@
+﻿@model prjWebBird.Models.z_func_fly
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>z_func_fly</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-row">
+        
+
+        <div class="form-group col-12">
+            @Html.LabelFor(model => model.mname, htmlAttributes: new { @class = "control-label " })
+            <div class="">
+                @Html.EditorFor(model => model.mname, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mname, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group  col-md-6">
+            @Html.LabelFor(model => model.mid, htmlAttributes: new { @class = "control-label " })
+            <div class="">
+                @Html.EditorFor(model => model.mid, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mid, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group  col-md-6">
+            @Html.LabelFor(model => model.mid2, htmlAttributes: new { @class = "control-label  " })
+            <div class=" ">
+                @Html.EditorFor(model => model.mid2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mid2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group  col-md-6">
+            @Html.LabelFor(model => model.mspecies, htmlAttributes: new { @class = "control-label  " })
+            <div class=" ">
+                @Html.EditorFor(model => model.mspecies, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mspecies, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group col-12">
+            @Html.LabelFor(model => model.mcolor, htmlAttributes: new { @class = "control-label  " })
+            <div class=" ">
+                @Html.EditorFor(model => model.mcolor, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mcolor, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group col-12">
+            @Html.LabelFor(model => model.mfeature, htmlAttributes: new { @class = "control-label  " })
+            <div class=" ">
+                @Html.EditorFor(model => model.mfeature, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mfeature, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group  col-md-6">
+            @Html.LabelFor(model => model.maddr, htmlAttributes: new { @class = "control-label  " })
+            <div class=" ">
+                @Html.EditorFor(model => model.maddr, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.maddr, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group col-12">
+            @Html.LabelFor(model => model.maddr_detail, htmlAttributes: new { @class = "control-label  " })
+            <div class=" ">
+                @Html.EditorFor(model => model.maddr_detail, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.maddr_detail, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+       
+        <div class="form-group  col-md-6">
+            @Html.LabelFor(model => model.mdate, htmlAttributes: new { @class = "control-label  " })
+            <div class=" ">
+                @Html.EditorFor(model => model.mdate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mdate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+       
+        <div class="form-group col-12">
+            @Html.LabelFor(model => model.mremarks, htmlAttributes: new { @class = "control-label  " })
+            <div class=" ">
+                @Html.EditorFor(model => model.mremarks, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mremarks, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group  col-md-6">
+            @Html.LabelFor(model => model.mstate, htmlAttributes: new { @class = "control-label  " })
+            <div class=" ">
+                @Html.EditorFor(model => model.mstate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mstate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+        <div class="form-group col-12">
+            @Html.LabelFor(model => model.edit, htmlAttributes: new { @class = "control-label  " })
+            <div class=" ">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.edit)
+                    @Html.ValidationMessageFor(model => model.edit, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-12">
+            <div class="col-md-offset-2  ">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

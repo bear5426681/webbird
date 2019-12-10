@@ -1,0 +1,401 @@
+﻿@using Securitys;
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- 字體 -->
+    <link href="https://fonts.googleapis.com/css?family=Mali:400,700|Noto+Sans+TC:400,700&display=swap"
+          rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+    <title>HoMe .Find way鸚鵡回家</title>
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+
+    <link href="~/css/index.css" rel="stylesheet" />
+
+</head>
+<body>
+    <nav id="mySidenav" class="sidenav">
+        @if (UserAccount.IsLogin)
+        {
+            <div class="border-bottom border-white d-flex align-items-center justify-content-start text"
+                 style="height: 150px;">
+                <!-- 點圖進入會員/登入功能 -->
+                <a href="" style="text-decoration: none;" class="text-nowrap text-white " id="">
+                    <img src="/images/LOGO-4white-nofont.svg" alt="" class=" rounded-circle bg-secondary m-2 ml-5 "
+                         style="width: 80px;height:80px;">
+                    <small>歡迎回來</small>
+                </a>
+            </div>
+        }
+        else
+        {
+                <div class="border-bottom border-white d-flex align-items-center justify-content-start text"
+                     style="height: 150px;">
+                    <!-- 點圖進入會員/登入功能 -->
+                    <a href="" style="text-decoration: none;" class="text-nowrap text-white textdecnone " id="loginnavside"
+                       data-toggle="modal" data-target="#poplogin">
+                        <img src="/images/LOGO-4white-nofont.svg" alt=""
+                             class=" rounded-circle bg-secondary m-2 ml-5 " style="width: 80px;height:80px;">
+                        <small>未登入</small>
+                    </a>
+                </div>
+                }
+
+
+
+                <a href="" class="  btn-block btn-group m-0 border-0 mb-1  " style="text-decoration: none; ">
+                    <span class="btn  btn-block  text-left btn-danger  nava">首頁</span>
+                </a>
+                <div href="" class="btn-block btn-group m-0 border-0 mb-1  " style="text-decoration: none;">
+                    <span class="btn  btn-block  text-left btn-danger nava">飛失</span><span class="btn-sm btn btn-danger bigfont px-3 " data-toggle="collapse" data-target="#flynavside">+</span>
+                </div>
+                <div id="flynavside" class="collapse">
+                    <a href="" class="  btn-block btn-group m-0 border-0 mb-1  "
+                       style="text-decoration: none; ">
+                        <span class="btn  btn-block  text-left btn-danger nava">清單</span>
+                    </a>
+                </div>
+                <a href="" class="  btn-block btn-group m-0 border-0 mb-1  " style="text-decoration: none;">
+                    <span class="btn  btn-block  text-left btn-warning nava">拾獲</span><span class="btn-sm btn btn-danger bigfont px-3">+</span>
+                </a>
+                <a href="" class="  btn-block btn-group m-0 border-0 mb-1  " style="text-decoration: none;">
+                    <span class="btn  btn-block  text-left btn-warning nava">目擊</span><span class="btn-sm btn btn-danger bigfont px-3">+</span>
+                </a>
+                <a href="" class="  btn-block btn-group m-0 border-0 mb-1  " style="text-decoration: none;">
+                    <span class="btn  btn-block  text-left btn-warning nava">送養</span>
+                </a>
+
+
+            </nav>
+
+    <div class="movenav " id="movenav">
+
+        <div class="container-fluid" style="position: relative; overflow: hidden; ">
+            <!-- 頭 -->
+            @if (UserAccount.IsLogin)
+            {
+                <header class="row nav d-flex align-items-center justify-content-between mainfunchead" id="mainhead"
+                        style="opacity: 1 ;height: 55px; position: fixed;top: 0;width: 100%;z-index: 1000;">
+                    <div class="col-lg-3  text-center d-none d-lg-block ">
+                        <h1 class="h3 text-white mt-2  bigfont " style="line-height: 20px;white-space: nowrap;">
+                            HoMe .Find
+                            Way<br> <span class="text-white" style="font-size: 16px; font-family: cwtexyen;">鸚 鵡 回 家</span>
+                        </h1>
+                    </div>
+
+                    <div class=" HanbergerDiv HanbergerDivRow btn  d-lg-none opennav">
+                        <div class="hanberger X1  mt-1"></div>
+                        <div class="hanberger X2  mt-1"></div>
+                        <div class="hanberger X3  mt-1 mb-1"></div>
+                    </div>
+
+
+                    <div class=" btn-group d-lg-none  d-flex align-items-center">
+                        <button class="btn row_btn">飛失</button>
+                        <button class="btn row_btn">目擊</button>
+                        <button class="btn row_btn ">拾獲</button>
+                    </div>
+
+
+                    <div class="btn-group col-lg-1 d-flex justify-content-center align-items-start "
+                         style="height: 40px;width:40px;">
+
+                        <button type="button" class="btn  pull-right bg-transparent " data-toggle="dropdown"
+                                style="height: 40px;width:40px;background-image:url('images/LOGO-4white-nofont.svg');background-repeat: no-repeat;background-position: center ;background-size:cover;">
+                        </button>
+                        <!-- 會員下拉 -->
+                        <div class="dropdown-menu dropdown-menu-right"
+                             style="clip-path: polygon(0 100%, 100% 100%, 100% 7%, 93% 7%, 89% 1%, 85% 7%, 0 7%);">
+                            <a class="dropdown-item mt-3 py-2" href="#">訊息</a>
+                            <a class="dropdown-item py-2" href="#">我的張貼</a>
+                            <a class="dropdown-item  py-2" href="#">寵物鳥管理</a>
+                            <a class="dropdown-item  py-2 mb-0" href="#">帳號管理</a>
+                            <hr class="m-1">
+                            <a class="dropdown-item py-2" href="/user/Logout">登出</a>
+                        </div>
+
+                    </div>
+                </header>
+            }
+            else
+            {
+                <header class="row nav d-flex align-items-end justify-content-between mainfunchead sticky" id="mainhead"
+                        style="opacity: 1 ;height: 55px;">
+                    <div class="col-lg-3  text-center d-none d-lg-block ">
+                        <h1 class="h3 text-white mt-2  bigfont " style="line-height: 20px;white-space: nowrap;">
+                            HoMe .Find
+                            Way<br> <span class="text-white" style="font-size: 16px; font-family: cwtexyen;">鸚 鵡 回 家</span>
+                        </h1>
+                    </div>
+
+                    <div class=" HanbergerDiv HanbergerDivRow btn  d-lg-none opennav">
+                        <div class="hanberger X1  mt-1"></div>
+                        <div class="hanberger X2  mt-1"></div>
+                        <div class="hanberger X3  mt-1 mb-1"></div>
+                    </div>
+
+
+                    <div class="  btn-group d-lg-none mb-1">
+                        <button class="btn row_btn">飛失</button>
+                        <button class="btn row_btn">目擊</button>
+                        <button class="btn row_btn ">拾獲</button>
+                    </div>
+
+
+                    <div class="loginicon d-lg-none d-flex justify-content-center align-items-center ">
+                        <span class="far fa-user d-lg-none btn " data-toggle="modal" data-target="#poplogin"></span>
+                    </div>
+
+                    <div class="col-lg-1 justify-content-center d-flex align-items-center d-none ">
+                        <span class="text-warning d-none d-lg-block mb-3 btn bigfont  " data-toggle="modal"
+                              data-target="#poplogin">
+                            log
+                            in
+                        </span>
+                    </div>
+                </header>
+            }
+            <!-- /頭 -->
+
+            <div class="row ">
+                <div class="col-lg-2 d-none d-lg-block ">
+
+                   
+
+                </div>
+
+                <!-- 主要內容 -->
+                <div class=" col-lg-9 p-1 d-flex flex-wrap funcmain">
+
+                    @RenderBody()
+
+
+                    <fb:login-button scope="public_profile,email"
+                                     onlogin="checkLoginState();">
+                    </fb:login-button>
+
+                    <div id="fb-root"></div>
+                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v5.0&appId=2562798504045563&autoLogAppEvents=1"></script>
+
+                    <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="true"></div>
+
+                </div>
+                <!--/ 主要內容 -->
+
+
+
+
+                <div class="col-lg-1  d-none d-lg-block ">
+                    <!-- 電腦右側功能 -->
+
+                  
+
+                    <!-- /電腦右側功能 -->
+                </div>
+
+                <!-- 浮動捲上 -->
+                <a class="btn  add" id="BackTop" title="回到最上" data-toggle="tooltip" data-placement="top"><span class="up1"></span><span class="up2"></span></a>
+                <!-- data-toggle="modal" data-target="#popadd" href="AddEdit.html"  -->
+
+            </div>
+        </div>
+
+        <!-- .登入modal -->
+        @if (UserAccount.IsLogin == false)
+        {
+
+            <div class="modal fade " id="poplogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true" data-backdrop="static">
+                <div class="modal-dialog ">
+                    <!-- .modal-content -->
+                    <div class="modal-content bg-light">
+                        <div class="modal-body ">
+                            <div class="container m-auto">
+                                <div class="row mb-3">
+                                    <div class="col text-right close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </div>
+                                </div>
+                                <ul class="nav nav-tabs px-2" id="myTab" role="tablist">
+                                    <li class="nav-item w-50 ">
+                                        <a class="nav-link active" id="loginnav" data-toggle="tab" href="#login"
+                                           role="tab" aria-controls="home" aria-selected="true">登入</a>
+                                    </li>
+                                    <li class="nav-item w-50 ">
+                                        <a class="nav-link " id="registernav" data-toggle="tab" href="#register"
+                                           role="tab" aria-controls="profile" aria-selected="false">註冊</a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content">
+                                    <div id="login" class=" tab-pane fade show active" role="tabpanel">
+                                        @Html.Partial("~/Views/user/Login.cshtml")
+
+                                    </div>
+                                    <div id="register" class=" tab-pane fade" role="tabpanel">
+
+                                        @Html.Partial("~/Views/user/_Register.cshtml")
+
+
+
+                                    </div>
+
+                                </div><!-- /.row -->
+                            </div><!-- /.container -->
+                        </div><!-- /.modal-body -->
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+        }
+
+        <div class="container-fluid">
+            <footer class="row  text-white  small d-flex justify-content-center align-items-center">
+
+                <img src="images/LOGO-4white-nofont.svg" alt="" class="icon d-none  d-md-block ">
+
+                <div class="col-3 text-right">
+                    <ul class="list-unstyled">
+                        <a href="" class="text-white ">
+                            <li class="my-2"> 網站地圖</l>
+                        </a>
+                        <a href="" class="text-white ">
+                            <li class="my-2"> 使用方法</li>
+                        </a>
+                        <a href="" class="text-white ">
+                            <li class="mt-2">感謝幫助</li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="col-3 text-center">
+                    <ul class="list-unstyled">
+                        <a href="" class="text-white">
+                            <li class="my-2">飛失列表</li>
+                        </a>
+                        <a href="" class="text-white">
+                            <li class="my-2">拾獲列表</li>
+                        </a>
+                        <a href="" class="text-white">
+                            <li class="my-2">目擊列表</li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="col-3 text-left ">
+                    <ul class="list-unstyled">
+                        <a href="" class="text-white">
+                            <li class="my-2">網站介紹</li>
+                        </a>
+                        <a href="" class="text-white">
+                            <li class="my-2">作者介紹</li>
+                        </a>
+                        <a href="" class="text-white">
+                            <li class="my-2">聯絡我們</li>
+                        </a>
+                    </ul>
+                </div>
+
+                <div class="col-12 text-white text-center">
+                    <span>&copy;@DateTime.Now.Year - HoMe .Find Way</span>
+                </div>
+            </footer>
+
+        </div>
+        <!-- 手持底部功能 -->
+        <div class="container-fluid fixed-bottom" id="bottomfunc">
+            <div class="row d-flex justify-content-between  bg-white text-nowrap d-lg-none p-1">
+                <a href="" class="bg-light col text-center text-dark ">
+                    <div class=" justify-content-center"><i class="far fa-plus-square"></i></div>
+                </a>
+                <a href="" class="bg-light col text-center text-dark">
+                    <div class="  text-center"> <i class="far fa-edit"></i></div>
+                </a>
+                <a href="" class="bg-light col text-center text-dark ">
+                    <div class=""><i class="fas fa-search"></i></div>
+                </a>
+                <a href="" class="bg-light col text-center text-dark">
+                    <div class=""><i class="fas fa-th-large"></i></div>
+                </a>
+                <a href="" class="bg-light col text-center text-dark">
+                    <div class=" "><i class="fas fa-list-ul"></i></div>
+                </a>
+                <a href="" class="bg-light col text-center text-dark">
+                    <div class=""><i class="fas fa-map-marked-alt"></i></div>
+                </a>
+            </div>
+        </div>
+        <!-- /手持底部功能 -->
+    </div>
+
+
+
+            <script src="~/js/index.js"></script>
+            @RenderSection("scripts", required: false)
+
+            <script>
+                window.fbAsyncInit = function () {
+                    FB.init({
+                        appId: '2562798504045563',
+                        cookie: true,
+                        xfbml: true,
+                        version: 'v5.0'
+                    });
+
+                    FB.AppEvents.logPageView();
+
+                };
+
+                (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) { return; }
+                    js = d.createElement(s); js.id = id;
+                    js.src = "https://connect.facebook.net/en_US/sdk.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+
+
+                FB.getLoginStatus(function (response) {
+                    statusChangeCallback(response);
+                });
+
+
+                {
+                    status: 'connected',
+                        authResponse: {
+                        accessToken: '...',
+                            expiresIn: '...',
+                                signedRequest: '...',
+                                    userID: '...'
+                    }
+                }
+                function checkLoginState() {
+                    FB.getLoginStatus(function (response) {
+                        statusChangeCallback(response);
+                    });
+                }
+
+
+            </script>
+
+    </body>
+</html>

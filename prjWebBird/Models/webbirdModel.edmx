@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="webbirdModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="z_bas_user">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mno" Type="nvarchar" MaxLength="50" />
+          <Property Name="mdate" Type="date" />
+          <Property Name="mid" Type="nvarchar" MaxLength="50" />
+          <Property Name="mpassword" Type="nvarchar" MaxLength="50" />
+          <Property Name="mname" Type="nvarchar" MaxLength="50" />
+          <Property Name="memail" Type="nvarchar" MaxLength="250" />
+          <Property Name="mtel" Type="nvarchar" MaxLength="50" />
+          <Property Name="mconn" Type="nvarchar" MaxLength="500" />
+          <Property Name="maddr" Type="nvarchar" MaxLength="250" />
+          <Property Name="mtype" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="z_func_fly">
+          <Key>
+            <PropertyRef Name="mno" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="mno" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mname" Type="nvarchar" MaxLength="50" />
+          <Property Name="mid" Type="nvarchar" MaxLength="50" />
+          <Property Name="mid2" Type="nvarchar" MaxLength="50" />
+          <Property Name="show_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="mspecies" Type="nvarchar" MaxLength="50" />
+          <Property Name="mcolor" Type="nvarchar" MaxLength="50" />
+          <Property Name="mfeature" Type="nvarchar" MaxLength="50" />
+          <Property Name="maddr" Type="nvarchar" MaxLength="50" />
+          <Property Name="maddr_detail" Type="nvarchar" MaxLength="250" />
+          <Property Name="lat" Type="decimal" Precision="10" Scale="8" />
+          <Property Name="lng" Type="decimal" Precision="11" Scale="8" />
+          <Property Name="mdate" Type="date" />
+          <Property Name="mtime" Type="datetime" />
+          <Property Name="mdate_edit" Type="datetime" />
+          <Property Name="mremarks" Type="nvarchar(max)" />
+          <Property Name="mstate" Type="nvarchar" MaxLength="50" />
+          <Property Name="edit" Type="bit" />
+        </EntityType>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="webbirdModelStoreContainer">
+          <EntitySet Name="z_bas_user" EntityType="Self.z_bas_user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="z_func_fly" EntityType="Self.z_func_fly" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="webbirdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="z_bas_user">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mdate" Type="DateTime" Precision="0" />
+          <Property Name="mid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="memail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="mtel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mconn" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="maddr" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="mtype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="z_func_fly">
+          <Key>
+            <PropertyRef Name="mno" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mid2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="show_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mspecies" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mcolor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mfeature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="maddr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="maddr_detail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="lat" Type="Decimal" Precision="10" Scale="8" />
+          <Property Name="lng" Type="Decimal" Precision="11" Scale="8" />
+          <Property Name="mdate" Type="DateTime" Precision="0" />
+          <Property Name="mtime" Type="DateTime" Precision="3" />
+          <Property Name="mdate_edit" Type="DateTime" Precision="3" />
+          <Property Name="mremarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="mstate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="edit" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="webbirdEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="z_bas_user" EntityType="Self.z_bas_user" />
+          <EntitySet Name="z_func_fly" EntityType="Self.z_func_fly" />
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(webbirdModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(webbirdModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="webbirdModelStoreContainer" CdmEntityContainer="webbirdEntities">
+          <EntitySetMapping Name="z_bas_user">
+            <EntityTypeMapping TypeName="webbirdModel.z_bas_user">
+              <MappingFragment StoreEntitySet="z_bas_user">
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+                <ScalarProperty Name="mno" ColumnName="mno" />
+                <ScalarProperty Name="mdate" ColumnName="mdate" />
+                <ScalarProperty Name="mid" ColumnName="mid" />
+                <ScalarProperty Name="mpassword" ColumnName="mpassword" />
+                <ScalarProperty Name="mname" ColumnName="mname" />
+                <ScalarProperty Name="memail" ColumnName="memail" />
+                <ScalarProperty Name="mtel" ColumnName="mtel" />
+                <ScalarProperty Name="mconn" ColumnName="mconn" />
+                <ScalarProperty Name="maddr" ColumnName="maddr" />
+                <ScalarProperty Name="mtype" ColumnName="mtype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="z_func_fly">
+            <EntityTypeMapping TypeName="webbirdModel.z_func_fly">
+              <MappingFragment StoreEntitySet="z_func_fly">
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+                <ScalarProperty Name="user_no" ColumnName="user_no" />
+                <ScalarProperty Name="mno" ColumnName="mno" />
+                <ScalarProperty Name="mname" ColumnName="mname" />
+                <ScalarProperty Name="mid" ColumnName="mid" />
+                <ScalarProperty Name="mid2" ColumnName="mid2" />
+                <ScalarProperty Name="show_id" ColumnName="show_id" />
+                <ScalarProperty Name="mspecies" ColumnName="mspecies" />
+                <ScalarProperty Name="mcolor" ColumnName="mcolor" />
+                <ScalarProperty Name="mfeature" ColumnName="mfeature" />
+                <ScalarProperty Name="maddr" ColumnName="maddr" />
+                <ScalarProperty Name="maddr_detail" ColumnName="maddr_detail" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="lng" ColumnName="lng" />
+                <ScalarProperty Name="mdate" ColumnName="mdate" />
+                <ScalarProperty Name="mtime" ColumnName="mtime" />
+                <ScalarProperty Name="mdate_edit" ColumnName="mdate_edit" />
+                <ScalarProperty Name="mremarks" ColumnName="mremarks" />
+                <ScalarProperty Name="mstate" ColumnName="mstate" />
+                <ScalarProperty Name="edit" ColumnName="edit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="webbirdModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="webbirdModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="webbirdModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="webbirdModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="webbirdModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="webbirdModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="webbirdModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="webbirdModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="webbirdModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,91 @@
+﻿@model prjWebBird.Models.ViewModels.LoginViewModel
+
+<form action="/user/Login" method="post" id="LoginForm" class="p-sm-2 p-md-4 pb-2 ">
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    @*action="/user/_Create" method="post"*@
+
+    <div class="form-group  ">
+        <label for="UserNo" class="form-label">帳號</label>
+        @Html.TextBoxFor(x => x.UserNo, new { @class = "form-control", placeholder = "使用帳號或email登入", AutoComplete = "Off", tabindex = "1" })
+        @Html.ValidationMessageFor(model => model.UserNo, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group ">
+        <label for="Password"
+               class="form-label">密碼</label>
+        @Html.PasswordFor(x => x.Password, new { @class = "form-control", placeholder = "密碼", AutoComplete = "Off", tabindex = "2" })
+        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group m-4">
+        <input type="button"
+               class=" btn btn-warning btn-block" value="確認" id="submitLogin">
+    </div>
+
+</form>
+<div class="text-center mt-3">快速登入</div>
+<div class=" m-2 d-flex justify-content-around">
+    <button class="fab fa-facebook  btn rounded-circle text-info border-info bg-transparent"
+            style="width: 55px;height: 55px;font-size: 25px;"></button>
+    <button class="fab fa-google  btn rounded-circle text-danger border-danger bg-transparent"
+            style="width: 55px;height: 55px;font-size: 25px;"></button>
+    <button class="fab fa-line  btn rounded-circle text-success border-success bg-transparent"
+            style="width: 55px;height: 55px;font-size: 25px;"></button>
+
+</div>
+
+
+@Scripts.Render("~/bundles/jqueryval")
+
+<script>
+      $('#submitLogin').click(function () {
+
+    var myForm = $("#LoginForm");
+
+    var validator = myForm.validate();
+    if (myForm.valid()) {
+
+        var dataForm = myForm.serialize();
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("Login","user")',
+            data: dataForm,
+            cache: false,
+            async: false,
+            success: function (data) {
+                if (data.IsSuccess) {
+
+                    alert('登入成功!');
+                    window.location = '@Url.Action("Index", "Home")';
+
+                } else {
+
+                    if (data.ModelStateErrors != null) {
+                        // show model state error
+                        validator.showErrors(data.ModelStateErrors);
+                        alert('請檢查輸入資料');
+                    } else {
+                        
+                         alert('登入成功!');
+                    window.location = '@Url.Action("Index", "Home")';
+                    }
+                }
+            }
+        });
+
+    }
+      });
+
+
+</script>
+
+
+
+
+
+
+
+
+
+

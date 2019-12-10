@@ -1,0 +1,117 @@
+﻿@model prjWebBird.Models.z_bas_user
+
+@{
+    ViewBag.Title = "Create1";
+}
+
+<h2>Create1</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>z_bas_user</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.mdate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.mdate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.mdate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.mid, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.mid, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.mid, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.mpassword, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.mpassword, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.mpassword, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.mname, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.mname, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.mname, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.memail, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.memail, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.memail, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.mtel, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.mtel, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.mtel, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.mconn, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.mconn, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.mconn, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.maddr, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.maddr, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.maddr, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.mpasswordCheck, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.mpasswordCheck, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.mpasswordCheck, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<div class="form-group">
+    <label class="control-label col-md-2" for="mpasswordCheck">密碼</label>
+    <div class="col-md-10">
+
+        <input class="form-control text-box single-line input-validation-error" data-val="true" data-val-equalto="兩次輸入密碼不一致！" data-val-equalto-other="*.mpassword" data-val-required="請再次輸入密碼！" id="mpasswordCheck" name="mpasswordCheck" type="text" value="" aria-describedby="mpasswordCheck-error" aria-invalid="true">
+        <input class="form-control text-box single-line" data-val="true" data-val-equalto="兩次輸入密碼不一致！" data-val-equalto-other="*.mpassword" data-val-required="請再次輸入密碼！" id="mpasswordCheck" name="mpasswordCheck" type="text" value="">
+        <span class="text-danger field-validation-error" data-valmsg-for="mpasswordCheck" data-valmsg-replace="true"><span id="mpasswordCheck-error" class="">兩次輸入密碼不一致！</span></span>
+        <span class="field-validation-valid text-danger" data-valmsg-for="mpasswordCheck" data-valmsg-replace="true"></span>
+    </div>
+</div><input class="form-control text-box single-line" data-val="true" data-val-required="密碼不可為空白！" id="mpassword" name="mpassword" type="password" value="">
+      <input class="form-control text-box single-line input-validation-error" data-val="true" data-val-required="密碼不可為空白！" id="mpassword" name="mpassword" type="password" value="" aria-describedby="mpassword-error" aria-invalid="true">
+      <input class="form-control text-box single-line" data-val="true" data-val-required="密碼不可為空白！" id="mpassword" name="mpassword" type="password" value="">
+      <span class="text-danger field-validation-error" data-valmsg-for="mpassword" data-valmsg-replace="true"><span id="mpassword-error" class="">密碼不可為空白！</span></span>

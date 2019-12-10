@@ -1,0 +1,82 @@
+﻿@model IEnumerable<prjWebBird.Models.z_func_fly>
+
+@{
+    ViewBag.Title = "Index2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index2</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="table-responsive">
+    <table class=" table table-light small">
+        <tr class="">
+
+            <th class="text-nowrap">
+                @Html.DisplayNameFor(model => model.mname)
+            </th>
+            <th class="text-nowrap">
+                @Html.DisplayNameFor(model => model.mid)
+            </th>
+            <th class="text-nowrap">
+                @Html.DisplayNameFor(model => model.mspecies)
+            </th>
+            <th class="text-nowrap">
+                @Html.DisplayNameFor(model => model.maddr)
+            </th>
+            <th class="text-nowrap">
+                @Html.DisplayNameFor(model => model.mdate)
+            </th>
+            <th class="text-nowrap">
+                @Html.DisplayNameFor(model => model.mstate)
+            </th>
+            <th class="text-nowrap">
+
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td class="text-nowrap">
+                    @Html.DisplayFor(modelItem => item.mname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mid)
+                </td>
+
+                <td class="text-nowrap">
+                    @Html.DisplayFor(modelItem => item.mspecies)
+                </td>
+
+                <td class="text-nowrap">
+                    @Html.DisplayFor(modelItem => item.maddr)
+                </td>
+                <td class="text-nowrap">
+                    @Html.DisplayFor(modelItem => item.mdate)
+                </td>
+
+                <td class="text-nowrap">
+                    @Html.DisplayFor(modelItem => item.mstate)
+                </td>
+
+               
+                @if (item.edit==true)
+                {
+                    <td class="text-nowrap">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.mno })
+                    </td>
+                }
+                else
+                {
+                    <td class="text-nowrap"></td>
+                }
+            </tr>
+        }
+
+    </table>
+</div>
+<a class="btn add text-white"> @Html.ActionLink("+", "Create")</a><!-- 浮動新增按鈕 -->

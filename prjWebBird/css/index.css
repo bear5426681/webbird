@@ -1,0 +1,578 @@
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+* {
+    margin: 0;
+    font-family: 'Mali', 'Noto Sans TC', cursive;
+    box-sizing: border-box;
+    font-weight: 400;
+}
+
+.bigfont {
+    font-weight: 700;
+}
+
+body {
+    background: rgb(152, 250, 155);
+    background: linear-gradient(0deg, rgba(152, 250, 155, 1) 0%, rgba(255, 248, 151, 1) 43%, rgba(255, 215, 159, 1) 100%);
+    /* background: linear-gradient(0deg, rgb(64, 50, 82) 0%, rgba(255, 248, 151, 1) 43%, rgb(169, 159, 255) 100%); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+header {
+    background: rgb(25, 46, 32);
+    height: 79.6px;
+    max-height: 79.6px;
+    opacity: 0.7;
+    transition: all 1s;
+}
+
+header:hover {
+    opacity: 1;
+}
+
+.HanbergerDivCloss {
+    background: rgb(54, 99, 69);
+}
+
+.X1Closs {
+    transform: rotate(37deg);
+    /* translate(0px, 10px) */
+}
+
+.X3Closs {
+    transform: rotate(-37deg);
+    /* translate(0px, -10px) */
+}
+
+.X2Closs {
+    transform: translate(-10px, 0);
+    opacity: 0;
+}
+
+.hanberger {
+    display: block;
+    height: 3px;
+    width: 24px;
+    background-color: rgb(230, 230, 112);
+    border-radius: 10px;
+    transition: all 0.5s;
+    transform-origin: left;
+}
+
+.fa-user {
+    transform: scale(1.5);
+    /* height: 5vh;
+        width: 5vh; */
+    color: rgb(230, 230, 112);
+}
+
+.topbody {
+    height: 120vh;
+}
+
+.carousel-item {
+    height: 74vh;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.carousel li {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.index_btn {
+    width: 22vw;
+    background: linear-gradient(0deg, rgba(254, 165, 0, 1) 0%, rgba(255, 241, 114, 1) 23%, rgba(250, 114, 10, 1) 100%);
+}
+
+footer {
+    background: rgb(25, 46, 32);
+    height: 25vh;
+    max-height: 192px;
+    opacity: 0.7;
+    position: relative;
+    transition: all 1s;
+}
+
+footer:hover {
+    opacity: 1;
+}
+
+.icon {
+    display: inline-block;
+    height: 25vh;
+    max-height: 192px;
+    position: absolute;
+    bottom: scale(0%);
+    left: 8vw;
+}
+
+.row_btn {
+    width: 23.5vw;
+    height: 30px;
+    background: linear-gradient(180deg, rgb(62, 117, 102)0%, rgb(139, 184, 161) 90%, rgb(32, 92, 62) 100%);
+    line-height: 15px;
+    border: 1px solid rgb(32, 53, 36);
+}
+
+.HanbergerDivRow {
+    width: 45px;
+}
+
+.loginicon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    /* background-color: rgb(54, 99, 69); */
+}
+
+footer li {
+    white-space: nowrap;
+}
+
+.flybox {
+    border: 6px solid transparent;
+    border-radius: 10px;
+    box-shadow: 5px 5px 7px rgb(114, 56, 17);
+    display: inline-block;
+    position: relative;
+}
+
+.flybox::after {
+    position: absolute;
+    top: -6px;
+    bottom: -6px;
+    left: -6px;
+    right: -6px;
+    background: linear-gradient(to right bottom, rgb(207, 27, 3) 0%, rgb(235, 110, 8) 40%, rgb(252, 246, 198) 100%);
+    /* background: linear-gradient(to right bottom, rgb(13, 31, 109) 0%, rgb(48, 148, 230) 40%, rgb(217, 236, 240) 100%); */
+    /* background: linear-gradient(to right bottom, rgb(109, 13, 13) 0%, rgb(230, 48, 48) 40%, rgb(240, 217, 217) 100%); */
+    content: '';
+    z-index: -1;
+    border-radius: 10px;
+}
+
+@media screen and (max-width:767px) {
+    .flybox {
+        width: 45.5vw;
+        height: 30vh;
+        /* min-width: 150px; */
+        min-height: 210px;
+        max-width: 190px;
+        max-height: 220px;
+        position: relative;
+        margin-bottom: 15px;
+    }
+    .funcmain {
+        justify-content: space-around;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .flybox {
+        width: 45.5vw;
+        height: 40vh;
+        min-height: 238px;
+        min-width: 150px;
+        max-width: 190px;
+        max-height: 250px;
+        margin: 20px;
+    }
+    .funcmain {
+        justify-content: left;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width:1023px) {
+    .flybox {
+        width: 30vw;
+        height: 25vh;
+        min-height: 238px;
+        margin-bottom: 20px;
+        min-width: 170px;
+        max-width: 190px;
+        margin: 5px;
+    }
+    .funcmain {
+        justify-content: space-around;
+    }
+}
+
+.information {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(2, 4, 5, 0.5)25%, rgba(255, 255, 255, 0) 30%), url(/images/back/back1.jpg);
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.badge {
+    font-size: 10px;
+    height: 15px;
+    position: absolute;
+    right: 8px;
+    top: 10px;
+}
+
+.infotitle {
+    background: rgb(27, 27, 27);
+    border-right: 3px solid rgb(27, 27, 27);
+    border-left: 3px solid rgb(27, 27, 27);
+    position: relative;
+}
+
+.infotext {
+    width: 100%;
+    height: 35%;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    border-radius: 5px;
+    overflow: hidden;
+    background: linear-gradient(to top, rgba(3, 3, 3, 1), rgba(51, 51, 51, 0));
+    transition: all 1.5s;
+}
+
+.information:hover {
+    cursor: pointer;
+}
+
+.add {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    position: fixed;
+    bottom: 40px;
+    right: 15px;
+    z-index: 1;
+    background-color: rgba(250, 234, 213, 0.5);
+    box-shadow: 4px 3px 6px rgb(3, 41, 29);
+    animation: ani 2s;
+}
+
+.addani {
+    animation: ani 2s;
+}
+
+@keyframes ani {
+    0% {
+        bottom: 40px;
+    }
+    ;
+    20% {
+        bottom: 60px;
+    }
+    ;
+    70% {
+        bottom: 30px;
+    }
+    ;
+    100% {
+        bottom: 40px;
+    }
+}
+
+.up1 {
+    position: absolute;
+    top: 45%;
+    right: 40%;
+    background-color: rgb(248, 170, 25);
+    width: 17px;
+    height: 3px;
+    border-radius: 5px;
+    transition: all .3s;
+}
+
+.up2 {
+    position: absolute;
+    top: 45%;
+    left: 40%;
+    background-color: rgb(241, 207, 97);
+    width: 17px;
+    height: 3px;
+    border-radius: 5px;
+    transition: all .3s;
+}
+
+.up1t {
+    transform: rotate(-59deg);
+}
+
+.up2t {
+    transform: rotate(59deg);
+}
+
+.add:hover {
+    box-shadow: 3px 2px 3px rgb(0, 17, 12);
+    background-color: rgba(250, 235, 215, 1);
+}
+
+.flybox:hover {
+    box-shadow: 4px 4px 4px rgb(73, 36, 12);
+}
+
+.flybox img {
+    transition: all 1.5s;
+}
+
+.flybox:hover img {
+    transform: scale(1.5);
+}
+
+.infotext:hover {
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(51, 51, 51, 0.5) 80%, rgba(51, 51, 51, 0)100%);
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, rgba(10, 48, 23, 1)0%, rgba(10, 48, 23, 0)100%);
+    /* clip-path: polygon(0 100%, 0 0, 75% 0, 75% 5.5%, 80% 7.5%, 75% 9.5%, 75% 100%); */
+    overflow-x: hidden;
+    color: white;
+    transition: 0.5s;
+    /* padding-top: 60px; */
+}
+
+#movenav {
+    transition: margin-left .5s;
+}
+
+.mainhead3B {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 77% 100%, 75% 88%, 73% 100%, 0 100%);
+}
+
+.mainhead2B {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 52% 100%, 50% 88%, 48% 100%, 0 100%);
+}
+
+.mainhead1B {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 27% 100%, 25% 88%, 23% 100%, 0 100%);
+}
+
+.cliphead {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 60%, 15px 50%, 0 40%)
+}
+
+.nava {
+    background: linear-gradient(to right, rgb(255, 174, 0, 1)0%, rgba(253, 253, 253, 0)100%);
+    color: black;
+    border: none;
+}
+
+
+/* 電腦右側功能 */
+
+.lgFuncRight a div {
+    width: 50px;
+    height: 45px;
+    border-radius: 5px;
+    line-height: 45px;
+    background-color: rgba(251, 250, 250, 0.3);
+    margin-top: 2px;
+    color: rgb(255, 254, 254);
+    transition: all 0.5s;
+}
+
+.lgFuncRight a div:hover {
+    background-color: rgba(251, 250, 250, 0.6);
+    color: rgb(58, 58, 58);
+}
+
+
+/* /電腦右側功能 */
+
+
+/* 電腦左側功能 */
+
+.sectiona {
+    background: rgba(5, 42, 31, 0.5);
+    color: black;
+    border: none;
+    border-radius: 0;
+    transition: all 0.5s;
+}
+
+.sectiona:hover {
+    background: rgba(7, 51, 38, 0.753);
+}
+
+section .btn,
+section div {
+    margin: 0;
+    border: 0;
+    border-radius: 0px;
+}
+
+.sectiona button {
+    background: transparent;
+    color: #fff;
+}
+
+.sectiona button:hover {
+    background: rgb(17, 54, 29);
+}
+
+.collapse .btn {
+    transition: all 0.5s;
+}
+
+.collapse .btn:hover {
+    background: rgba(5, 42, 31, 0.4);
+    color: white;
+}
+
+
+/* /電腦左側功能 */
+
+
+/* 手機側邊 */
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, rgba(10, 48, 23, 1)0%, rgba(10, 48, 23, 0)100%);
+    /* clip-path: polygon(0 100%, 0 0, 75% 0, 75% 5.5%, 80% 7.5%, 75% 9.5%, 75% 100%); */
+    overflow-x: hidden;
+    color: white;
+    transition: 0.5s;
+    /* padding-top: 60px; */
+}
+
+#movenav {
+    transition: margin-left .5s;
+}
+
+.mainhead3B {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 77% 100%, 75% 88%, 73% 100%, 0 100%);
+}
+
+.mainhead2B {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 52% 100%, 50% 88%, 48% 100%, 0 100%);
+}
+
+.mainhead1B {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 27% 100%, 25% 88%, 23% 100%, 0 100%);
+}
+
+.cliphead {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 60%, 15px 50%, 0 40%)
+}
+
+.nava {
+    background: linear-gradient(to right, rgb(255, 174, 0, 1)0%, rgba(253, 253, 253, 0)100%);
+    color: black;
+    border: none;
+}
+
+.fixedhead {
+    height: 55px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.tab {
+    margin-top: 30px;
+}
+
+    .tab .nav-tabs {
+        border: none;
+        border-bottom: 1px solid #e4e4e4;
+    }
+
+.nav-tabs li a {
+    padding: 15px 40px;
+    border: 1px solid #ededed;
+    border-top: 2px solid #ededed;
+    border-right: 0px none;
+    background: #4a8f7d;
+    color: #fff;
+    border-radius: 0px;
+    margin-right: 0px;
+    font-weight: bold;
+    transition: all 0.3s ease-in 0s;
+}
+
+    .nav-tabs li a:hover {
+        border-bottom-color: #ededed;
+        border-right: 0px none;
+        background: #ebe15f;
+        color: #fff;
+    }
+
+    .nav-tabs li a i {
+        display: inline-block;
+        text-align: center;
+        margin-right: 10px;
+    }
+
+.nav-tabs li:last-child {
+    border-right: 1px solid #ededed;
+}
+
+.nav-tabs li.active a,
+.nav-tabs li.active a:focus,
+.nav-tabs li.active a:hover {
+    border-top: 3px solid #00b0ad;
+    border-right: 1px solid #e45555;
+    margin-top: -15px;
+    color: #444;
+    padding: 22px 40px;
+}
+
+.tab .tab-content {
+    padding: 20px;
+    line-height: 22px;
+    box-shadow: 0px 1px 0px #808080;
+}
+
+    .tab .tab-content h3 {
+        margin-top: 0;
+    }
+
+.form-group {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+@media only screen and (max-width: 767px) {
+    .nav-tabs li {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+        .nav-tabs li a {
+            padding: 15px;
+        }
+
+        .nav-tabs li.active a,
+        .nav-tabs li.active a:focus,
+        .nav-tabs li.active a:hover {
+            padding: 15px;
+            margin-top: 0;
+        }
+}
+
+.tab-content form {
+    border: 1px solid #DDD;
+    border-top: none;
+    border-radius: 0px 0px 5px 5px;
+}

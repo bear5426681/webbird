@@ -1,0 +1,136 @@
+﻿@model IEnumerable<prjWebBird.Models.z_func_fly>
+
+@{
+    ViewBag.Title = "Index2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index2</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.rowid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user_no)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mid2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mspecies)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mcolor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mfeature)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.maddr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.maddr_detail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lng)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mtime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mdate_edit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mremarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mstate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.edit)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.rowid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_no)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mid2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mspecies)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mcolor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mfeature)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.maddr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.maddr_detail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lng)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mtime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mdate_edit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mremarks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mstate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.edit)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.mno }) |
+            @Html.ActionLink("Details", "Details", new { id=item.mno }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.mno })
+        </td>
+    </tr>
+}
+
+</table>

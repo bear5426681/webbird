@@ -1,0 +1,113 @@
+﻿@model prjWebBird.Models.z_bas_user
+
+<form action="/user/_Register" method="post" id="RegisterForm" class="p-sm-2 p-md-4 pb-2 ">
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    @*action="/user/_Create" method="post"*@
+
+    <div class="form-group  ">
+        <label for="mid" class="form-label">帳號</label>
+        @Html.EditorFor(model => model.mid, new { htmlAttributes = new { @class = "form-control", @type = "text", @placeholder = "" } })
+        @Html.ValidationMessageFor(model => model.mid, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+
+        <label for="emailRE"
+               class="form-label">E-mail</label>
+        @Html.EditorFor(model => model.memail, new
+   {
+       htmlAttributes = new
+       {
+           @class = "form-control",
+           @type = "email",
+           @placeholder = "",
+           id = "emailRE",
+           //required = "required"
+       }
+   })
+        @Html.ValidationMessageFor(model => model.memail, "", new { @class = "text-danger" })
+    </div>
+
+
+    <div class="form-group ">
+        <label for="mpassword"
+               class="form-label">密碼</label>
+
+        @Html.EditorFor(model => model.mpassword, new { htmlAttributes = new { @class = "form-control", @type = "password", @name = "mpassword" } })
+        @Html.ValidationMessageFor(model => model.mpassword, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label for="mpasswordCheck"
+               class="form-label">密碼確認</label>
+        <input class="form-control text-box single-line" data-val="true" data-val-equalto="兩次輸入密碼不一致！" data-val-equalto-other="*.mpassword" data-val-required="請再次輸入密碼！" id="mpasswordCheck" name="mpasswordCheck" type="password" value="">
+        <span class="text-danger field-validation-valid" data-valmsg-for="mpasswordCheck" data-valmsg-replace="true"></span>
+    </div>
+    <div class="form-group m-4">
+        <input type="button"
+               class=" btn btn-warning btn-block" value="註冊" id="submitRegist">
+    </div>
+
+</form>
+<div class="text-center mt-3">快速註冊</div>
+<div class=" m-2 d-flex justify-content-around">
+    <button class="fab fa-facebook-f  btn rounded-circle text-info border-info bg-transparent"
+            style="width: 55px;height: 55px;font-size: 25px;"></button>
+    <button class="fab fa-google  btn rounded-circle text-danger border-danger bg-transparent"
+            style="width: 55px;height: 55px;font-size: 25px;"></button>
+    <button class="fab fa-line  btn rounded-circle text-success border-success bg-transparent"
+            style="width: 55px;height: 55px;font-size: 25px;"></button>
+
+</div>
+
+@Scripts.Render("~/bundles/jqueryval")
+
+<script>
+      $('#submitRegist').click(function () {
+
+    var myForm = $("#RegisterForm");
+
+    var validator = myForm.validate();
+    if (myForm.valid()) {
+
+        var dataForm = myForm.serialize();
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("_Register","user")',
+            data: dataForm,
+            cache: false,
+            async: false,
+            success: function (data) {
+                if (data.IsSuccess) {
+
+                    alert('註冊成功!');
+                    window.location = '@Url.Action("Index", "Home")';
+
+                } else {
+
+                    if (data.ModelStateErrors != null) {
+                        // show model state error
+                        validator.showErrors(data.ModelStateErrors);
+                        alert('請檢查輸入資料');
+                    } else {
+                        alert('register fail');
+                    }
+                }
+            }
+        });
+
+    }
+      });
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
