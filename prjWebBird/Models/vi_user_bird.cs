@@ -12,18 +12,14 @@ namespace prjWebBird.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class z_bas_user
+    public partial class vi_user_bird
     {
-        public int rowid { get; set; }
         public string mno { get; set; }
-        public Nullable<System.DateTime> mdate { get; set; }
-        public string mid { get; set; }
-        public string mpassword { get; set; }
+        public string Expr1 { get; set; }
         public string mname { get; set; }
-        public string memail { get; set; }
-        public string mtel { get; set; }
-        public string mconn { get; set; }
-        public string maddr { get; set; }
-        public string mtype { get; set; }
+        public string mspecies { get; set; }
+        public string mstate { get; set; }
+        public System.DateTime mdate { get; set; }
+        public System.DateTime mdate_edit { get; set; }
     }
 }

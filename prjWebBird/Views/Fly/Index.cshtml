@@ -3,41 +3,28 @@
 @{
     ViewBag.Title = "飛失列表-清單";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.locafail= "Fly";
+
+ViewBag.locaAction= "Index";
 }
-<style>
-    .add {
-        height: 45px;
-        width: 45px;
-        border-radius: 50%;
-        text-align: center;
-        color: white;
-        line-height: 30px;
-        position: fixed;
-        bottom: 8px;
-        right: 8px;
-        z-index: 1;
-        background: radial-gradient(circle, rgba(44, 135, 43, 1) 55%, rgb(61, 139, 59) 68%, rgb(24, 63, 21) 77%);
-        box-shadow: 4px 3px 6px rgb(3, 41, 29);
-    }
-</style>
-<h2>Index</h2>
+
+    <h2>飛失協尋清單</h2>
 
 <p>
     @Html.ActionLink("新增", "Create")
+    
 </p>
 <div class="table-responsive d-none d-lg-block">
-    <table class=" table table-light">
-        <tr class="">
+    <table class=" table table-light border-white">
+        <tr class="table-warning">
 
             <th class="text-nowrap">
                 @Html.DisplayNameFor(model => model.mname)
             </th>
             <th class="text-nowrap">
-                @Html.DisplayNameFor(model => model.mid)
+                @Html.DisplayNameFor(model => model.show_id)
             </th>
-            <th class="text-nowrap">
-                @Html.DisplayNameFor(model => model.mid2)
-            </th>
+            
             <th class="text-nowrap">
                 @Html.DisplayNameFor(model => model.mspecies)
             </th>
@@ -69,12 +56,9 @@
                     @Html.DisplayFor(modelItem => item.mname)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.mid)
+                    @Html.DisplayFor(modelItem => item.show_id)
                 </td>
-                <td class="text-nowrap">
-                    @Html.DisplayFor(modelItem => item.mid2)
-                </td>
-                <td class="text-nowrap">
+                 <td class="text-nowrap">
                     @Html.DisplayFor(modelItem => item.mspecies)
                 </td>
                 <td class="text-nowrap">
@@ -92,7 +76,7 @@
                 <td class="text-nowrap">
                     @Html.DisplayFor(modelItem => item.mstate)
                 </td>
-                @if (item.edit)
+                @if (item.edit == true)
                 {
                     <td class="text-nowrap">
                         @Html.ActionLink("Edit", "Edit", new { id = item.mno }) |
@@ -164,10 +148,10 @@
                 <td class="text-nowrap">
                     @Html.DisplayFor(modelItem => item.mstate)
                 </td>
-                @if (item.edit)
+                @if (item.edit == true)
                 {
                     <td class="text-nowrap">
-                        @Html.ActionLink("Edit", "Edit", new { id = item.mno })
+                        @Html.ActionLink("修改", "Edit", new { id = item.mno })
                     </td>
                 }
                 else
@@ -179,4 +163,4 @@
 
     </table>
 </div>
-<a class="btn add text-white" > @Html.ActionLink("+", "Create")</a><!-- 浮動新增按鈕 -->
+

@@ -4,7 +4,40 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="webbirdModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="webbirdModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="z_bas_bird">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="mno" Type="nvarchar" MaxLength="50" />
+          <Property Name="mname" Type="nvarchar" MaxLength="50" />
+          <Property Name="mspecies" Type="nvarchar" MaxLength="50" />
+          <Property Name="mstate" Type="nvarchar" MaxLength="50" />
+          <Property Name="mdate" Type="date" />
+          <Property Name="mdate_edit" Type="datetime" />
+          <Property Name="mid" Type="nvarchar" MaxLength="50" />
+          <Property Name="mid2" Type="nvarchar" MaxLength="50" />
+          <Property Name="show_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="mcolor" Type="nvarchar" MaxLength="50" />
+          <Property Name="mfeature" Type="nvarchar" MaxLength="50" />
+          <Property Name="mremark" Type="nvarchar(max)" />
+          <Property Name="detect" Type="nvarchar" MaxLength="50" />
+          <Property Name="father" Type="nvarchar" MaxLength="50" />
+          <Property Name="mather" Type="nvarchar" MaxLength="50" />
+          <Property Name="medit" Type="bit" />
+        </EntityType>
         <EntityType Name="z_bas_user">
           <Key>
             <PropertyRef Name="rowid" />
@@ -21,13 +54,37 @@
           <Property Name="maddr" Type="nvarchar" MaxLength="250" />
           <Property Name="mtype" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="z_func_fly">
+        <EntityType Name="z_func_catch">
           <Key>
             <PropertyRef Name="mno" />
           </Key>
           <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="user_no" Type="nvarchar" MaxLength="50" />
           <Property Name="mno" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mid" Type="nvarchar" MaxLength="50" />
+          <Property Name="mid2" Type="nvarchar" MaxLength="50" />
+          <Property Name="show_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="mspecies" Type="nvarchar" MaxLength="50" />
+          <Property Name="mcolor" Type="nvarchar" MaxLength="50" />
+          <Property Name="mfeature" Type="nvarchar" MaxLength="50" />
+          <Property Name="maddr" Type="nvarchar" MaxLength="50" />
+          <Property Name="maddr_detail" Type="nvarchar" MaxLength="250" />
+          <Property Name="lat" Type="decimal" Precision="10" Scale="8" />
+          <Property Name="lng" Type="decimal" Precision="11" Scale="8" />
+          <Property Name="mdate" Type="date" />
+          <Property Name="mtime" Type="datetime" />
+          <Property Name="mdate_edit" Type="datetime" />
+          <Property Name="mremark" Type="nvarchar(max)" />
+          <Property Name="mstate" Type="nvarchar" MaxLength="50" />
+          <Property Name="edit" Type="bit" />
+        </EntityType>
+        <EntityType Name="z_func_fly">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="mno" Type="nvarchar" MaxLength="50" />
           <Property Name="mname" Type="nvarchar" MaxLength="50" />
           <Property Name="mid" Type="nvarchar" MaxLength="50" />
           <Property Name="mid2" Type="nvarchar" MaxLength="50" />
@@ -45,6 +102,316 @@
           <Property Name="mremarks" Type="nvarchar(max)" />
           <Property Name="mstate" Type="nvarchar" MaxLength="50" />
           <Property Name="edit" Type="bit" />
+        </EntityType>
+        <EntityType Name="z_func_see">
+          <Key>
+            <PropertyRef Name="mno" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mno" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mdate" Type="date" />
+          <Property Name="mtime" Type="datetime" />
+          <Property Name="edit" Type="bit" />
+        </EntityType>
+        <EntityType Name="z_func_see_d">
+          <Key>
+            <PropertyRef Name="mno" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="see_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="mno" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mid" Type="nvarchar" MaxLength="50" />
+          <Property Name="mid2" Type="nvarchar" MaxLength="50" />
+          <Property Name="show_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="mspecies" Type="nvarchar" MaxLength="50" />
+          <Property Name="mcolor" Type="nvarchar" MaxLength="50" />
+          <Property Name="mfeature" Type="nvarchar" MaxLength="50" />
+          <Property Name="maddr" Type="nvarchar" MaxLength="50" />
+          <Property Name="maddr_detail" Type="nvarchar" MaxLength="250" />
+          <Property Name="mdate" Type="date" />
+          <Property Name="mtime" Type="datetime" />
+          <Property Name="lat" Type="decimal" Precision="10" Scale="8" />
+          <Property Name="lng" Type="decimal" Precision="11" Scale="8" />
+          <Property Name="mremarks" Type="nvarchar(max)" />
+          <Property Name="mstate" Type="nvarchar" MaxLength="50" />
+          <Property Name="mname" Type="nvarchar" MaxLength="50" />
+          <Property Name="mtel" Type="nvarchar" MaxLength="50" />
+          <Property Name="memail" Type="nvarchar" MaxLength="250" />
+          <Property Name="nconn" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="z_sys_addr_city">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mno" Type="nvarchar" MaxLength="50" />
+          <Property Name="mname" Type="nvarchar" MaxLength="50" />
+          <Property Name="remark" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="z_sys_addr_city_area">
+          <Key>
+            <PropertyRef Name="mno" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="city_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="mno" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mname" Type="nvarchar" MaxLength="50" />
+          <Property Name="remark" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="z_sys_addr_city_area_road">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="city_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="area_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="mname" Type="nvarchar" MaxLength="50" />
+          <Property Name="remark" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="z_sys_species">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mno" Type="nvarchar" MaxLength="50" />
+          <Property Name="mname" Type="nvarchar" MaxLength="50" />
+          <Property Name="fa_id" Type="int" />
+          <Property Name="remark" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="z_sys_state">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mno" Type="nvarchar" MaxLength="50" />
+          <Property Name="mname" Type="nvarchar" MaxLength="50" />
+          <Property Name="fa_no" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="z_sys_type_size">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mno" Type="nvarchar" MaxLength="50" />
+          <Property Name="msize" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="z_sys_type_size_genus">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="size_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="mno" Type="nvarchar" MaxLength="50" />
+          <Property Name="mgenus" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="z_sys_type_size_genus_species">
+          <Key>
+            <PropertyRef Name="mno" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="size_no" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="genus_no" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mno" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mspecies" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="z_sys_type_size_genus_species_color">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="size_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="genus_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="species_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="mno" Type="nvarchar" MaxLength="50" />
+          <Property Name="mcolor" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="z_sys_usertype">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mno" Type="nvarchar" MaxLength="50" />
+          <Property Name="mname" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'F:\專題\SLNWEBBIRD\PRJWEBBIRD\APP_DATA\WEBBIRD.MDF.dbo.vi_funcUNION' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+        <EntityType Name="vi_funcUNION">
+          <Key>
+            <PropertyRef Name="mno" />
+            <PropertyRef Name="mspecies" />
+            <PropertyRef Name="maddr" />
+            <PropertyRef Name="mdate" />
+            <PropertyRef Name="mstate" />
+          </Key>
+          <Property Name="mno" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mspecies" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="maddr" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="maddr_detail" Type="nvarchar" MaxLength="250" />
+          <Property Name="mdate" Type="date" Nullable="false" />
+          <Property Name="mstate" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'F:\專題\SLNWEBBIRD\PRJWEBBIRD\APP_DATA\WEBBIRD.MDF.dbo.vi_user_bird' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+        <EntityType Name="vi_user_bird">
+          <Key>
+            <PropertyRef Name="mno" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="mname" />
+            <PropertyRef Name="mspecies" />
+            <PropertyRef Name="mstate" />
+            <PropertyRef Name="mdate" />
+            <PropertyRef Name="mdate_edit" />
+          </Key>
+          <Property Name="mno" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Expr1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mspecies" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mstate" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mdate" Type="date" Nullable="false" />
+          <Property Name="mdate_edit" Type="date" Nullable="false" />
+        </EntityType>
+        <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'F:\專題\SLNWEBBIRD\PRJWEBBIRD\APP_DATA\WEBBIRD.MDF.dbo.vi_user_catch' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+        <EntityType Name="vi_user_catch">
+          <Key>
+            <PropertyRef Name="mno" />
+            <PropertyRef Name="mname" />
+            <PropertyRef Name="mtel" />
+            <PropertyRef Name="memail" />
+            <PropertyRef Name="mtype" />
+            <PropertyRef Name="catchno" />
+            <PropertyRef Name="mid" />
+            <PropertyRef Name="mspecies" />
+            <PropertyRef Name="maddr" />
+            <PropertyRef Name="mdate" />
+            <PropertyRef Name="mdate_edit" />
+            <PropertyRef Name="mstate" />
+            <PropertyRef Name="flyno" />
+            <PropertyRef Name="flyname" />
+            <PropertyRef Name="flyid" />
+            <PropertyRef Name="flyspecies" />
+            <PropertyRef Name="flyaddr" />
+            <PropertyRef Name="flydate" />
+            <PropertyRef Name="flydate_edit" />
+            <PropertyRef Name="flystate" />
+          </Key>
+          <Property Name="mno" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mtel" Type="int" Nullable="false" />
+          <Property Name="mconn" Type="nvarchar" MaxLength="500" />
+          <Property Name="memail" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="mtype" Type="int" Nullable="false" />
+          <Property Name="catchno" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mid2" Type="nvarchar" MaxLength="50" />
+          <Property Name="mspecies" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mcolor" Type="nvarchar" MaxLength="50" />
+          <Property Name="maddr" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="maddr_detail" Type="nvarchar" MaxLength="250" />
+          <Property Name="mdate" Type="date" Nullable="false" />
+          <Property Name="mdate_edit" Type="date" Nullable="false" />
+          <Property Name="mremark" Type="nvarchar(max)" />
+          <Property Name="mstate" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="flyno" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="flyname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="flyid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="flyid2" Type="nvarchar" MaxLength="50" />
+          <Property Name="flyspecies" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="flycolor" Type="nvarchar" MaxLength="50" />
+          <Property Name="flyaddr" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="flyaddrd" Type="nvarchar" MaxLength="250" />
+          <Property Name="flydate" Type="date" Nullable="false" />
+          <Property Name="flydate_edit" Type="date" Nullable="false" />
+          <Property Name="flyremark" Type="nvarchar(max)" />
+          <Property Name="flystate" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'F:\專題\SLNWEBBIRD\PRJWEBBIRD\APP_DATA\WEBBIRD.MDF.dbo.vi_user_catch_fly' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+        <EntityType Name="vi_user_catch_fly">
+          <Key>
+            <PropertyRef Name="mno" />
+            <PropertyRef Name="mname" />
+            <PropertyRef Name="mtel" />
+            <PropertyRef Name="memail" />
+            <PropertyRef Name="mtype" />
+            <PropertyRef Name="catchno" />
+            <PropertyRef Name="mid" />
+            <PropertyRef Name="mspecies" />
+            <PropertyRef Name="maddr" />
+            <PropertyRef Name="lat" />
+            <PropertyRef Name="lng" />
+            <PropertyRef Name="mdate" />
+            <PropertyRef Name="mdate_edit" />
+            <PropertyRef Name="mstate" />
+            <PropertyRef Name="edit" />
+          </Key>
+          <Property Name="mno" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mtel" Type="int" Nullable="false" />
+          <Property Name="mconn" Type="nvarchar" MaxLength="500" />
+          <Property Name="memail" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="mtype" Type="int" Nullable="false" />
+          <Property Name="catchno" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mid2" Type="nvarchar" MaxLength="50" />
+          <Property Name="mspecies" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mcolor" Type="nvarchar" MaxLength="50" />
+          <Property Name="mfeature" Type="nvarchar" MaxLength="50" />
+          <Property Name="maddr" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="maddr_detail" Type="nvarchar" MaxLength="250" />
+          <Property Name="lat" Type="decimal" Precision="10" Scale="8" Nullable="false" />
+          <Property Name="lng" Type="decimal" Precision="11" Scale="8" Nullable="false" />
+          <Property Name="mdate" Type="date" Nullable="false" />
+          <Property Name="mdate_edit" Type="date" Nullable="false" />
+          <Property Name="mremark" Type="nvarchar(max)" />
+          <Property Name="mstate" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="edit" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'F:\專題\SLNWEBBIRD\PRJWEBBIRD\APP_DATA\WEBBIRD.MDF.dbo.vi_user_fly' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+        <EntityType Name="vi_user_fly">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="int" Nullable="false" />
+          <Property Name="userno" Type="nvarchar" MaxLength="50" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="mtel" Type="nvarchar" MaxLength="50" />
+          <Property Name="mconn" Type="nvarchar" MaxLength="500" />
+          <Property Name="memail" Type="nvarchar" MaxLength="250" />
+          <Property Name="mno" Type="nvarchar" MaxLength="50" />
+          <Property Name="mname" Type="nvarchar" MaxLength="50" />
+          <Property Name="mid" Type="nvarchar" MaxLength="50" />
+          <Property Name="mid2" Type="nvarchar" MaxLength="50" />
+          <Property Name="show_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="mspecies" Type="nvarchar" MaxLength="50" />
+          <Property Name="mcolor" Type="nvarchar" MaxLength="50" />
+          <Property Name="mfeature" Type="nvarchar" MaxLength="50" />
+          <Property Name="maddr" Type="nvarchar" MaxLength="50" />
+          <Property Name="maddr_detail" Type="nvarchar" MaxLength="250" />
+          <Property Name="lat" Type="decimal" Precision="10" Scale="8" />
+          <Property Name="lng" Type="decimal" Precision="11" Scale="8" />
+          <Property Name="mdate" Type="date" />
+          <Property Name="mtime" Type="datetime" />
+          <Property Name="mdate_edit" Type="datetime" />
+          <Property Name="mremarks" Type="nvarchar(max)" />
+          <Property Name="statename" Type="nvarchar" MaxLength="50" />
+          <Property Name="edit" Type="bit" />
+        </EntityType>
+        <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'F:\專題\SLNWEBBIRD\PRJWEBBIRD\APP_DATA\WEBBIRD.MDF.dbo.vi_user_road' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+        <EntityType Name="vi_user_road">
+          <Key>
+            <PropertyRef Name="road_id" />
+          </Key>
+          <Property Name="mno" Type="nvarchar" MaxLength="50" />
+          <Property Name="mid" Type="nvarchar" MaxLength="50" />
+          <Property Name="Expr1" Type="nvarchar" MaxLength="50" />
+          <Property Name="memail" Type="nvarchar" MaxLength="250" />
+          <Property Name="mtel" Type="int" />
+          <Property Name="mconn" Type="nvarchar" MaxLength="500" />
+          <Property Name="roadtol" Type="nvarchar" MaxLength="50" />
+          <Property Name="road_id" Type="int" Nullable="false" />
         </EntityType>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -78,14 +445,180 @@
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="webbirdModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="z_bas_bird" EntityType="Self.z_bas_bird" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="z_bas_user" EntityType="Self.z_bas_user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="z_func_catch" EntityType="Self.z_func_catch" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="z_func_fly" EntityType="Self.z_func_fly" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="z_func_see" EntityType="Self.z_func_see" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="z_func_see_d" EntityType="Self.z_func_see_d" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="z_sys_addr_city" EntityType="Self.z_sys_addr_city" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="z_sys_addr_city_area" EntityType="Self.z_sys_addr_city_area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="z_sys_addr_city_area_road" EntityType="Self.z_sys_addr_city_area_road" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="z_sys_species" EntityType="Self.z_sys_species" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="z_sys_state" EntityType="Self.z_sys_state" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="z_sys_type_size" EntityType="Self.z_sys_type_size" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="z_sys_type_size_genus" EntityType="Self.z_sys_type_size_genus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="z_sys_type_size_genus_species" EntityType="Self.z_sys_type_size_genus_species" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="z_sys_type_size_genus_species_color" EntityType="Self.z_sys_type_size_genus_species_color" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="z_sys_usertype" EntityType="Self.z_sys_usertype" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vi_funcUNION" EntityType="Self.vi_funcUNION" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vi_funcUNION].[mno] AS [mno], 
+    [vi_funcUNION].[mspecies] AS [mspecies], 
+    [vi_funcUNION].[maddr] AS [maddr], 
+    [vi_funcUNION].[maddr_detail] AS [maddr_detail], 
+    [vi_funcUNION].[mdate] AS [mdate], 
+    [vi_funcUNION].[mstate] AS [mstate]
+    FROM [dbo].[vi_funcUNION] AS [vi_funcUNION]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vi_user_bird" EntityType="Self.vi_user_bird" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vi_user_bird].[mno] AS [mno], 
+    [vi_user_bird].[Expr1] AS [Expr1], 
+    [vi_user_bird].[mname] AS [mname], 
+    [vi_user_bird].[mspecies] AS [mspecies], 
+    [vi_user_bird].[mstate] AS [mstate], 
+    [vi_user_bird].[mdate] AS [mdate], 
+    [vi_user_bird].[mdate_edit] AS [mdate_edit]
+    FROM [dbo].[vi_user_bird] AS [vi_user_bird]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vi_user_catch" EntityType="Self.vi_user_catch" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vi_user_catch].[mno] AS [mno], 
+    [vi_user_catch].[mname] AS [mname], 
+    [vi_user_catch].[mtel] AS [mtel], 
+    [vi_user_catch].[mconn] AS [mconn], 
+    [vi_user_catch].[memail] AS [memail], 
+    [vi_user_catch].[mtype] AS [mtype], 
+    [vi_user_catch].[catchno] AS [catchno], 
+    [vi_user_catch].[mid] AS [mid], 
+    [vi_user_catch].[mid2] AS [mid2], 
+    [vi_user_catch].[mspecies] AS [mspecies], 
+    [vi_user_catch].[mcolor] AS [mcolor], 
+    [vi_user_catch].[maddr] AS [maddr], 
+    [vi_user_catch].[maddr_detail] AS [maddr_detail], 
+    [vi_user_catch].[mdate] AS [mdate], 
+    [vi_user_catch].[mdate_edit] AS [mdate_edit], 
+    [vi_user_catch].[mremark] AS [mremark], 
+    [vi_user_catch].[mstate] AS [mstate], 
+    [vi_user_catch].[flyno] AS [flyno], 
+    [vi_user_catch].[flyname] AS [flyname], 
+    [vi_user_catch].[flyid] AS [flyid], 
+    [vi_user_catch].[flyid2] AS [flyid2], 
+    [vi_user_catch].[flyspecies] AS [flyspecies], 
+    [vi_user_catch].[flycolor] AS [flycolor], 
+    [vi_user_catch].[flyaddr] AS [flyaddr], 
+    [vi_user_catch].[flyaddrd] AS [flyaddrd], 
+    [vi_user_catch].[flydate] AS [flydate], 
+    [vi_user_catch].[flydate_edit] AS [flydate_edit], 
+    [vi_user_catch].[flyremark] AS [flyremark], 
+    [vi_user_catch].[flystate] AS [flystate]
+    FROM [dbo].[vi_user_catch] AS [vi_user_catch]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vi_user_catch_fly" EntityType="Self.vi_user_catch_fly" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vi_user_catch_fly].[mno] AS [mno], 
+    [vi_user_catch_fly].[mname] AS [mname], 
+    [vi_user_catch_fly].[mtel] AS [mtel], 
+    [vi_user_catch_fly].[mconn] AS [mconn], 
+    [vi_user_catch_fly].[memail] AS [memail], 
+    [vi_user_catch_fly].[mtype] AS [mtype], 
+    [vi_user_catch_fly].[catchno] AS [catchno], 
+    [vi_user_catch_fly].[mid] AS [mid], 
+    [vi_user_catch_fly].[mid2] AS [mid2], 
+    [vi_user_catch_fly].[mspecies] AS [mspecies], 
+    [vi_user_catch_fly].[mcolor] AS [mcolor], 
+    [vi_user_catch_fly].[mfeature] AS [mfeature], 
+    [vi_user_catch_fly].[maddr] AS [maddr], 
+    [vi_user_catch_fly].[maddr_detail] AS [maddr_detail], 
+    [vi_user_catch_fly].[lat] AS [lat], 
+    [vi_user_catch_fly].[lng] AS [lng], 
+    [vi_user_catch_fly].[mdate] AS [mdate], 
+    [vi_user_catch_fly].[mdate_edit] AS [mdate_edit], 
+    [vi_user_catch_fly].[mremark] AS [mremark], 
+    [vi_user_catch_fly].[mstate] AS [mstate], 
+    [vi_user_catch_fly].[edit] AS [edit]
+    FROM [dbo].[vi_user_catch_fly] AS [vi_user_catch_fly]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vi_user_fly" EntityType="Self.vi_user_fly" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vi_user_fly].[rowid] AS [rowid], 
+    [vi_user_fly].[userno] AS [userno], 
+    [vi_user_fly].[username] AS [username], 
+    [vi_user_fly].[mtel] AS [mtel], 
+    [vi_user_fly].[mconn] AS [mconn], 
+    [vi_user_fly].[memail] AS [memail], 
+    [vi_user_fly].[mno] AS [mno], 
+    [vi_user_fly].[mname] AS [mname], 
+    [vi_user_fly].[mid] AS [mid], 
+    [vi_user_fly].[mid2] AS [mid2], 
+    [vi_user_fly].[show_id] AS [show_id], 
+    [vi_user_fly].[mspecies] AS [mspecies], 
+    [vi_user_fly].[mcolor] AS [mcolor], 
+    [vi_user_fly].[mfeature] AS [mfeature], 
+    [vi_user_fly].[maddr] AS [maddr], 
+    [vi_user_fly].[maddr_detail] AS [maddr_detail], 
+    [vi_user_fly].[lat] AS [lat], 
+    [vi_user_fly].[lng] AS [lng], 
+    [vi_user_fly].[mdate] AS [mdate], 
+    [vi_user_fly].[mtime] AS [mtime], 
+    [vi_user_fly].[mdate_edit] AS [mdate_edit], 
+    [vi_user_fly].[mremarks] AS [mremarks], 
+    [vi_user_fly].[statename] AS [statename], 
+    [vi_user_fly].[edit] AS [edit]
+    FROM [dbo].[vi_user_fly] AS [vi_user_fly]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vi_user_road" EntityType="Self.vi_user_road" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vi_user_road].[mno] AS [mno], 
+    [vi_user_road].[mid] AS [mid], 
+    [vi_user_road].[Expr1] AS [Expr1], 
+    [vi_user_road].[memail] AS [memail], 
+    [vi_user_road].[mtel] AS [mtel], 
+    [vi_user_road].[mconn] AS [mconn], 
+    [vi_user_road].[roadtol] AS [roadtol], 
+    [vi_user_road].[road_id] AS [road_id]
+    FROM [dbo].[vi_user_road] AS [vi_user_road]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="webbirdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="z_bas_bird">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mspecies" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mstate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mdate" Type="DateTime" Precision="0" />
+          <Property Name="mdate_edit" Type="DateTime" Precision="3" />
+          <Property Name="mid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mid2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="show_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mcolor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mfeature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mremark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="detect" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="father" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mather" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="medit" Type="Boolean" />
+        </EntityType>
         <EntityType Name="z_bas_user">
           <Key>
             <PropertyRef Name="rowid" />
@@ -102,13 +635,37 @@
           <Property Name="maddr" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="mtype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="z_func_fly">
+        <EntityType Name="z_func_catch">
           <Key>
             <PropertyRef Name="mno" />
           </Key>
           <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="user_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mid2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="show_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mspecies" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mcolor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mfeature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="maddr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="maddr_detail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="lat" Type="Decimal" Precision="10" Scale="8" />
+          <Property Name="lng" Type="Decimal" Precision="11" Scale="8" />
+          <Property Name="mdate" Type="DateTime" Precision="0" />
+          <Property Name="mtime" Type="DateTime" Precision="3" />
+          <Property Name="mdate_edit" Type="DateTime" Precision="3" />
+          <Property Name="mremark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="mstate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="edit" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="z_func_fly">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="mid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="mid2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -127,9 +684,328 @@
           <Property Name="mstate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="edit" Type="Boolean" />
         </EntityType>
+        <EntityType Name="z_func_see">
+          <Key>
+            <PropertyRef Name="mno" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mdate" Type="DateTime" Precision="0" />
+          <Property Name="mtime" Type="DateTime" Precision="3" />
+          <Property Name="edit" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="z_func_see_d">
+          <Key>
+            <PropertyRef Name="mno" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="see_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mid2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="show_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mspecies" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mcolor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mfeature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="maddr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="maddr_detail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="mdate" Type="DateTime" Precision="0" />
+          <Property Name="mtime" Type="DateTime" Precision="3" />
+          <Property Name="lat" Type="Decimal" Precision="10" Scale="8" />
+          <Property Name="lng" Type="Decimal" Precision="11" Scale="8" />
+          <Property Name="mremarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="mstate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mtel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="memail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="nconn" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="z_sys_addr_city">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="z_sys_addr_city_area">
+          <Key>
+            <PropertyRef Name="mno" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="city_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="z_sys_addr_city_area_road">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="city_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="area_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="z_sys_species">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fa_id" Type="Int32" />
+          <Property Name="remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="z_sys_state">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fa_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="z_sys_type_size">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="msize" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="z_sys_type_size_genus">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="size_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mgenus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="z_sys_type_size_genus_species">
+          <Key>
+            <PropertyRef Name="mno" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="size_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="genus_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mspecies" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="z_sys_type_size_genus_species_color">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="size_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="genus_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="species_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mcolor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="z_sys_usertype">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vi_funcUNION">
+          <Key>
+            <PropertyRef Name="mno" />
+            <PropertyRef Name="mspecies" />
+            <PropertyRef Name="maddr" />
+            <PropertyRef Name="mdate" />
+            <PropertyRef Name="mstate" />
+          </Key>
+          <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mspecies" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="maddr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="maddr_detail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="mdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="mstate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vi_user_bird">
+          <Key>
+            <PropertyRef Name="mno" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="mname" />
+            <PropertyRef Name="mspecies" />
+            <PropertyRef Name="mstate" />
+            <PropertyRef Name="mdate" />
+            <PropertyRef Name="mdate_edit" />
+          </Key>
+          <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Expr1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mspecies" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mstate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="mdate_edit" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="vi_user_catch">
+          <Key>
+            <PropertyRef Name="mno" />
+            <PropertyRef Name="mname" />
+            <PropertyRef Name="mtel" />
+            <PropertyRef Name="memail" />
+            <PropertyRef Name="mtype" />
+            <PropertyRef Name="catchno" />
+            <PropertyRef Name="mid" />
+            <PropertyRef Name="mspecies" />
+            <PropertyRef Name="maddr" />
+            <PropertyRef Name="mdate" />
+            <PropertyRef Name="mdate_edit" />
+            <PropertyRef Name="mstate" />
+            <PropertyRef Name="flyno" />
+            <PropertyRef Name="flyname" />
+            <PropertyRef Name="flyid" />
+            <PropertyRef Name="flyspecies" />
+            <PropertyRef Name="flyaddr" />
+            <PropertyRef Name="flydate" />
+            <PropertyRef Name="flydate_edit" />
+            <PropertyRef Name="flystate" />
+          </Key>
+          <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mtel" Type="Int32" Nullable="false" />
+          <Property Name="mconn" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="memail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mtype" Type="Int32" Nullable="false" />
+          <Property Name="catchno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mid2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mspecies" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mcolor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="maddr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="maddr_detail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="mdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="mdate_edit" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="mremark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="mstate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="flyno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="flyname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="flyid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="flyid2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="flyspecies" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="flycolor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="flyaddr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="flyaddrd" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="flydate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="flydate_edit" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="flyremark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="flystate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vi_user_catch_fly">
+          <Key>
+            <PropertyRef Name="mno" />
+            <PropertyRef Name="mname" />
+            <PropertyRef Name="mtel" />
+            <PropertyRef Name="memail" />
+            <PropertyRef Name="mtype" />
+            <PropertyRef Name="catchno" />
+            <PropertyRef Name="mid" />
+            <PropertyRef Name="mspecies" />
+            <PropertyRef Name="maddr" />
+            <PropertyRef Name="lat" />
+            <PropertyRef Name="lng" />
+            <PropertyRef Name="mdate" />
+            <PropertyRef Name="mdate_edit" />
+            <PropertyRef Name="mstate" />
+            <PropertyRef Name="edit" />
+          </Key>
+          <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mtel" Type="Int32" Nullable="false" />
+          <Property Name="mconn" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="memail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mtype" Type="Int32" Nullable="false" />
+          <Property Name="catchno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mid2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mspecies" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mcolor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mfeature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="maddr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="maddr_detail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="lat" Type="Decimal" Precision="10" Scale="8" Nullable="false" />
+          <Property Name="lng" Type="Decimal" Precision="11" Scale="8" Nullable="false" />
+          <Property Name="mdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="mdate_edit" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="mremark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="mstate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="edit" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vi_user_fly">
+          <Key>
+            <PropertyRef Name="rowid" />
+          </Key>
+          <Property Name="rowid" Type="Int32" Nullable="false" />
+          <Property Name="userno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mtel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mconn" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="memail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mid2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="show_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mspecies" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mcolor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mfeature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="maddr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="maddr_detail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="lat" Type="Decimal" Precision="10" Scale="8" />
+          <Property Name="lng" Type="Decimal" Precision="11" Scale="8" />
+          <Property Name="mdate" Type="DateTime" Precision="0" />
+          <Property Name="mdate_edit" Type="DateTime" Precision="3" />
+          <Property Name="mremarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="statename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="edit" Type="Boolean" />
+          <Property Name="mtime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="vi_user_road">
+          <Key>
+            <PropertyRef Name="road_id" />
+          </Key>
+          <Property Name="mno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Expr1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="memail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="mtel" Type="Int32" />
+          <Property Name="mconn" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="roadtol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="road_id" Type="Int32" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="webbirdEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="z_bas_bird" EntityType="Self.z_bas_bird" />
           <EntitySet Name="z_bas_user" EntityType="Self.z_bas_user" />
+          <EntitySet Name="z_func_catch" EntityType="Self.z_func_catch" />
           <EntitySet Name="z_func_fly" EntityType="Self.z_func_fly" />
+          <EntitySet Name="z_func_see" EntityType="Self.z_func_see" />
+          <EntitySet Name="z_func_see_d" EntityType="Self.z_func_see_d" />
+          <EntitySet Name="z_sys_addr_city" EntityType="Self.z_sys_addr_city" />
+          <EntitySet Name="z_sys_addr_city_area" EntityType="Self.z_sys_addr_city_area" />
+          <EntitySet Name="z_sys_addr_city_area_road" EntityType="Self.z_sys_addr_city_area_road" />
+          <EntitySet Name="z_sys_species" EntityType="Self.z_sys_species" />
+          <EntitySet Name="z_sys_state" EntityType="Self.z_sys_state" />
+          <EntitySet Name="z_sys_type_size" EntityType="Self.z_sys_type_size" />
+          <EntitySet Name="z_sys_type_size_genus" EntityType="Self.z_sys_type_size_genus" />
+          <EntitySet Name="z_sys_type_size_genus_species" EntityType="Self.z_sys_type_size_genus_species" />
+          <EntitySet Name="z_sys_type_size_genus_species_color" EntityType="Self.z_sys_type_size_genus_species_color" />
+          <EntitySet Name="z_sys_usertype" EntityType="Self.z_sys_usertype" />
+          <EntitySet Name="vi_funcUNION" EntityType="Self.vi_funcUNION" />
+          <EntitySet Name="vi_user_bird" EntityType="Self.vi_user_bird" />
+          <EntitySet Name="vi_user_catch" EntityType="Self.vi_user_catch" />
+          <EntitySet Name="vi_user_catch_fly" EntityType="Self.vi_user_catch_fly" />
+          <EntitySet Name="vi_user_fly" EntityType="Self.vi_user_fly" />
+          <EntitySet Name="vi_user_road" EntityType="Self.vi_user_road" />
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -178,6 +1054,41 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="webbirdModelStoreContainer" CdmEntityContainer="webbirdEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="webbirdModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="z_bas_bird">
+            <EntityTypeMapping TypeName="webbirdModel.z_bas_bird">
+              <MappingFragment StoreEntitySet="z_bas_bird">
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+                <ScalarProperty Name="user_no" ColumnName="user_no" />
+                <ScalarProperty Name="mno" ColumnName="mno" />
+                <ScalarProperty Name="mname" ColumnName="mname" />
+                <ScalarProperty Name="mspecies" ColumnName="mspecies" />
+                <ScalarProperty Name="mstate" ColumnName="mstate" />
+                <ScalarProperty Name="mdate" ColumnName="mdate" />
+                <ScalarProperty Name="mdate_edit" ColumnName="mdate_edit" />
+                <ScalarProperty Name="mid" ColumnName="mid" />
+                <ScalarProperty Name="mid2" ColumnName="mid2" />
+                <ScalarProperty Name="show_id" ColumnName="show_id" />
+                <ScalarProperty Name="mcolor" ColumnName="mcolor" />
+                <ScalarProperty Name="mfeature" ColumnName="mfeature" />
+                <ScalarProperty Name="mremark" ColumnName="mremark" />
+                <ScalarProperty Name="detect" ColumnName="detect" />
+                <ScalarProperty Name="father" ColumnName="father" />
+                <ScalarProperty Name="mather" ColumnName="mather" />
+                <ScalarProperty Name="medit" ColumnName="medit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="z_bas_user">
             <EntityTypeMapping TypeName="webbirdModel.z_bas_user">
               <MappingFragment StoreEntitySet="z_bas_user">
@@ -192,6 +1103,31 @@
                 <ScalarProperty Name="mconn" ColumnName="mconn" />
                 <ScalarProperty Name="maddr" ColumnName="maddr" />
                 <ScalarProperty Name="mtype" ColumnName="mtype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="z_func_catch">
+            <EntityTypeMapping TypeName="webbirdModel.z_func_catch">
+              <MappingFragment StoreEntitySet="z_func_catch">
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+                <ScalarProperty Name="user_no" ColumnName="user_no" />
+                <ScalarProperty Name="mno" ColumnName="mno" />
+                <ScalarProperty Name="mid" ColumnName="mid" />
+                <ScalarProperty Name="mid2" ColumnName="mid2" />
+                <ScalarProperty Name="show_id" ColumnName="show_id" />
+                <ScalarProperty Name="mspecies" ColumnName="mspecies" />
+                <ScalarProperty Name="mcolor" ColumnName="mcolor" />
+                <ScalarProperty Name="mfeature" ColumnName="mfeature" />
+                <ScalarProperty Name="maddr" ColumnName="maddr" />
+                <ScalarProperty Name="maddr_detail" ColumnName="maddr_detail" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="lng" ColumnName="lng" />
+                <ScalarProperty Name="mdate" ColumnName="mdate" />
+                <ScalarProperty Name="mtime" ColumnName="mtime" />
+                <ScalarProperty Name="mdate_edit" ColumnName="mdate_edit" />
+                <ScalarProperty Name="mremark" ColumnName="mremark" />
+                <ScalarProperty Name="mstate" ColumnName="mstate" />
+                <ScalarProperty Name="edit" ColumnName="edit" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -218,6 +1154,279 @@
                 <ScalarProperty Name="mremarks" ColumnName="mremarks" />
                 <ScalarProperty Name="mstate" ColumnName="mstate" />
                 <ScalarProperty Name="edit" ColumnName="edit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="z_func_see">
+            <EntityTypeMapping TypeName="webbirdModel.z_func_see">
+              <MappingFragment StoreEntitySet="z_func_see">
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+                <ScalarProperty Name="mno" ColumnName="mno" />
+                <ScalarProperty Name="mdate" ColumnName="mdate" />
+                <ScalarProperty Name="mtime" ColumnName="mtime" />
+                <ScalarProperty Name="edit" ColumnName="edit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="z_func_see_d">
+            <EntityTypeMapping TypeName="webbirdModel.z_func_see_d">
+              <MappingFragment StoreEntitySet="z_func_see_d">
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+                <ScalarProperty Name="see_no" ColumnName="see_no" />
+                <ScalarProperty Name="mno" ColumnName="mno" />
+                <ScalarProperty Name="mid" ColumnName="mid" />
+                <ScalarProperty Name="mid2" ColumnName="mid2" />
+                <ScalarProperty Name="show_id" ColumnName="show_id" />
+                <ScalarProperty Name="mspecies" ColumnName="mspecies" />
+                <ScalarProperty Name="mcolor" ColumnName="mcolor" />
+                <ScalarProperty Name="mfeature" ColumnName="mfeature" />
+                <ScalarProperty Name="maddr" ColumnName="maddr" />
+                <ScalarProperty Name="maddr_detail" ColumnName="maddr_detail" />
+                <ScalarProperty Name="mdate" ColumnName="mdate" />
+                <ScalarProperty Name="mtime" ColumnName="mtime" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="lng" ColumnName="lng" />
+                <ScalarProperty Name="mremarks" ColumnName="mremarks" />
+                <ScalarProperty Name="mstate" ColumnName="mstate" />
+                <ScalarProperty Name="mname" ColumnName="mname" />
+                <ScalarProperty Name="mtel" ColumnName="mtel" />
+                <ScalarProperty Name="memail" ColumnName="memail" />
+                <ScalarProperty Name="nconn" ColumnName="nconn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="z_sys_addr_city">
+            <EntityTypeMapping TypeName="webbirdModel.z_sys_addr_city">
+              <MappingFragment StoreEntitySet="z_sys_addr_city">
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+                <ScalarProperty Name="mno" ColumnName="mno" />
+                <ScalarProperty Name="mname" ColumnName="mname" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="z_sys_addr_city_area">
+            <EntityTypeMapping TypeName="webbirdModel.z_sys_addr_city_area">
+              <MappingFragment StoreEntitySet="z_sys_addr_city_area">
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+                <ScalarProperty Name="city_no" ColumnName="city_no" />
+                <ScalarProperty Name="mno" ColumnName="mno" />
+                <ScalarProperty Name="mname" ColumnName="mname" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="z_sys_addr_city_area_road">
+            <EntityTypeMapping TypeName="webbirdModel.z_sys_addr_city_area_road">
+              <MappingFragment StoreEntitySet="z_sys_addr_city_area_road">
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+                <ScalarProperty Name="city_no" ColumnName="city_no" />
+                <ScalarProperty Name="area_no" ColumnName="area_no" />
+                <ScalarProperty Name="mname" ColumnName="mname" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="z_sys_species">
+            <EntityTypeMapping TypeName="webbirdModel.z_sys_species">
+              <MappingFragment StoreEntitySet="z_sys_species">
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+                <ScalarProperty Name="mno" ColumnName="mno" />
+                <ScalarProperty Name="mname" ColumnName="mname" />
+                <ScalarProperty Name="fa_id" ColumnName="fa_id" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="z_sys_state">
+            <EntityTypeMapping TypeName="webbirdModel.z_sys_state">
+              <MappingFragment StoreEntitySet="z_sys_state">
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+                <ScalarProperty Name="mno" ColumnName="mno" />
+                <ScalarProperty Name="mname" ColumnName="mname" />
+                <ScalarProperty Name="fa_no" ColumnName="fa_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="z_sys_type_size">
+            <EntityTypeMapping TypeName="webbirdModel.z_sys_type_size">
+              <MappingFragment StoreEntitySet="z_sys_type_size">
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+                <ScalarProperty Name="mno" ColumnName="mno" />
+                <ScalarProperty Name="msize" ColumnName="msize" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="z_sys_type_size_genus">
+            <EntityTypeMapping TypeName="webbirdModel.z_sys_type_size_genus">
+              <MappingFragment StoreEntitySet="z_sys_type_size_genus">
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+                <ScalarProperty Name="size_no" ColumnName="size_no" />
+                <ScalarProperty Name="mno" ColumnName="mno" />
+                <ScalarProperty Name="mgenus" ColumnName="mgenus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="z_sys_type_size_genus_species">
+            <EntityTypeMapping TypeName="webbirdModel.z_sys_type_size_genus_species">
+              <MappingFragment StoreEntitySet="z_sys_type_size_genus_species">
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+                <ScalarProperty Name="size_no" ColumnName="size_no" />
+                <ScalarProperty Name="genus_no" ColumnName="genus_no" />
+                <ScalarProperty Name="mno" ColumnName="mno" />
+                <ScalarProperty Name="mspecies" ColumnName="mspecies" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="z_sys_type_size_genus_species_color">
+            <EntityTypeMapping TypeName="webbirdModel.z_sys_type_size_genus_species_color">
+              <MappingFragment StoreEntitySet="z_sys_type_size_genus_species_color">
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+                <ScalarProperty Name="size_no" ColumnName="size_no" />
+                <ScalarProperty Name="genus_no" ColumnName="genus_no" />
+                <ScalarProperty Name="species_no" ColumnName="species_no" />
+                <ScalarProperty Name="mno" ColumnName="mno" />
+                <ScalarProperty Name="mcolor" ColumnName="mcolor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="z_sys_usertype">
+            <EntityTypeMapping TypeName="webbirdModel.z_sys_usertype">
+              <MappingFragment StoreEntitySet="z_sys_usertype">
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+                <ScalarProperty Name="mno" ColumnName="mno" />
+                <ScalarProperty Name="mname" ColumnName="mname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vi_funcUNION">
+            <EntityTypeMapping TypeName="webbirdModel.vi_funcUNION">
+              <MappingFragment StoreEntitySet="vi_funcUNION">
+                <ScalarProperty Name="mno" ColumnName="mno" />
+                <ScalarProperty Name="mspecies" ColumnName="mspecies" />
+                <ScalarProperty Name="maddr" ColumnName="maddr" />
+                <ScalarProperty Name="maddr_detail" ColumnName="maddr_detail" />
+                <ScalarProperty Name="mdate" ColumnName="mdate" />
+                <ScalarProperty Name="mstate" ColumnName="mstate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vi_user_bird">
+            <EntityTypeMapping TypeName="webbirdModel.vi_user_bird">
+              <MappingFragment StoreEntitySet="vi_user_bird">
+                <ScalarProperty Name="mno" ColumnName="mno" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="mname" ColumnName="mname" />
+                <ScalarProperty Name="mspecies" ColumnName="mspecies" />
+                <ScalarProperty Name="mstate" ColumnName="mstate" />
+                <ScalarProperty Name="mdate" ColumnName="mdate" />
+                <ScalarProperty Name="mdate_edit" ColumnName="mdate_edit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vi_user_catch">
+            <EntityTypeMapping TypeName="webbirdModel.vi_user_catch">
+              <MappingFragment StoreEntitySet="vi_user_catch">
+                <ScalarProperty Name="mno" ColumnName="mno" />
+                <ScalarProperty Name="mname" ColumnName="mname" />
+                <ScalarProperty Name="mtel" ColumnName="mtel" />
+                <ScalarProperty Name="mconn" ColumnName="mconn" />
+                <ScalarProperty Name="memail" ColumnName="memail" />
+                <ScalarProperty Name="mtype" ColumnName="mtype" />
+                <ScalarProperty Name="catchno" ColumnName="catchno" />
+                <ScalarProperty Name="mid" ColumnName="mid" />
+                <ScalarProperty Name="mid2" ColumnName="mid2" />
+                <ScalarProperty Name="mspecies" ColumnName="mspecies" />
+                <ScalarProperty Name="mcolor" ColumnName="mcolor" />
+                <ScalarProperty Name="maddr" ColumnName="maddr" />
+                <ScalarProperty Name="maddr_detail" ColumnName="maddr_detail" />
+                <ScalarProperty Name="mdate" ColumnName="mdate" />
+                <ScalarProperty Name="mdate_edit" ColumnName="mdate_edit" />
+                <ScalarProperty Name="mremark" ColumnName="mremark" />
+                <ScalarProperty Name="mstate" ColumnName="mstate" />
+                <ScalarProperty Name="flyno" ColumnName="flyno" />
+                <ScalarProperty Name="flyname" ColumnName="flyname" />
+                <ScalarProperty Name="flyid" ColumnName="flyid" />
+                <ScalarProperty Name="flyid2" ColumnName="flyid2" />
+                <ScalarProperty Name="flyspecies" ColumnName="flyspecies" />
+                <ScalarProperty Name="flycolor" ColumnName="flycolor" />
+                <ScalarProperty Name="flyaddr" ColumnName="flyaddr" />
+                <ScalarProperty Name="flyaddrd" ColumnName="flyaddrd" />
+                <ScalarProperty Name="flydate" ColumnName="flydate" />
+                <ScalarProperty Name="flydate_edit" ColumnName="flydate_edit" />
+                <ScalarProperty Name="flyremark" ColumnName="flyremark" />
+                <ScalarProperty Name="flystate" ColumnName="flystate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vi_user_catch_fly">
+            <EntityTypeMapping TypeName="webbirdModel.vi_user_catch_fly">
+              <MappingFragment StoreEntitySet="vi_user_catch_fly">
+                <ScalarProperty Name="mno" ColumnName="mno" />
+                <ScalarProperty Name="mname" ColumnName="mname" />
+                <ScalarProperty Name="mtel" ColumnName="mtel" />
+                <ScalarProperty Name="mconn" ColumnName="mconn" />
+                <ScalarProperty Name="memail" ColumnName="memail" />
+                <ScalarProperty Name="mtype" ColumnName="mtype" />
+                <ScalarProperty Name="catchno" ColumnName="catchno" />
+                <ScalarProperty Name="mid" ColumnName="mid" />
+                <ScalarProperty Name="mid2" ColumnName="mid2" />
+                <ScalarProperty Name="mspecies" ColumnName="mspecies" />
+                <ScalarProperty Name="mcolor" ColumnName="mcolor" />
+                <ScalarProperty Name="mfeature" ColumnName="mfeature" />
+                <ScalarProperty Name="maddr" ColumnName="maddr" />
+                <ScalarProperty Name="maddr_detail" ColumnName="maddr_detail" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="lng" ColumnName="lng" />
+                <ScalarProperty Name="mdate" ColumnName="mdate" />
+                <ScalarProperty Name="mdate_edit" ColumnName="mdate_edit" />
+                <ScalarProperty Name="mremark" ColumnName="mremark" />
+                <ScalarProperty Name="mstate" ColumnName="mstate" />
+                <ScalarProperty Name="edit" ColumnName="edit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vi_user_fly">
+            <EntityTypeMapping TypeName="webbirdModel.vi_user_fly">
+              <MappingFragment StoreEntitySet="vi_user_fly">
+                <ScalarProperty Name="mtime" ColumnName="mtime" />
+                <ScalarProperty Name="rowid" ColumnName="rowid" />
+                <ScalarProperty Name="userno" ColumnName="userno" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="mtel" ColumnName="mtel" />
+                <ScalarProperty Name="mconn" ColumnName="mconn" />
+                <ScalarProperty Name="memail" ColumnName="memail" />
+                <ScalarProperty Name="mno" ColumnName="mno" />
+                <ScalarProperty Name="mname" ColumnName="mname" />
+                <ScalarProperty Name="mid" ColumnName="mid" />
+                <ScalarProperty Name="mid2" ColumnName="mid2" />
+                <ScalarProperty Name="show_id" ColumnName="show_id" />
+                <ScalarProperty Name="mspecies" ColumnName="mspecies" />
+                <ScalarProperty Name="mcolor" ColumnName="mcolor" />
+                <ScalarProperty Name="mfeature" ColumnName="mfeature" />
+                <ScalarProperty Name="maddr" ColumnName="maddr" />
+                <ScalarProperty Name="maddr_detail" ColumnName="maddr_detail" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="lng" ColumnName="lng" />
+                <ScalarProperty Name="mdate" ColumnName="mdate" />
+                <ScalarProperty Name="mdate_edit" ColumnName="mdate_edit" />
+                <ScalarProperty Name="mremarks" ColumnName="mremarks" />
+                <ScalarProperty Name="statename" ColumnName="statename" />
+                <ScalarProperty Name="edit" ColumnName="edit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vi_user_road">
+            <EntityTypeMapping TypeName="webbirdModel.vi_user_road">
+              <MappingFragment StoreEntitySet="vi_user_road">
+                <ScalarProperty Name="mno" ColumnName="mno" />
+                <ScalarProperty Name="mid" ColumnName="mid" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="memail" ColumnName="memail" />
+                <ScalarProperty Name="mtel" ColumnName="mtel" />
+                <ScalarProperty Name="mconn" ColumnName="mconn" />
+                <ScalarProperty Name="roadtol" ColumnName="roadtol" />
+                <ScalarProperty Name="road_id" ColumnName="road_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

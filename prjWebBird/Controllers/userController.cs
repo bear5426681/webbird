@@ -24,11 +24,12 @@ namespace prjWebBird.Controllers
            
 
         // GET: user/Create
-        public ActionResult _Register()
-        {
-            z_bas_user users = new z_bas_user();
-            return View(users);
-        }
+        //public ActionResult _Register()
+        //{
+        //    z_bas_user users = new z_bas_user();
+        //    ViewData["users"] = users;
+        //    return PartialView();
+        //}
 
         // POST: user/Create
         [HttpPost]
@@ -89,11 +90,12 @@ namespace prjWebBird.Controllers
         }
 
         
-        public ActionResult Login()
-        {
-            LoginViewModel login = new LoginViewModel();
-            return View(login);
-        }
+        //public ActionResult Login()
+        //{
+        //    LoginViewModel login = new LoginViewModel();
+        //    ViewData["login"] = login;
+        //    return PartialView();
+        //}
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -106,11 +108,16 @@ namespace prjWebBird.Controllers
             }
             var hashpass = HashPassword(logonModel.Password) ;
             var user = db.z_bas_user.Where((m => m.mid == logonModel.UserNo || m.memail == logonModel.UserNo)).Where(m => m.mpassword == hashpass).FirstOrDefault();
-
+            
             if (user != null) 
             {
                 UserAccount.LogIn(user.mid, user.mname, enUserRole.User,"");
                 return RedirectToAction("Index", "Home");
+                //if (user.mtype == "u1")
+                //{
+                //    UserAccount.LogIn(user.mid, user.mname, enUserRole.FlyUser, "");
+                //    return RedirectToAction("Index", "Home");
+                //}
             }
 
             if (logonModel.UserNo == "admin" && logonModel.Password == "admin")

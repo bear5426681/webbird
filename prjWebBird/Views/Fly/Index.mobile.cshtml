@@ -1,11 +1,13 @@
 ﻿@model IEnumerable<prjWebBird.Models.z_func_fly>
 
 @{
-    ViewBag.Title = "Index2";
+    ViewBag.Title = "飛失列表-清單";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
+    ViewBag.locafail = "Fly";
 
-<h2>Index2</h2>
+    ViewBag.locaAction = "Index";
+}
+<h2>飛失協尋清單</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -18,7 +20,7 @@
                 @Html.DisplayNameFor(model => model.mname)
             </th>
             <th class="text-nowrap">
-                @Html.DisplayNameFor(model => model.mid)
+                @Html.DisplayNameFor(model => model.show_id)
             </th>
             <th class="text-nowrap">
                 @Html.DisplayNameFor(model => model.mspecies)
@@ -45,7 +47,7 @@
                     @Html.DisplayFor(modelItem => item.mname)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.mid)
+                    @Html.DisplayFor(modelItem => item.show_id)
                 </td>
 
                 <td class="text-nowrap">
@@ -63,8 +65,8 @@
                     @Html.DisplayFor(modelItem => item.mstate)
                 </td>
 
-               
-                @if (item.edit==true)
+
+                @if (item.edit == true)
                 {
                     <td class="text-nowrap">
                         @Html.ActionLink("Edit", "Edit", new { id = item.mno })
@@ -79,4 +81,4 @@
 
     </table>
 </div>
-<a class="btn add text-white"> @Html.ActionLink("+", "Create")</a><!-- 浮動新增按鈕 -->
+

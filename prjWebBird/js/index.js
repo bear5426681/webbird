@@ -27,46 +27,7 @@ $(function() {
         }
     }).scroll();
 
-    //滾後一個刪一個黏監聽
-    window.addEventListener('scroll', stick);
-    const navbar = document.querySelector('#mainhead');
-    const header = document.querySelector('.topbody');
 
-    function stick(event) {
-        //取得 header 元素的高度
-        const condition = header.offsetHeight;
-        //當捲動高度大於header 元素的高度 執行下列程式碼
-        if (window.scrollY >= condition) {
-            //將 nav 元素的 position 屬性修改為 fixed
-
-            $(navbar).addClass("fixedhead");
-            $(header).remove();
-            //將 body 加上 paddingTop 將內容物往下移動
-            document.body.style.paddingTop = navbar.offsetHeight + 'px';
-        }
-    };
-    //滾後一個刪一個黏監聽//
-
-    //抓到滾動後自動滾動（僅一次
-    var sc = 0;
-    $(window).scroll(function() {
-        if (sc == 0) {
-            if ($(this).scrollTop() > 10) {
-                let vh = ($(window).height()) * 1.4
-                $("html,body").animate({
-                    scrollTop: vh
-                }, 1000);
-                $("html,body").animate({
-                    scrollTop: 0
-                }, 700);
-                $('#mainhead').animate({
-                    opacity: 1
-                }, 2000)
-                sc++
-            }
-        }
-    });
-    //抓到滾動後自動滾動（僅一次//
 
     //功能列滾動跟隨
     (function(wnd, $) {

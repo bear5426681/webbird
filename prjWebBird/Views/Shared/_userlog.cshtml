@@ -2,7 +2,7 @@
      aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog ">
         <!-- .modal-content -->
-        <div class="modal-content bg-light">
+        <div class="modal-content ">
             <div class="modal-body ">
                 <div class="container m-auto">
                     <div class="row mb-3">
@@ -12,11 +12,11 @@
                     </div>
                     <ul class="nav nav-tabs px-2" id="myTab" role="tablist">
                         <li class="nav-item w-50 ">
-                            <a class="nav-link active" id="loginnav" data-toggle="tab" href="#login"
+                            <a class="nav-link active text-nowrap" id="loginnav" data-toggle="tab" href="#login"
                                role="tab" aria-controls="home" aria-selected="true">登入</a>
                         </li>
                         <li class="nav-item w-50 ">
-                            <a class="nav-link " id="registernav" data-toggle="tab" href="#register"
+                            <a class="nav-link text-nowrap" id="registernav" data-toggle="tab" href="#register"
                                role="tab" aria-controls="profile" aria-selected="false">註冊</a>
                         </li>
                     </ul>
@@ -25,13 +25,30 @@
                         <div id="login" class=" tab-pane fade show active" role="tabpanel">
                             @Html.Partial("~/Views/user/Login.cshtml")
 
+                            <div class="text-center mt-3">快速註冊</div>
+                            <div class=" m-2 d-flex justify-content-around">
+                                <button class="fab fa-facebook-f  btn rounded-circle text-info border-info bg-transparent"
+                                        style="width: 55px;height: 55px;font-size: 25px;"></button>
+                                <button class="fab fa-google  btn rounded-circle text-danger border-danger bg-transparent"
+                                        style="width: 55px;height: 55px;font-size: 25px;"></button>
+                                <button class="fab fa-line  btn rounded-circle text-success border-success bg-transparent"
+                                        style="width: 55px;height: 55px;font-size: 25px;"></button>
+                            </div>
                         </div>
                         <div id="register" class=" tab-pane fade" role="tabpanel">
 
                             @Html.Partial("~/Views/user/_Register.cshtml")
 
+                            <div class="text-center mt-3">快速登入</div>
+                            <div class=" m-2 d-flex justify-content-around">
+                                <button class="fab fa-facebook  btn rounded-circle text-info border-info bg-transparent"
+                                        style="width: 55px;height: 55px;font-size: 25px;"></button>
+                                <button class="fab fa-google  btn rounded-circle text-danger border-danger bg-transparent"
+                                        style="width: 55px;height: 55px;font-size: 25px;"></button>
+                                <button class="fab fa-line  btn rounded-circle text-success border-success bg-transparent"
+                                        style="width: 55px;height: 55px;font-size: 25px;"></button>
 
-
+                            </div>
                         </div>
 
                     </div><!-- /.row -->

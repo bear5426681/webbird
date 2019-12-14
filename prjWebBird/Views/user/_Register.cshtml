@@ -1,6 +1,6 @@
-﻿@model prjWebBird.Models.z_bas_user
+﻿
 
-<form action="/user/_Register" method="post" id="RegisterForm" class="p-sm-2 p-md-4 pb-2 ">
+<form action="/user/_Register" method="post" id="RegisterForm" class="pt-3 p-md-4 pb-2 ">
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -8,34 +8,24 @@
 
     <div class="form-group  ">
         <label for="mid" class="form-label">帳號</label>
-        @Html.EditorFor(model => model.mid, new { htmlAttributes = new { @class = "form-control", @type = "text", @placeholder = "" } })
-        @Html.ValidationMessageFor(model => model.mid, "", new { @class = "text-danger" })
+        <input class="form-control text-box single-line" data-val="true" data-val-length="帳號長度需介於4-20字元" data-val-length-max="20" data-val-length-min="4" data-val-required="帳號不可為空白！" id="mid" name="mid" placeholder="" type="text" value="">
+        <span class="field-validation-valid text-danger" data-valmsg-for="mid" data-valmsg-replace="true"></span>
+     
     </div>
-    <div class="form-group">
+    <div class="form-group ">
 
-        <label for="emailRE"
-               class="form-label">E-mail</label>
-        @Html.EditorFor(model => model.memail, new
-   {
-       htmlAttributes = new
-       {
-           @class = "form-control",
-           @type = "email",
-           @placeholder = "",
-           id = "emailRE",
-           //required = "required"
-       }
-   })
-        @Html.ValidationMessageFor(model => model.memail, "", new { @class = "text-danger" })
+        <label for="emailRE" class="form-label">E-mail</label>
+        <input class="form-control text-box single-line" data-val="true" data-val-email="email格式錯誤" data-val-required="email不可為空白！" id="emailRE" name="memail" placeholder="" type="email" value="">
+        <span class="field-validation-valid text-danger" data-valmsg-for="memail" data-valmsg-replace="true"></span>
+       
     </div>
 
 
     <div class="form-group ">
-        <label for="mpassword"
-               class="form-label">密碼</label>
-
-        @Html.EditorFor(model => model.mpassword, new { htmlAttributes = new { @class = "form-control", @type = "password", @name = "mpassword" } })
-        @Html.ValidationMessageFor(model => model.mpassword, "", new { @class = "text-danger" })
+        <label for="mpassword" class="form-label">密碼</label>
+        <input class="form-control text-box single-line" data-val="true" data-val-required="密碼不可為空白！" id="mpassword" name="mpassword" type="password" value="">
+        <span class="field-validation-valid text-danger" data-valmsg-for="mpassword" data-valmsg-replace="true"></span>
+       
     </div>
     <div class="form-group">
         <label for="mpasswordCheck"
@@ -49,16 +39,7 @@
     </div>
 
 </form>
-<div class="text-center mt-3">快速註冊</div>
-<div class=" m-2 d-flex justify-content-around">
-    <button class="fab fa-facebook-f  btn rounded-circle text-info border-info bg-transparent"
-            style="width: 55px;height: 55px;font-size: 25px;"></button>
-    <button class="fab fa-google  btn rounded-circle text-danger border-danger bg-transparent"
-            style="width: 55px;height: 55px;font-size: 25px;"></button>
-    <button class="fab fa-line  btn rounded-circle text-success border-success bg-transparent"
-            style="width: 55px;height: 55px;font-size: 25px;"></button>
 
-</div>
 
 @Scripts.Render("~/bundles/jqueryval")
 

@@ -62,7 +62,7 @@ namespace prjWebBird.Models
             public Nullable<System.DateTime> mdate { get; set; }
 
             [DisplayName("飛失時間")]
-            public Nullable<System.TimeSpan> mtime { get; set; }
+            public Nullable<System.DateTime> mtime { get; set; }
 
             [DisplayName("最後修改時間")]
             [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy/MM/dd HH:mm}")]

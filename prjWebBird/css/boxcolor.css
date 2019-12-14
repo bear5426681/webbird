@@ -1,0 +1,109 @@
+
+
+.flybox,.seebox,.catchbox {
+    border: 6px solid transparent;
+    border-radius: 10px;
+    box-shadow: 5px 5px 7px rgb(114, 56, 17);
+    display: inline-block;
+    position: relative;
+}
+
+.flybox::after {
+    position: absolute;
+    top: -6px;
+    bottom: -6px;
+    left: -6px;
+    right: -6px;
+    background: linear-gradient(to right bottom, rgb(207, 27, 3) 0%, rgb(235, 110, 8) 40%, rgb(252, 246, 198) 100%);
+    
+    content: '';
+    z-index: -1;
+    border-radius: 10px;
+}
+
+    .seebox::after {
+        position: absolute;
+        top: -6px;
+        bottom: -6px;
+        left: -6px;
+        right: -6px;
+       
+         background: linear-gradient(to right bottom, rgb(13, 31, 109) 0%, rgb(48, 148, 230) 40%, rgb(217, 236, 240) 100%);
+       
+        content: '';
+        z-index: -1;
+        border-radius: 10px;
+    }
+
+    .catchbox::after {
+        position: absolute;
+        top: -6px;
+        bottom: -6px;
+        left: -6px;
+        right: -6px;
+       
+      background: linear-gradient(to right bottom, rgb(109, 13, 13) 0%, rgb(230, 48, 48) 40%, rgb(240, 217, 217) 100%);
+        content: '';
+        z-index: -1;
+        border-radius: 10px;
+    }
+
+@media screen and (max-width:767px) {
+    .flybox, .seebox, .catchbox {
+        width: 45.5vw;
+        height: 30vh;
+        /* min-width: 150px; */
+        min-height: 210px;
+        max-width: 190px;
+        max-height: 220px;
+        position: relative;
+        margin-bottom: 15px;
+    }
+    .funcmain {
+        justify-content: space-around;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .flybox, .seebox, .catchbox {
+        width: 45.5vw;
+        height: 40vh;
+        min-height: 238px;
+        min-width: 150px;
+        max-width: 190px;
+        max-height: 250px;
+        margin: 20px;
+    }
+    .funcmain {
+        justify-content: left;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width:1023px) {
+    .flybox, .seebox, .catchbox {
+        width: 30vw;
+        height: 25vh;
+        min-height: 238px;
+        margin-bottom: 20px;
+        min-width: 170px;
+        max-width: 190px;
+        margin: 5px;
+    }
+    .funcmain {
+        justify-content: space-around;
+    }
+}
+
+
+.flybox:hover, .seebox:hover, .catchbox:hover {
+    box-shadow: 4px 4px 4px rgb(73, 36, 12);
+}
+
+.flybox img, .seebox img, .catchbox img {
+    transition: all 1.5s;
+}
+
+        .flybox:hover img, .seebox:hover img, .catchbox:hover img {
+            transform: scale(1.5);
+        }
+

@@ -161,14 +161,37 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ViewModels\LoginViewModel.cs" />
-    <Compile Include="Models\ViewModels\MembersRegisterViewModel.cs" />
-    <Compile Include="Models\Metadata\z_bas_user.cs" />
-    <Compile Include="Models\Metadata\z_func_fly.cs" />
     <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>webbirdModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>webbirdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>webbirdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModels\LoginViewModel.cs" />
+    <Compile Include="Models\ViewModels\MembersRegisterViewModel.cs" />
+    <Compile Include="Models\Metadata\z_bas_user.cs" />
+    <Compile Include="Models\Metadata\z_func_fly.cs" />
+    <Compile Include="Models\ViewModels\test.cs" />
+    <Compile Include="Models\ViewModels\vi_Fly.cs" />
+    <Compile Include="Models\vi_funcUNION.cs">
+      <DependentUpon>webbirdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vi_user_bird.cs">
+      <DependentUpon>webbirdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vi_user_catch.cs">
+      <DependentUpon>webbirdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vi_user_catch_fly.cs">
+      <DependentUpon>webbirdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vi_user_fly.cs">
+      <DependentUpon>webbirdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vi_user_road.cs">
       <DependentUpon>webbirdModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\webbirdModel.Context.cs">
@@ -186,10 +209,52 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>webbirdModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\z_bas_bird.cs">
+      <DependentUpon>webbirdModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\z_bas_user.cs">
       <DependentUpon>webbirdModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\z_func_catch.cs">
+      <DependentUpon>webbirdModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\z_func_fly.cs">
+      <DependentUpon>webbirdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\z_func_see.cs">
+      <DependentUpon>webbirdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\z_func_see_d.cs">
+      <DependentUpon>webbirdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\z_sys_addr_city.cs">
+      <DependentUpon>webbirdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\z_sys_addr_city_area.cs">
+      <DependentUpon>webbirdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\z_sys_addr_city_area_road.cs">
+      <DependentUpon>webbirdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\z_sys_species.cs">
+      <DependentUpon>webbirdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\z_sys_state.cs">
+      <DependentUpon>webbirdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\z_sys_type_size.cs">
+      <DependentUpon>webbirdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\z_sys_type_size_genus.cs">
+      <DependentUpon>webbirdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\z_sys_type_size_genus_species.cs">
+      <DependentUpon>webbirdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\z_sys_type_size_genus_species_color.cs">
+      <DependentUpon>webbirdModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\z_sys_usertype.cs">
       <DependentUpon>webbirdModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -204,6 +269,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\colornight.css" />
+    <Content Include="css\boxcolor.css" />
+    <Content Include="css\colorday.css" />
     <Content Include="css\index.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -272,7 +340,7 @@
     <Content Include="Views\Fly\Create.cshtml" />
     <Content Include="Views\Fly\Index.cshtml" />
     <Content Include="Views\Fly\Index2.cshtml" />
-    <Content Include="Views\Fly\Index2.mobile.cshtml" />
+    <Content Include="Views\Fly\Index.mobile.cshtml" />
     <Content Include="Views\user\_Register.cshtml" />
     <Content Include="Views\user\Edit.cshtml" />
     <Content Include="Views\user\Create1.cshtml" />
@@ -283,6 +351,12 @@
     <Content Include="Views\Shared\_asideright.cshtml" />
     <Content Include="Views\Shared\_Layout.Mobile.cshtml" />
     <Content Include="Views\Shared\_userlog.cshtml" />
+    <Content Include="Views\Shared\_nav.cshtml" />
+    <Content Include="Views\Shared\_Head.cshtml" />
+    <Content Include="Views\Shared\_LayoutCreateEdit.cshtml" />
+    <Content Include="Views\Fly\picIndex.cshtml" />
+    <Content Include="Views\Shared\_Layoutedit.cshtml" />
+    <Content Include="Views\Shared\_footer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Regist\" />

@@ -1,0 +1,54 @@
+﻿<nav id="mySidenav" class="sidenav">
+    @using Securitys;
+    @if (UserAccount.IsLogin)
+    {
+        <div class="border-bottom border-white d-flex align-items-center justify-content-start text"
+             style="height: 150px;">
+            <!-- 點圖進入會員/登入功能 -->
+            <a href="" style="text-decoration: none;" class="text-nowrap text-white " id="">
+                <img src="/images/LOGO-4white-nofont.svg" alt="" class=" rounded-circle bg-secondary m-2 ml-5 "
+                     style="width: 80px;height:80px;">
+                <small>歡迎回來</small>
+            </a>
+        </div>
+    }
+    else
+    {
+        <div class="border-bottom border-white d-flex align-items-center justify-content-start text"
+             style="height: 150px;">
+            <!-- 點圖進入會員/登入功能 -->
+            <a href="" style="text-decoration: none;" class="text-nowrap text-white textdecnone " id="loginnavside"
+               data-toggle="modal" data-target="#poplogin">
+                <img src="/images/LOGO-4white-nofont.svg" alt=""
+                     class=" rounded-circle bg-secondary m-2 ml-5 " style="width: 80px;height:80px;">
+                <small>未登入</small>
+            </a>
+        </div>
+    }
+
+
+
+    <a href="/Home/Index" class="  btn-block btn-group m-0 border-0 mb-1  " style="text-decoration: none; ">
+        <span class="btn  btn-block  text-left btn-danger  nava">首頁</span>
+    </a>
+    <a href="/Fly/Index" class="btn-block btn-group m-0 border-0 mb-1  " style="text-decoration: none;">
+        <span class="btn  btn-block  text-left btn-danger nava">飛失</span><span class="btn-sm btn btn-danger bigfont px-3 " data-toggle="collapse" data-target="#flynavside">+</span>
+    </a>
+    <div id="flynavside" class="collapse">
+        <a href="" class="  btn-block btn-group m-0 border-0 mb-1  "
+           style="text-decoration: none; ">
+            <span class="btn  btn-block  text-left btn-danger nava">清單</span>
+        </a>
+    </div>
+    <a href="" class="  btn-block btn-group m-0 border-0 mb-1  " style="text-decoration: none;">
+        <span class="btn  btn-block  text-left btn-warning nava">拾獲</span><span class="btn-sm btn btn-danger bigfont px-3">+</span>
+    </a>
+    <a href="" class="  btn-block btn-group m-0 border-0 mb-1  " style="text-decoration: none;">
+        <span class="btn  btn-block  text-left btn-warning nava">目擊</span><span class="btn-sm btn btn-danger bigfont px-3">+</span>
+    </a>
+    <a href="" class="  btn-block btn-group m-0 border-0 mb-1  " style="text-decoration: none;">
+        <span class="btn  btn-block  text-left btn-warning nava">送養</span>
+    </a>
+
+
+</nav>

@@ -1,6 +1,7 @@
-﻿@model prjWebBird.Models.ViewModels.LoginViewModel
+﻿
 
-<form action="/user/Login" method="post" id="LoginForm" class="p-sm-2 p-md-4 pb-2 ">
+
+<form action="/user/Login" method="post" id="LoginForm" class="pt-3 p-md-4 pb-2 ">
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -8,14 +9,15 @@
 
     <div class="form-group  ">
         <label for="UserNo" class="form-label">帳號</label>
-        @Html.TextBoxFor(x => x.UserNo, new { @class = "form-control", placeholder = "使用帳號或email登入", AutoComplete = "Off", tabindex = "1" })
-        @Html.ValidationMessageFor(model => model.UserNo, "", new { @class = "text-danger" })
+        <input autocomplete="Off" class="form-control" data-val="true" data-val-required="登入帳號 欄位是必要項。" id="UserNo" name="UserNo" placeholder="使用帳號或email登入" tabindex="1" type="text" value="">
+        <span class="field-validation-valid text-danger" data-valmsg-for="UserNo" data-valmsg-replace="true"></span>
+      
     </div>
     <div class="form-group ">
-        <label for="Password"
-               class="form-label">密碼</label>
-        @Html.PasswordFor(x => x.Password, new { @class = "form-control", placeholder = "密碼", AutoComplete = "Off", tabindex = "2" })
-        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        <label for="Password" class="form-label">密碼</label>
+        <input autocomplete="Off" class="form-control" data-val="true" data-val-required="登入密碼 欄位是必要項。" id="Password" name="Password" placeholder="密碼" tabindex="2" type="password">
+        <span class="field-validation-valid text-danger" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+      
     </div>
 
     <div class="form-group m-4">
@@ -24,16 +26,7 @@
     </div>
 
 </form>
-<div class="text-center mt-3">快速登入</div>
-<div class=" m-2 d-flex justify-content-around">
-    <button class="fab fa-facebook  btn rounded-circle text-info border-info bg-transparent"
-            style="width: 55px;height: 55px;font-size: 25px;"></button>
-    <button class="fab fa-google  btn rounded-circle text-danger border-danger bg-transparent"
-            style="width: 55px;height: 55px;font-size: 25px;"></button>
-    <button class="fab fa-line  btn rounded-circle text-success border-success bg-transparent"
-            style="width: 55px;height: 55px;font-size: 25px;"></button>
 
-</div>
 
 
 @Scripts.Render("~/bundles/jqueryval")
@@ -66,9 +59,9 @@
                         validator.showErrors(data.ModelStateErrors);
                         alert('請檢查輸入資料');
                     } else {
-                        
+
                          alert('登入成功!');
-                    window.location = '@Url.Action("Index", "Home")';
+                    window.location = '@Url.Action(@ViewBag.locaAction, @ViewBag.locafail)';
                     }
                 }
             }
@@ -79,6 +72,8 @@
 
 
 </script>
+
+
 
 
 

@@ -1,0 +1,87 @@
+﻿@model  IEnumerable<prjWebBird.Models.vi_user_fly>
+@{
+    ViewBag.Title = "飛失列表-圖";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.locafail = "Fly";
+
+    ViewBag.locaAction = "picIndex";
+}
+
+@foreach (var item in Model)
+{
+    <div class="flybox">
+        <div class="information " style="border-radius: 5px;  display: inline-block;
+    overflow: hidden;" data-toggle="modal" data-target="#@item.mno">
+            <img src="/images/back/back1.jpg" alt="" class="img-fluid">
+        </div>
+        <!-- 圖片內容 -->
+        <div class="infotext  text-white  ">
+            <span class="infotitle bigfont">
+                @Html.DisplayFor(modelItem => item.mspecies)
+            </span><span class=" badge badge-pill badge-primary  mt-1 ">@Html.DisplayFor(modelItem => item.statename)</span>
+            <p class="infobody  pl-2  bigfont ">
+                <span class="small infotime  bigfont">
+                    @Html.DisplayFor(modelItem => item.mdate)
+                    <span class=" infoarea ">@string.Format("{0:HH:mm}",item.mtime)</span>
+
+                </span><br>@Html.DisplayFor(modelItem => item.maddr)
+            </p>
+            <p class="pl-2 small">飛失地址：<span>@Html.DisplayFor(modelItem => item.maddr_detail)</span></p>
+            <P class="pl-2 small">腳環號： @Html.DisplayFor(modelItem => item.show_id)</P>
+        </div>
+
+    </div>
+
+    <!-- 跳現框 -->
+    <div class="modal fade " id="@item.mno" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg ">
+            <div class="modal-content bg-light">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                </div>
+                <div class="modal-body ">
+                    <div class="row">
+                        <div class="col-12 col-lg-6  ">
+                            <img src="/images/back/back (5).jpg" alt="" class="img-thumbnail">
+                        </div>
+                        <div class="col-12 col-lg-6  my-2">
+                            <p>品種：<span>@item.mspecies（</span><span>@item.mcolor</span><span></span>）</p>
+                            <P>特徵：<span>@item.mfeature</span></P>
+                            <p>飛失時間：<span>@item.mtime</span>　</p>
+                            <p>
+                                飛失地點：<span>@item.maddr</span><span>@item.maddr_detail</span>
+                            </p>
+
+                            <P>腳環號碼：<span>@item.show_id</span></P>
+                            <p>聯絡人：<span>@item.username</span></p>
+                            <p>聯絡電話：<span>@item.mtel</span></p>
+
+
+                        </div>
+                        <div class="col-12">
+                            <p>其他聯絡方式：<span>@item.mconn</span></p>
+                        </div>
+                        <div class="col-12 bg-info border-danger border pt-2 mb-3">
+                            <p>
+                                備註：<br>
+                                <span>@item.mremarks</span>
+                            </p>
+                        </div>
+                        <span>最後更新時間：@item.mdate_edit</span>
+
+                        <iframe width='100%' height='500' frameborder='0' scrolling='no' marginheight="0" marginwidth="0" src=http://maps.google.com.tw/maps?f =q&hl =zh-TW&geocode =&q =24.811522,120.968176&z =16&output =embed&t =></iframe>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal -->
+    </div>
+}
+
+
+

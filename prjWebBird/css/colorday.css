@@ -1,0 +1,177 @@
+
+
+
+
+body {
+  
+    background: linear-gradient(0deg, rgba(152, 250, 155, 1) 0%, rgba(255, 248, 151, 1) 43%, rgba(255, 215, 159, 1) 100%);
+  
+}
+
+header {
+    background: rgb(25, 46, 32);
+    height: 79.6px;
+    max-height: 79.6px;
+    opacity: 0.7;
+    transition: all 1s;
+}
+
+
+.HanbergerDivCloss {
+    background: rgb(54, 99, 69);
+}
+
+.hanberger {
+    display: block;
+    height: 3px;
+    width: 24px;
+    background-color: rgb(230, 230, 112);
+    border-radius: 10px;
+    transition: all 0.5s;
+    transform-origin: left;
+}
+
+.fa-user {
+    transform: scale(1.5);
+   
+    color: rgb(230, 230, 112);
+}
+
+
+.index_btn {
+    width: 22vw;
+    background: linear-gradient(0deg, rgba(254, 165, 0, 1) 0%, rgba(255, 241, 114, 1) 23%, rgba(250, 114, 10, 1) 100%);
+}
+
+footer {
+    background: rgb(25, 46, 32);
+    height: 25vh;
+    max-height: 192px;
+    opacity: 0.7;
+    position: relative;
+    transition: all 1s;
+}
+
+
+
+.row_btn {
+    width: 23.5vw;
+    height: 30px;
+    background: linear-gradient(180deg, rgb(62, 117, 102)0%, rgb(139, 184, 161) 90%, rgb(32, 92, 62) 100%);
+    line-height: 15px;
+    border: 1px solid rgb(32, 53, 36);
+}
+
+.information {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(2, 4, 5, 0.5)25%, rgba(255, 255, 255, 0) 30%), url(/images/back/back1.jpg);
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    display: inline-block;
+}
+
+
+
+
+
+.up1 {
+    position: absolute;
+    top: 45%;
+    right: 40%;
+    background-color: rgb(248, 170, 25);
+    width: 17px;
+    height: 3px;
+    border-radius: 5px;
+    transition: all .3s;
+}
+
+.up2 {
+    position: absolute;
+    top: 45%;
+    left: 40%;
+    background-color: rgb(241, 207, 97);
+    width: 17px;
+    height: 3px;
+    border-radius: 5px;
+    transition: all .3s;
+}
+
+
+
+
+/* 電腦右側功能 */
+
+.lgFuncRight a div {
+    width: 50px;
+    height: 45px;
+    border-radius: 5px;
+    line-height: 45px;
+    background-color: rgba(251, 250, 250, 0.3);
+    margin-top: 2px;
+    color: rgb(255, 254, 254);
+    transition: all 0.5s;
+}
+
+.lgFuncRight a div:hover {
+    background-color: rgba(251, 250, 250, 0.6);
+    color: rgb(58, 58, 58);
+}
+
+
+/* /電腦右側功能 */
+
+
+/* 電腦左側功能 */
+
+.sectiona {
+    background: rgba(5, 42, 31, 0.5);
+    color: black;
+    border: none;
+    border-radius: 0;
+    transition: all 0.5s;
+}
+
+.sectiona:hover {
+    background: rgba(7, 51, 38, 0.753);
+}
+
+
+
+.sectiona button:hover {
+    background: rgb(17, 54, 29);
+}
+
+
+
+.collapse .btn:hover {
+    background: rgba(5, 42, 31, 0.4);
+    color: white;
+}
+
+
+/* /電腦左側功能 */
+
+
+/* 手機側邊 */
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, rgba(10, 48, 23, 1)0%, rgba(10, 48, 23, 0)100%);
+    /* clip-path: polygon(0 100%, 0 0, 75% 0, 75% 5.5%, 80% 7.5%, 75% 9.5%, 75% 100%); */
+    overflow-x: hidden;
+    color: white;
+    transition: 0.5s;
+    /* padding-top: 60px; */
+}
+
+.nava {
+    background: linear-gradient(to right, rgb(255, 174, 0, 1)0%, rgba(253, 253, 253, 0)100%);
+    color: black;
+    border: none;
+}

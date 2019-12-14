@@ -27,8 +27,29 @@ namespace prjWebBird.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<z_bas_bird> z_bas_bird { get; set; }
         public virtual DbSet<z_bas_user> z_bas_user { get; set; }
+        public virtual DbSet<z_func_catch> z_func_catch { get; set; }
         public virtual DbSet<z_func_fly> z_func_fly { get; set; }
+        public virtual DbSet<z_func_see> z_func_see { get; set; }
+        public virtual DbSet<z_func_see_d> z_func_see_d { get; set; }
+        public virtual DbSet<z_sys_addr_city> z_sys_addr_city { get; set; }
+        public virtual DbSet<z_sys_addr_city_area> z_sys_addr_city_area { get; set; }
+        public virtual DbSet<z_sys_addr_city_area_road> z_sys_addr_city_area_road { get; set; }
+        public virtual DbSet<z_sys_species> z_sys_species { get; set; }
+        public virtual DbSet<z_sys_state> z_sys_state { get; set; }
+        public virtual DbSet<z_sys_type_size> z_sys_type_size { get; set; }
+        public virtual DbSet<z_sys_type_size_genus> z_sys_type_size_genus { get; set; }
+        public virtual DbSet<z_sys_type_size_genus_species> z_sys_type_size_genus_species { get; set; }
+        public virtual DbSet<z_sys_type_size_genus_species_color> z_sys_type_size_genus_species_color { get; set; }
+        public virtual DbSet<z_sys_usertype> z_sys_usertype { get; set; }
+        public virtual DbSet<vi_funcUNION> vi_funcUNION { get; set; }
+        public virtual DbSet<vi_user_bird> vi_user_bird { get; set; }
+        public virtual DbSet<vi_user_catch> vi_user_catch { get; set; }
+        public virtual DbSet<vi_user_catch_fly> vi_user_catch_fly { get; set; }
+        public virtual DbSet<vi_user_fly> vi_user_fly { get; set; }
+        public virtual DbSet<vi_user_road> vi_user_road { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
