@@ -149,6 +149,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Class\AuthorizeRoles.cs" />
+    <Compile Include="App_Class\CreateContent.cs" />
+    <Compile Include="App_Class\UpLoadPic.cs" />
     <Compile Include="App_Class\UserAccount.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -161,15 +164,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>webbirdModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_helpdiagrams_Result.cs">
-      <DependentUpon>webbirdModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>webbirdModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Metadata\vi_funcUNION.cs" />
+    <Compile Include="Models\Metadata\vi_user_fly.cs" />
+    <Compile Include="Models\ViewModels\indexInfoViewModel.cs" />
     <Compile Include="Models\ViewModels\LoginViewModel.cs" />
     <Compile Include="Models\ViewModels\MembersRegisterViewModel.cs" />
     <Compile Include="Models\Metadata\z_bas_user.cs" />
@@ -179,19 +176,10 @@
     <Compile Include="Models\vi_funcUNION.cs">
       <DependentUpon>webbirdModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\vi_user_bird.cs">
-      <DependentUpon>webbirdModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\vi_user_catch.cs">
       <DependentUpon>webbirdModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\vi_user_catch_fly.cs">
-      <DependentUpon>webbirdModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\vi_user_fly.cs">
-      <DependentUpon>webbirdModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\vi_user_road.cs">
       <DependentUpon>webbirdModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\webbirdModel.Context.cs">
@@ -254,9 +242,6 @@
     <Compile Include="Models\z_sys_type_size_genus_species_color.cs">
       <DependentUpon>webbirdModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\z_sys_usertype.cs">
-      <DependentUpon>webbirdModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\MembersDBService.cs" />
   </ItemGroup>
@@ -303,8 +288,27 @@
       <DependentUpon>webbirdModel.edmx</DependentUpon>
       <LastGenOutput>webbirdModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Photos\U20190325001\Fly\201912161627953\1.JPG" />
+    <Content Include="Photos\U20190325001\Fly\201912161627953\2.jpg" />
+    <Content Include="Photos\U20190325001\Fly\201912161627953\3.jpg" />
+    <Content Include="Photos\U20190325001\Fly\201912161628310\1.JPG" />
+    <Content Include="Photos\U20190325001\Fly\201912161628310\2.jpg" />
+    <Content Include="Photos\U20190325001\Fly\201912161628310\3.jpg" />
+    <Content Include="Photos\U20191209001\Fly\20190603155700\1.jpg" />
+    <Content Include="Photos\U20191209001\Fly\20190603155700\2.jpg" />
+    <Content Include="Photos\U20191209001\Fly\20190603155700\3.jpg" />
+    <Content Include="Photos\U20191209001\Fly\201909091030-4\1.jpg" />
+    <Content Include="Photos\U20191209001\Fly\201909091030-4\2.jpg" />
+    <Content Include="Photos\U20191209001\Fly\201909091030-4\3.jpg" />
+    <Content Include="Photos\U20191209001\Fly\2019090910303\1.jpg" />
+    <Content Include="Photos\U20191209001\Fly\2019090910303\2.jpg" />
+    <Content Include="Photos\U20191209001\Fly\2019090910303\3.jpg" />
+    <Content Include="Photos\U20191209001\Fly\20191104165800\1.jpg" />
+    <Content Include="Photos\U20191209001\Fly\2019\12\1\181146895_l.jpg" />
+    <Content Include="Photos\U20191209001\Fly\2019\12\1\20190306004501.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Photos\U20191209001\Fly\20190501150500\1" />
     <EntityDeploy Include="Models\webbirdModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>webbirdModel.Designer.cs</LastGenOutput>
@@ -339,7 +343,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Fly\Create.cshtml" />
     <Content Include="Views\Fly\Index.cshtml" />
-    <Content Include="Views\Fly\Index2.cshtml" />
     <Content Include="Views\Fly\Index.mobile.cshtml" />
     <Content Include="Views\user\_Register.cshtml" />
     <Content Include="Views\user\Edit.cshtml" />
@@ -357,8 +360,14 @@
     <Content Include="Views\Fly\picIndex.cshtml" />
     <Content Include="Views\Shared\_Layoutedit.cshtml" />
     <Content Include="Views\Shared\_footer.cshtml" />
+    <Content Include="Views\Shared\_modelpic.cshtml" />
+    <Content Include="Views\Home\picIndex.cshtml" />
+    <Content Include="Views\Fly\Edit.cshtml" />
+    <Content Include="Views\Shared\_LayoutPageWellcome.cshtml" />
+    <Content Include="Views\Shared\_lgSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Photos\U20191209001\Fly\20195701135700\" />
     <Folder Include="Views\Regist\" />
   </ItemGroup>
   <ItemGroup>

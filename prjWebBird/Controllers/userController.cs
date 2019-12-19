@@ -111,7 +111,8 @@ namespace prjWebBird.Controllers
             
             if (user != null) 
             {
-                UserAccount.LogIn(user.mid, user.mname, enUserRole.User,"");
+
+                UserAccount.LogIn(user.mid, user.mname, enUserRole.User,user.mno);
                 return RedirectToAction("Index", "Home");
                 //if (user.mtype == "u1")
                 //{
@@ -122,7 +123,7 @@ namespace prjWebBird.Controllers
 
             if (logonModel.UserNo == "admin" && logonModel.Password == "admin")
             {
-                UserAccount.LogIn(logonModel.UserNo, "管理者", enUserRole.Admin,"");
+                UserAccount.LogIn(logonModel.UserNo, "管理者", enUserRole.Admin,"Admin");
                 return RedirectToAction("Index", "Home");
             }
             UserAccount.LogOut();

@@ -14,34 +14,32 @@ namespace prjWebBird.Models
     
     public partial class vi_user_catch
     {
-        public string mno { get; set; }
-        public string mname { get; set; }
-        public int mtel { get; set; }
-        public string mconn { get; set; }
+        public string username { get; set; }
         public string memail { get; set; }
-        public int mtype { get; set; }
-        public string catchno { get; set; }
+        public string mtel { get; set; }
+        public string mconn { get; set; }
+        public int rowid { get; set; }
+        public string userno { get; set; }
+        public string mno { get; set; }
         public string mid { get; set; }
         public string mid2 { get; set; }
+        public string show_id { get; set; }
         public string mspecies { get; set; }
         public string mcolor { get; set; }
+        public string mfeature { get; set; }
         public string maddr { get; set; }
         public string maddr_detail { get; set; }
-        public System.DateTime mdate { get; set; }
-        public System.DateTime mdate_edit { get; set; }
-        public string mremark { get; set; }
+        public string maddr_content { get; set; }
+        public Nullable<decimal> lat { get; set; }
+        public Nullable<decimal> lng { get; set; }
+        public Nullable<System.DateTime> mdate { get; set; }
+        public Nullable<System.DateTime> mtime { get; set; }
+        public Nullable<System.DateTime> mdate_edit { get; set; }
+        public Nullable<System.DateTime> mdate_create { get; set; }
+        public string mremarks { get; set; }
         public string mstate { get; set; }
-        public string flyno { get; set; }
-        public string flyname { get; set; }
-        public string flyid { get; set; }
-        public string flyid2 { get; set; }
-        public string flyspecies { get; set; }
-        public string flycolor { get; set; }
-        public string flyaddr { get; set; }
-        public string flyaddrd { get; set; }
-        public System.DateTime flydate { get; set; }
-        public System.DateTime flydate_edit { get; set; }
-        public string flyremark { get; set; }
-        public string flystate { get; set; }
+        public Nullable<bool> edit { get; set; }
+        public string filepath { get; set; }
+        public string statename { get; set; }
     }
 }

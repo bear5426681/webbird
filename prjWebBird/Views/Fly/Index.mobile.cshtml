@@ -7,78 +7,107 @@
 
     ViewBag.locaAction = "Index";
 }
-<h2>飛失協尋清單</h2>
+<h2 class="d-none d-lg-block">飛失協尋清單</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <div class="table-responsive">
-    <table class=" table table-light small">
-        <tr class="">
+    @if (DateTime.Now.Hour > 18 || DateTime.Now.Hour < 6)
+    {
+        @:<table class="table table-light table-hover table-striped">
+            @:<tr class="table-warning ">
+            }
+            else
+            {
+                @:<table class="table table-light table-hover table-striped">
+                    @:<tr class="table-secondary ">
+                    }
 
-            <th class="text-nowrap">
-                @Html.DisplayNameFor(model => model.mname)
-            </th>
-            <th class="text-nowrap">
-                @Html.DisplayNameFor(model => model.show_id)
-            </th>
-            <th class="text-nowrap">
-                @Html.DisplayNameFor(model => model.mspecies)
-            </th>
-            <th class="text-nowrap">
-                @Html.DisplayNameFor(model => model.maddr)
-            </th>
-            <th class="text-nowrap">
-                @Html.DisplayNameFor(model => model.mdate)
-            </th>
-            <th class="text-nowrap">
-                @Html.DisplayNameFor(model => model.mstate)
-            </th>
-            <th class="text-nowrap">
+    <th class="text-nowrap">
+        @Html.DisplayNameFor(model => model.mname)
+    </th>
+    <th class="text-nowrap">
+        @Html.DisplayNameFor(model => model.show_id)
+    </th>
+    <th class="text-nowrap">
+        @Html.DisplayNameFor(model => model.mspecies)
+    </th>
+    <th class="text-nowrap">
+        @Html.DisplayNameFor(model => model.maddr)
+    </th>
+    <th class="text-nowrap">
+        @Html.DisplayNameFor(model => model.mdate)
+    </th>
+    <th class="text-nowrap">
+        @Html.DisplayNameFor(model => model.mstate)
+    </th>
+    @if (UserAccount.IsLogin)
+    {
+        <th class="text-nowrap">
 
-            </th>
-        </tr>
+        </th>
+    }
+</tr>
 
-        @foreach (var item in Model)
+@foreach (var item in Model)
+{
+    <tr>
+
+        <td class="text-nowrap">
+            @Html.DisplayFor(modelItem => item.mname)
+        </td>
+        <td>
+            @if (item.mid2 == null)
+            {@Html.DisplayFor(modelItem => item.show_id)
+        }
+        else
         {
-            <tr>
+            string[] arr = item.show_id.Split('、');
 
-                <td class="text-nowrap">
-                    @Html.DisplayFor(modelItem => item.mname)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.show_id)
-                </td>
+            @arr[0]<br>@arr[1]
+        }
+        </td>
 
-                <td class="text-nowrap">
-                    @Html.DisplayFor(modelItem => item.mspecies)
-                </td>
+        <td class="text-nowrap">
+            @Html.DisplayFor(modelItem => item.mspecies)
+        </td>
 
-                <td class="text-nowrap">
-                    @Html.DisplayFor(modelItem => item.maddr)
-                </td>
-                <td class="text-nowrap">
-                    @Html.DisplayFor(modelItem => item.mdate)
-                </td>
+        <td class="text-nowrap">
+            @Html.DisplayFor(modelItem => item.maddr)
+        </td>
+        <td class="text-nowrap">
+            @Html.DisplayFor(modelItem => item.mdate)
+        </td>
 
-                <td class="text-nowrap">
-                    @Html.DisplayFor(modelItem => item.mstate)
-                </td>
+        <td class="text-nowrap">
+            @Html.DisplayFor(modelItem => item.mstate)
+        </td>
 
+
+        @using Securitys;
+        @if (UserAccount.IsLogin)
+        {
+            <td class="text-nowrap">
 
                 @if (item.edit == true)
                 {
-                    <td class="text-nowrap">
-                        @Html.ActionLink("Edit", "Edit", new { id = item.mno })
-                    </td>
+                    if (UserAccount.mno == item.user_no || UserAccount.UserRole == enUserRole.Admin)
+                    {
+                        @Html.ActionLink("修改", "Edit", new { id = item.mno })
+                        if (UserAccount.UserRole == enUserRole.Admin)
+                        {
+                            @:| @Html.ActionLink("刪除", "Delete", new { id = item.mno }, new { onclick = "return confirm('確定要刪除嗎?')" })
+                        }
+                    }
                 }
-                else
-                {
-                    <td class="text-nowrap"></td>
-                }
-            </tr>
-        }
 
-    </table>
+            </td>
+}
+
+    </tr>
+}
+
+</table>
 </div>
 

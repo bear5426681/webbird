@@ -7,7 +7,7 @@
     ViewBag.locaAction = "Create";
 }
 
-<h2>新增飛失記錄</h2><br />
+<h2 class="d-block">新增飛失記錄</h2><br />
 
 @using Securitys;
 @if (UserAccount.IsLogin == false)
@@ -40,15 +40,19 @@
 
     </div><!-- /.row -->
 </div>}
-@using (Html.BeginForm())
+
+@using (Html.BeginForm("Create","Fly",FormMethod.Post,new { enctype="multipart/form-data", @class="col-12"}))
 {
     @Html.AntiForgeryToken()
 
 
-    <h4 class="col-12">飛失填寫列表</h4>
+   
+<div class="px-2">
+    <h4 class="form-row">飛失填寫列表 <span class="col text-right h6">
+    @Html.ActionLink("放棄新增", "Index")
+</span></h4> 
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-<div class="px-2">
     <div class="form-row">
 
 
@@ -107,7 +111,8 @@
         <div class="form-group col-8 col-md-6">
             @Html.LabelFor(model => model.maddr, htmlAttributes: new { @class = "control-label  " })
             <div class=" ">
-                @Html.EditorFor(model => model.maddr, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("maddr", null, "市/區", new { @class = "form-control" })
+                @*@Html.EditorFor(model => model.maddr, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.maddr, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -117,6 +122,13 @@
             <div class=" ">
                 @Html.EditorFor(model => model.maddr_detail, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.maddr_detail, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group col-12">
+            @Html.LabelFor(model => model.maddr_content, htmlAttributes: new { @class = "control-label  " })
+            <div class=" ">
+                @Html.EditorFor(model => model.maddr_content, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.maddr_content, "", new { @class = "text-danger" })
             </div>
         </div>
     </div>
@@ -157,40 +169,61 @@
             </div>
         </div>
     </div>
-    <div class="p-md-5 p-3 rounded " style="background:linear-gradient(rgb(128, 128, 128),rgb(240, 240, 240)5%,rgb(240, 240, 240)95%,rgb(128, 128, 128)100%)">
-
-        <div class="form-row">
-            <div class="form-group col-7 col-md-5">
-                <label for="connname" class="form-label">聯絡人</label>
-                <input class="form-control text-box single-line" data-val="true" id="connmname" name="connmname" placeholder="怎麼稱呼" type="text" value="">
-                <span class="field-validation-valid text-danger" data-valmsg-for="connmname" data-valmsg-replace="true"></span>
-            </div>
-            <div class="form-group col-9 col-md-5">
-                <label for="tel" class="form-label">聯絡電話（非必填）</label>
-                <input class="form-control text-box single-line" data-val="true" data-val-number="電話格式錯誤" id="tel" name="tel" placeholder="手機或市話" type="tel" value="">
-                <span class="field-validation-valid text-danger" data-valmsg-for="tel" data-valmsg-replace="true"></span>
-            </div>
-            <div class="form-group col-12">
-                <label for="connect" class="form-label">其他聯絡方式（非必填）</label>
-                <textarea class="form-control" name="connect" id="connect" placeholder="Facebook連結/LineID..."></textarea>
-            </div>
-
-        </div>
-    </div>
-    <div class="form-row mt-3">
+    <div class="form-row">
         <div class="form-group col-12">
-            <div class="col-md-offset-2  ">
-                <input type="submit" value="新增" class="btn btn-default btn-danger" />
-            </div>
+            <p>
+                上傳照片 1：<input type="file" name="photos" id="photos" />
+            </p>
+            <p>
+                上傳照片 2：<input type="file" name="photos" id="photos" />
+            </p>
+            <p>
+                上傳照片 3：<input type="file" name="photos" id="photos" />
+            </p>
+            <p>
+                上傳照片 4：<input type="file" name="photos" id="photos" />
+            </p>
         </div>
     </div>
+    @if (UserAccount.IsLogin)
+    {
+        <div class="p-md-5 p-3 rounded " style="background:linear-gradient(rgb(128, 128, 128),rgb(240, 240, 240)5%,rgb(240, 240, 240)95%,rgb(128, 128, 128)100%)">
+
+            <div class="form-row">
+                <div class="form-group col-7 col-md-5">
+                    <label for="connname" class="form-label">聯絡人（設定為該帳號之聯絡人）</label>
+                    <input class="form-control text-box single-line" data-val="true" id="connmname" name="connmname" placeholder="怎麼稱呼" type="text" value="@ViewBag.userInfo.mname">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="connmname" data-valmsg-replace="true"></span>
+                </div>
+                <div class="form-group col-9 col-md-5">
+                    <label for="tel" class="form-label">聯絡電話（設定為該帳號之聯絡電話）</label>
+                    <input class="form-control text-box single-line" data-val="true" data-val-number="電話格式錯誤" id="tel" name="tel" placeholder="手機或市話" type="tel" value="@ViewBag.userInfo.mtel">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="tel" data-valmsg-replace="true"></span>
+                </div>
+                <div class="form-group col-12">
+                    <label for="connect" class="form-label">其他聯絡方式（設定為該帳號之聯絡方式）</label>
+                    <textarea class="form-control" name="connect" id="connect" placeholder="Facebook連結/LineID...">@ViewBag.userInfo.mconn</textarea>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-row mt-3">
+            <div class="form-group col">
+                <div class="col-md-offset-2  ">
+                    <input type="submit" value="新增" class="btn btn-default btn-danger" />
+                </div>
+            </div>
+            <div class="col text-right">
+                @Html.ActionLink("放棄新增", "Index")
+            </div>
+        </div>}
 </div>
 
 }
 
-<div>
-    @Html.ActionLink("放棄新增", "Index")
-</div>
+
+
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

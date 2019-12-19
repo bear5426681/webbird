@@ -22,18 +22,19 @@ namespace Securitys
             set { HttpContext.Current.Session["UserPassword"] = value; }
         }
 
-        public static string UserEmail
+        public static string mno
         {
-            get { return (HttpContext.Current.Session["UserEmail"] is null) ? "" : HttpContext.Current.Session["UserEmail"].ToString(); }
-            set { HttpContext.Current.Session["UserEmail"] = value; }
+            get { return (HttpContext.Current.Session["mno"] is null) ? "" : HttpContext.Current.Session["mno"].ToString(); }
+            set { HttpContext.Current.Session["mno"] = value; }
         }
+       
 
-        public static void LogIn(string sUserNo , string sUserName , enUserRole enRole,string enUserEmail)
+        public static void LogIn(string sUserNo , string sUserName , enUserRole enRole,string smno)
         {
             UserNo = sUserNo;
             UserName = sUserName;
             UserRole = enRole;
-            UserEmail = enUserEmail;
+            mno = smno;
             IsLogin = true;
         }
 
@@ -42,7 +43,7 @@ namespace Securitys
             UserNo = "";
             UserName = "";
             UserRole = enUserRole.None;
-            UserEmail = "";
+            mno = "";
             IsLogin = false;
         }
     }

@@ -1,0 +1,90 @@
+﻿<style>
+    .searchbox .form-control{
+        height:calc(1.8rem);
+        font-size:0.8rem;
+        margin:3px;
+
+    }
+
+</style>
+
+<div class="row mt-3 mb-0  ">
+    <div class="offset-2 col-4 d-none d-lg-block">
+        <form action="" class="form-group ">
+            <div class="input-group mb-3 badge-pill border bg-white" style="width: 400px">
+                <input type="text" class="form-control border-0 badge-pill bg-transparent" placeholder="　腳環號/品種/" style="width: 60%;position: relative;left: -10px;">
+                <button class="border-0 bg-transparent btn ml-5" type="button">
+                    <i class="fa fa-search"></i>
+                </button>
+                <button class="border-0 bg-transparent btn text-info searchhelp" type="button" style="position: absolute;right: 55px;"><i class="fa fa-list"></i></button>
+
+            </div>
+        </form>
+    </div>
+    <div class="offset-3 col-auto  align-self-center d-none d-lg-block ">
+        <a href="/@ViewBag.locafail/picIndex">
+            <span class="list-unstyled d-inline ">圖示 </span>
+        </a>
+        <span>|</span>
+        <a href="/@ViewBag.locafail/Index">
+            <span class="list-unstyled d-inline ">清單 </span>
+        </a>
+        <span>|</span>
+        <a href="/@ViewBag.locafail/mapIndex">
+            <span class="list-unstyled d-inline ">地圖</span>
+        </a>
+    </div>
+    <div class="offset-lg-3  searchbox bg-light rounded " style="width: 5px;height:0px; overflow: hidden;">
+    
+        <form action="/Home/Search" method="post" class="p-2 form-inline" style="width:100%">
+            <div class="form-row">
+            
+                <div class="form-group form-group-sm col-12 text-nowrap">
+                    <label for="searchspices" class="small">
+                        品種：
+                    </label>
+                        <input type="text" placeholder="玄鳳/凱克..." class="form-control w-25" name="searchspices" id="searchspices" />
+                    
+                
+                     <label for="searchid" class="text-nowrap small ml-3 ">
+                         腳環號碼：
+                     </label>
+                        <input type="text" placeholder="ABC/ABC1234DE/DE" class="form-control" name="searchid" id="searchid" />
+                   
+                </div>
+            
+            
+                <div class="form-group form-group-sm col-12">
+                    <label for="searchaddr" class="small">
+                        地點：
+                    </label>
+                        <input type="text" placeholder="地址或區域" class="form-control w-75" name="searchaddr" id="searchaddr" />
+                    
+                </div>
+            
+            
+                <div class="form-group form-group-sm col-10">
+                    <label for="searchtime" class="text-nowrap small">
+                        時間：
+                    </label>
+                    <input type="date" placeholder="" class="form-control small" name="searchtime" id="searchtime" />
+
+                    <span class="text-nowrap small">
+                        至
+                    </span>
+                    <input type="date" placeholder="" class="form-control small" name="searchtime2" id="searchtime2" />
+                </div>            
+            
+                <div class="form-group form-group-sm col-2">                                     
+                        <input type="submit" class="btn btn-info btn-sm" id="searchbtn" value="搜尋" />
+                </div>
+            </div>
+
+        </form>
+
+
+    </div>
+
+
+
+</div>

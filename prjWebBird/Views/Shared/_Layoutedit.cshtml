@@ -30,10 +30,12 @@
         @Scripts.Render("~/bundles/modernizr")
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")*@
+    <link rel="icon" href="~/images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="~/images/favicon.ico" type="image/x-icon" />
 
     <link href="~/css/index.css" rel="stylesheet" />
     <link href="~/css/boxcolor.css" rel="stylesheet" />
-    @if (DateTime.Now.Hour > 18)
+    @if (DateTime.Now.Hour > 18 || DateTime.Now.Hour < 6)
     {
         <link href="~/css/colornight.css" rel="stylesheet" />
     }
@@ -49,6 +51,11 @@
         top: 0;
         width: 100%;
         z-index: 1000;
+        opacity: 1;
+    }
+
+    body {
+        padding-top: 55px;
     }
 </style>
 
@@ -138,75 +145,47 @@ else if (ViewBag.locafail == "Catch")
             }
             else
             {
-                <header class="row nav d-flex align-items-end justify-content-between mainfunchead sticky" id="mainhead"
-                        style="opacity: 1 ;height: 55px;">
-                    <div class="col-lg-3  text-center d-none d-lg-block ">
-                        <a href="/Home/Index" style="text-decoration:none">
-                            <h1 class="h3 text-white mt-2  bigfont " style="line-height: 20px;white-space: nowrap;">
-                                HoMe .Find
-                                Way<br> <span class="text-white" style="font-size: 16px; font-family: cwtexyen;">鸚 鵡 回 家</span>
-                            </h1>
-                        </a>
-                    </div>
+        <header class="row nav d-flex align-items-end justify-content-between mainfunchead sticky" id="mainhead"
+                style="opacity: 1 ;height: 55px;">
+            <div class="col-lg-3  text-center d-none d-lg-block ">
+                <a href="/Home/Index" style="text-decoration:none">
+                    <h1 class="h3 text-white mt-2  bigfont " style="line-height: 20px;white-space: nowrap;">
+                        HoMe .Find
+                        Way<br> <span class="text-white" style="font-size: 16px; font-family: cwtexyen;">鸚 鵡 回 家</span>
+                    </h1>
+                </a>
+            </div>
 
-                    <div class=" HanbergerDiv HanbergerDivRow btn  d-lg-none opennav">
-                        <div class="hanberger X1  mt-1"></div>
-                        <div class="hanberger X2  mt-1"></div>
-                        <div class="hanberger X3  mt-1 mb-1"></div>
-                    </div>
+            <div class=" HanbergerDiv HanbergerDivRow btn  d-lg-none opennav">
+                <div class="hanberger X1  mt-1"></div>
+                <div class="hanberger X2  mt-1"></div>
+                <div class="hanberger X3  mt-1 mb-1"></div>
+            </div>
+
+            <div class="  btn-group d-lg-none mb-1">
+                <a href="/Fly/Index" class="btn row_btn text-white">飛失</a>
+                <a href="/See/Index" class="btn row_btn text-white">目擊</a>
+                <a href="/Catch/Index" class="btn row_btn text-white">拾獲</a>
+            </div>
+            
 
 
-                    <div class="  btn-group d-lg-none mb-1">
-                        <button class="btn row_btn">飛失</button>
-                        <button class="btn row_btn">目擊</button>
-                        <button class="btn row_btn ">拾獲</button>
-                    </div>
+            <div class="loginicon d-lg-none d-flex justify-content-center align-items-center ">
+                @*<span class="far fa-user d-lg-none btn " data-toggle="modal" data-target="#poplogin"></span>*@
+            </div>
 
-
-                    <div class="loginicon d-lg-none d-flex justify-content-center align-items-center ">
-                        @*<span class="far fa-user d-lg-none btn " data-toggle="modal" data-target="#poplogin"></span>*@
-                    </div>
-
-                    <div class="col-lg-1 justify-content-center d-flex align-items-center d-none ">
-                        @*<span class="text-warning d-none d-lg-block mb-3 btn bigfont  " data-toggle="modal"
-                                  data-target="#poplogin">
-                                log
-                                in
-                            </span>*@
-                    </div>
-                </header>
+            <div class="col-lg-1 justify-content-center d-flex align-items-center d-none ">
+                @*<span class="text-warning d-none d-lg-block mb-3 btn bigfont  " data-toggle="modal"
+                  data-target="#poplogin">
+                log
+                in
+            </span>*@
+            </div>
+        </header>
             }
             <!-- /頭 -->
             <!-- lg版的功能列-->
             <div class="row mt-3 mb-0  ">
-                <div class="offset-2 col-4 d-none d-lg-block">
-                    <form action="" class="form-group ">
-                        <div class="input-group mb-3 badge-pill border bg-white" style="width: 400px">
-                            <input type="text" class="form-control border-0 badge-pill bg-transparent" placeholder="　腳環號/品種/" style="width: 60%;position: relative;left: -10px;">
-                            <button class="border-0 bg-transparent btn ml-5" type="button">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            <button class="border-0 bg-transparent btn text-info searchhelp" type="button" style="position: absolute;right: 55px;"><i class="fa fa-list"></i></button>
-
-                        </div>
-                    </form>
-                </div>
-                <div class="offset-3 col-auto  align-self-center d-none d-lg-block ">
-
-                    <a href="">
-                        <span class="list-unstyled d-inline ">圖示 </span>
-                    </a>
-                    <span>|</span>
-                    <a href="">
-                        <span class="list-unstyled d-inline ">清單 </span>
-                    </a>
-                    <span>|</span>
-                    <a href="">
-                        <span class="list-unstyled d-inline ">地圖</span>
-                    </a>
-
-                </div>
-                <div class="offset-lg-3  searchbox bg-light rounded " style="width: 5px;height:0px; overflow: hidden;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui voluptatem asperiores, fugit vitae earum ratione maiores incidunt in tenetur consectetur harum nobis voluptas exercitationem nam perspiciatis! Magnam excepturi ad praesentium?</div>
 
             </div>
             <!--/ lg版的功能列-->
@@ -224,15 +203,7 @@ else if (ViewBag.locafail == "Catch")
                     @RenderBody()
 
 
-                    <fb:login-button scope="public_profile,email"
-                                     onlogin="checkLoginState();">
-                    </fb:login-button>
-
-                    <div id="fb-root"></div>
-                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v5.0&appId=2562798504045563&autoLogAppEvents=1"></script>
-
-                    <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="true"></div>
-
+                   
                 </div>
                 <!--/ 主要內容 -->
 

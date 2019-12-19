@@ -20,13 +20,28 @@ $(function() {
 
     $(window).scroll(function() {
         if ($(this).scrollTop() > 1) {
-            $('#bottomfunc').fadeIn(222);
-
+            $('#bottomfunc').fadeIn(222);           
         } else {
-            $('#bottomfunc').stop().fadeOut(222);
+            $('#bottomfunc').stop().fadeOut(222);           
         }
     }).scroll();
 
+
+    //晚上head動畫
+    var date = new Date;
+    var HH = date.getHours();
+    if (HH > 18/*||HH<6*/) {
+       
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 1) {
+                $('#mainhead').css({ "background": "rgba(52, 58, 64, 1)" ,"color":"white"})
+            } else {
+                $('#mainhead').css({ "background": "rgba(52, 58, 64, 0)", "color":"rgb(52, 58, 64)" })
+            }
+        }).scroll();
+    }
+   
+    //晚上head動畫//
 
 
     //功能列滾動跟隨
@@ -81,7 +96,7 @@ $('.searchhelp').click(function() {
             }, 20).animate({
                 width: "50vw"
             }, 1000).animate({
-                height: "20vh"
+                height: "8rem"
             }, 500)
 
         } else {
@@ -98,14 +113,7 @@ $('.searchhelp').click(function() {
 
 
 //header按鈕缺角.作廢以不同LAYOUT解決
-$('.row_btn').bind('click', function() {
 
-    $(this).addClass('disabled');
-    let a = $(this).attr("id");
-    console.log(a);
-    $('#mainhead').addClass(a + "B")
-
-})
 
 
 

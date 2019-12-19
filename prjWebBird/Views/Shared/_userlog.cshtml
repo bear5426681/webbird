@@ -25,7 +25,7 @@
                         <div id="login" class=" tab-pane fade show active" role="tabpanel">
                             @Html.Partial("~/Views/user/Login.cshtml")
 
-                            <div class="text-center mt-3">快速註冊</div>
+                            <div class="text-center mt-3">快速登入</div>
                             <div class=" m-2 d-flex justify-content-around">
                                 <button class="fab fa-facebook-f  btn rounded-circle text-info border-info bg-transparent"
                                         style="width: 55px;height: 55px;font-size: 25px;"></button>
@@ -39,7 +39,7 @@
 
                             @Html.Partial("~/Views/user/_Register.cshtml")
 
-                            <div class="text-center mt-3">快速登入</div>
+                            <div class="text-center mt-3">快速註冊</div>
                             <div class=" m-2 d-flex justify-content-around">
                                 <button class="fab fa-facebook  btn rounded-circle text-info border-info bg-transparent"
                                         style="width: 55px;height: 55px;font-size: 25px;"></button>
@@ -57,3 +57,13 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+
+@*<fb:login-button scope="public_profile,email"
+                 onlogin="checkLoginState();">
+</fb:login-button>
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v5.0&appId=2562798504045563&autoLogAppEvents=1"></script>
+
+<div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="true"></div>*@

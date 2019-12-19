@@ -1,0 +1,36 @@
+﻿<style>
+    .carousel-indicators {
+        position: absolute;
+       margin:0;
+    }
+</style>
+
+<div class=" carousel slide modelpic" data-ride="carousel" data-interval="5000" id="@ViewBag.modelpic" >
+    <ul class="carousel-indicators">
+        <li data-target="#@ViewBag.modelpic" data-slide-to="0" class="active "
+            style="background-image:url('/Photos/@ViewBag.modelloca/1.jpg')"></li>
+        <li data-target="#@ViewBag.modelpic" data-slide-to="1" class=""
+            style="background-image:url('/Photos/@ViewBag.modelloca/2.jpg')"></li>
+        <li data-target="#@ViewBag.modelpic" data-slide-to="2" class=""
+            style="background-image:url('/Photos/@ViewBag.modelloca/3.jpg')"></li>
+        <li data-target="#@ViewBag.modelpic" data-slide-to="3" class=""
+            style="background-image:url('/Photos/@ViewBag.modelloca/4.jpg')"></li>
+    </ul>
+    <div class=" carousel-inner ">
+        <div class="carousel-item  active"
+             style="background-image:url('/images/loading.gif');background-size: contain;">
+            <img src="~/Photos/@ViewBag.modelloca/1.jpg" alt="" class="img-fluid" style="height:100%;width:100%"/>
+        </div>
+        <div class=" carousel-item  " style="background-image:url('/images/loading.gif');background-size: contain;">
+            <img src="~/Photos/@ViewBag.modelloca/2.jpg" alt="" class="img-fluid" style="height:100%;width:100%" />
+        </div>
+        <div class=" carousel-item  " style="background-image:url('/images/loading.gif');background-size: contain;">
+            <img src="~/Photos/@ViewBag.modelloca/3.jpg" alt="" class="img-fluid" style="height:100%;width:100%" />
+        </div>
+        <div class=" carousel-item  "
+             style="background-image:url('/images/loading.gif');background-size: contain; ">
+            <img src="~/Photos/@ViewBag.modelloca/4.jpg" alt="" class="img-fluid" style="height:100%;width:100%" />
+        </div>
+
+    </div>
+</div>

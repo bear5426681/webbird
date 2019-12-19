@@ -11,8 +11,7 @@ namespace prjWebBird.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class vi_user_fly
     {
         public int rowid { get; set; }
@@ -25,21 +24,23 @@ namespace prjWebBird.Models
         public string mname { get; set; }
         public string mid { get; set; }
         public string mid2 { get; set; }
-        public string show_id { get; set; }
         public string mspecies { get; set; }
         public string mcolor { get; set; }
         public string mfeature { get; set; }
         public string maddr { get; set; }
         public string maddr_detail { get; set; }
+        public string maddr_content { get; set; }
         public Nullable<decimal> lat { get; set; }
         public Nullable<decimal> lng { get; set; }
-
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy/MM/dd}")]
         public Nullable<System.DateTime> mdate { get; set; }
-        public Nullable<System.DateTime> mtime { get; set; }
         public Nullable<System.DateTime> mdate_edit { get; set; }
+        public Nullable<System.DateTime> mdate_create { get; set; }
         public string mremarks { get; set; }
-        public string statename { get; set; }
+        public string mstate { get; set; }
         public Nullable<bool> edit { get; set; }
+        public string statename { get; set; }
+        public Nullable<System.DateTime> mtime { get; set; }
+        public string show_id { get; set; }
+        public string filepath { get; set; }
     }
 }

@@ -23,7 +23,7 @@ namespace prjWebBird.Models
             [DisplayName("飛失編號")]
             public string mno { get; set; }
 
-            [DisplayName("呼名")]
+            [DisplayName("名字")]
             [Required(ErrorMessage = "呼名不可為空白！")]
             public string mname { get; set; }
 
@@ -32,6 +32,9 @@ namespace prjWebBird.Models
 
             [DisplayName("腳環號（額外）")]
             public string mid2 { get; set; }
+
+            [DisplayName("腳環號碼")]
+            public string show_id { get; set; }
 
             [DisplayName("品種")]
             [Required(ErrorMessage = "品種不可為空白！")]
@@ -47,9 +50,12 @@ namespace prjWebBird.Models
             [Required(ErrorMessage = "飛失位置不可為空白！")]
             public string maddr { get; set; }
 
-            [DisplayName("飛失詳細位置")]
+            [DisplayName("飛失地址")]
             [Required(ErrorMessage = "詳細位置不可為空白！")]
             public string maddr_detail { get; set; }
+
+            [DisplayName("位置細節")]
+            public string maddr_content { get; set; }
 
             [DisplayName("經度")]
             public decimal lat { get; set; }

@@ -25,8 +25,10 @@ namespace prjWebBird.Models
         public string mfeature { get; set; }
         public string maddr { get; set; }
         public string maddr_detail { get; set; }
+        public string maddr_content { get; set; }
         public Nullable<System.DateTime> mdate { get; set; }
         public Nullable<System.DateTime> mtime { get; set; }
+        public Nullable<System.DateTime> mdate_create { get; set; }
         public Nullable<decimal> lat { get; set; }
         public Nullable<decimal> lng { get; set; }
         public string mremarks { get; set; }
@@ -34,6 +36,7 @@ namespace prjWebBird.Models
         public string mname { get; set; }
         public string mtel { get; set; }
         public string memail { get; set; }
-        public string nconn { get; set; }
+        public string mconn { get; set; }
+        public string filepath { get; set; }
     }
 }

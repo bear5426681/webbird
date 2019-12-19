@@ -3,20 +3,48 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using prjWebBird.Models;
+using Securitys;
+using UpLoadPic;
 
 namespace prjWebBird.Controllers
 {
+
     [RequireHttps]
     public class HomeController : Controller
     {
+        webbirdEntities db = new webbirdEntities();
         public ActionResult Index()
         {
-            return View();
+            var fly = db.vi_funcUNION.OrderByDescending(m => m.mtime).ToList();
+           
+            return View(fly);
+            
+        }
+
+        public ActionResult picIndex()
+        {
+
+
+            //test abc = new test();
+            //abc.abc = db.z_func_fly.ToList();
+            var picindex = db.vi_funcUNION.OrderByDescending(m=>m.mtime).ToList();
+            
+            //if (picindex.Where(m => m.mno.Substring(0, 1) == "S").Count() > 1)
+            //{
+            //    picindex=picindex.Where(m => m.mno.Substring(0, 1) == "S"&& )
+            //}
+
+            return View(picindex);
+
         }
 
         public ActionResult Wellcome()
         {
-            return View();
+            var picindex = db.vi_funcUNION.OrderByDescending(m => m.mtime).ToList();
+
+           return View(picindex);
+            
         }
 
         public ActionResult About()

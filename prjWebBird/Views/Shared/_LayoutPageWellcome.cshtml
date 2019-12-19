@@ -1,0 +1,247 @@
+﻿<!
+
+@{
+    Layout = null;
+    ViewBag.locafail = "Home";
+
+    ViewBag.locaAction = "Index";
+    ViewBag.Title = "Wellcome";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- 字體 -->
+    <link href="https://fonts.googleapis.com/css?family=Mali:400,700|Noto+Sans+TC:400,700&display=swap" rel="stylesheet">
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="icon" href="~/images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="~/images/favicon.ico" type="image/x-icon" />
+
+    <link href="~/css/index.css" rel="stylesheet" />
+    <link href="~/css/boxcolor.css" rel="stylesheet" />
+    @if (DateTime.Now.Hour > 18 || DateTime.Now.Hour < 6)
+    {
+        <link href="~/css/colornight.css" rel="stylesheet" />
+    }
+    else
+    {
+        <link href="~/css/colorday.css" rel="stylesheet" />
+    }
+
+
+    <title>HoMe .Find way鸚鵡回家</title>
+</head>
+
+
+
+
+<body>
+    @Html.Partial("_nav")
+
+    <div class="movenav" id="movenav">
+        <!-- 滾動前 -->
+        <div class="container-fluid topbody ">
+            <header class="row nav " id="cliphead">
+                <div class="col-1 ">
+                    <div class="HanbergerDiv btn mt-3  opennav">
+                        <div class="hanberger X1  mt-1"></div>
+                        <div class="hanberger X2  mt-1"></div>
+                        <div class="hanberger X3  mt-1 mb-1"></div>
+                    </div>
+                </div>
+
+                <div class="col  text-center  justify-content-center d-flex align-items-center ml-3 ">
+                    <h1 class="navbar-brand  text-white mt-2  bigfont" style="line-height: 19px">
+                        HoMe .Find Way<br>
+                        <small class="h6 text-white" style="font-family: cwtexyen;">鸚鵡回家</small>
+                    </h1>
+                </div>
+
+                <div class="col-1  justify-content-end d-flex align-items-center d-lg-none">
+                    <span class="far fa-user mr-3 d-lg-none btn" data-toggle="modal" data-target="#poplogin"></span>
+                </div>
+                <div class="col-lg-1 justify-content-end d-flex align-items-center d-none ">
+                    <span class="text-warning d-none d-lg-block mr-4 btn" data-toggle="modal" data-target="#poplogin">login</span>
+                </div>
+            </header>
+
+            <div class="row indexshow">
+                <div class="col ">
+                    <div class=" carousel slide" data-ride="carousel" data-interval="5000" id="headshow">
+                        <ul class="carousel-indicators right">
+                            <li data-target="#headshow" data-slide-to="0" class="active"></li>
+                            <li data-target="#headshow" data-slide-to="1" class=""></li>
+                            <li data-target="#headshow" data-slide-to="2" class=""></li>
+                            <li data-target="#headshow" data-slide-to="3" class=""></li>
+                        </ul>
+                        <div class=" carousel-inner ">
+                            <div class="carousel-item  active" style="background-image:url('/images/LOGOv1.svg ');background-size: contain;"> </div>
+                            <div class=" carousel-item  " style="background-image:url('/images/back/back1.jpg');">
+                            </div>
+                            <div class=" carousel-item  " style="background-image:url('/images/back/back (3).jpg');">
+                            </div>
+                            <div class=" carousel-item  " style="background-image:url('/images/back/back (7).jpg');background-position: bottom;  ">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row  my-3">
+                <div class="offset-1 col-10 d-flex  justify-content-around align-items-center">
+                    <button class="btn index_btn">飛失</button>
+                    <button class="btn index_btn">目擊</button>
+                    <button class="btn index_btn">拾獲</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 滾動後 -->
+        <div class="container-fluid" style="position: relative; overflow: hidden; ">
+            <!-- 頭 -->
+            @Html.Partial("_Head")
+            <!-- /頭 -->
+            <!-- lg版的功能列-->
+            @Html.Partial("_lgSearch")
+
+            <div class="row ">
+                <!-- 內容框框 -->
+
+
+                <div class="col-lg-2 d-none d-lg-block ">
+
+                    @Html.Partial("_asideleft")
+
+                </div>
+
+                <!-- 主要內容 -->
+                <div class=" col-lg-9 p-1 d-flex flex-wrap funcmain">
+
+
+
+                    @RenderBody()
+
+
+
+                </div>
+                <!--/ 主要內容 -->
+
+
+
+
+                <div class="col-lg-1  d-none d-lg-block ">
+                    <!-- 電腦右側功能 -->
+
+                    @Html.Partial("_asideright")
+
+                    <!-- /電腦右側功能 -->
+                </div>
+
+
+
+
+                <!-- 浮動捲上 -->
+                <a class="btn  add" id="BackTop" title="回到最上" data-toggle="tooltip" data-placement="top"><span class="up1"></span><span class="up2"></span></a>
+                <!-- data-toggle="modal" data-target="#popadd" href="AddEdit.html"  -->
+
+            </div>
+        </div>
+        <!-- footer -->
+
+        @Html.Partial("_footer")
+
+        <!-- /footer -->
+        <!-- 手持底部功能 -->
+    <div class="container-fluid fixed-bottom" id="bottomfunc">
+        <div class="row d-flex justify-content-between  bg-white text-nowrap d-lg-none p-1">
+            <a href="/@ViewBag.locafail/Create" class="bg-light col text-center text-dark ">
+                <div class=" justify-content-center"><i class="far fa-plus-square"></i></div>
+            </a>
+            <a href="/@ViewBag.locafail/Edit" class="bg-light col text-center text-dark">
+                <div class="  text-center"> <i class="far fa-edit"></i></div>
+            </a>
+            <a href="" class="bg-light col text-center text-dark ">
+                <div class=""><i class="fas fa-search"></i></div>
+            </a>
+            <a href="/@ViewBag.locafail/picIndex" class="bg-light col text-center text-dark">
+                <div class=""><i class="fas fa-th-large"></i></div>
+            </a>
+            <a href="/@ViewBag.locafail/Index" class="bg-light col text-center text-dark">
+                <div class=" "><i class="fas fa-list-ul"></i></div>
+            </a>
+            <a href="/@ViewBag.locafail/mapIndex" class="bg-light col text-center text-dark">
+                <div class=""><i class="fas fa-map-marked-alt"></i></div>
+            </a>
+        </div>
+    </div>
+        <!-- /手持底部功能 -->
+    </div>
+    @using Securitys;
+    @if (UserAccount.IsLogin == false)
+    {
+
+        @Html.Partial("_userlog")
+    }
+
+    <script src="~/js/index.js"></script>
+    <script>
+        //滾後一個刪一個黏監聽
+        window.addEventListener('scroll', stick);
+        const navbar = document.querySelector('#mainhead');
+        const header = document.querySelector('.topbody');
+
+        function stick(event) {
+            //取得 header 元素的高度
+            const condition = header.offsetHeight;
+            //當捲動高度大於header 元素的高度 執行下列程式碼
+            if (window.scrollY >= condition) {
+                //將 nav 元素的 position 屬性修改為 fixed
+
+                $(navbar).addClass("fixedhead");
+                $(header).remove();
+                //將 body 加上 paddingTop 將內容物往下移動
+                document.body.style.paddingTop = navbar.offsetHeight + 'px';
+            }
+        };
+        //滾後一個刪一個黏監聽//
+
+        //抓到滾動後自動滾動（僅一次
+        var sc = 0;
+        $(window).scroll(function () {
+            if (sc == 0) {
+                if ($(this).scrollTop() > 10) {
+                    let vh = ($(window).height()) * 1.4
+                    $("html,body").animate({
+                        scrollTop: vh
+                    }, 1000);
+                    $("html,body").animate({
+                        scrollTop: 0
+                    }, 700);
+                    $('#mainhead').animate({
+                        opacity: 1
+                    }, 2000)
+                    sc++
+                }
+            }
+        });
+        //抓到滾動後自動滾動（僅一次//
+    </script>
+</body>
+
+</html>

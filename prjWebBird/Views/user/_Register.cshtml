@@ -62,7 +62,7 @@
                 if (data.IsSuccess) {
 
                     alert('註冊成功!');
-                    window.location = '@Url.Action("Index", "Home")';
+                    '@Url.Action(@ViewBag.locaAction, @ViewBag.locafail)';
 
                 } else {
 

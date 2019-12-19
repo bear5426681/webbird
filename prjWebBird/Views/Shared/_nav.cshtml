@@ -26,29 +26,89 @@
         </div>
     }
 
-
+    <style>
+        .navaa {
+    background: linear-gradient(to right, rgba(251,111,24,1)0%, rgba(253, 253, 253, 0)100%);
+    color: black;
+    border: none;
+}
+    </style>
 
     <a href="/Home/Index" class="  btn-block btn-group m-0 border-0 mb-1  " style="text-decoration: none; ">
         <span class="btn  btn-block  text-left btn-danger  nava">首頁</span>
     </a>
-    <a href="/Fly/Index" class="btn-block btn-group m-0 border-0 mb-1  " style="text-decoration: none;">
-        <span class="btn  btn-block  text-left btn-danger nava">飛失</span><span class="btn-sm btn btn-danger bigfont px-3 " data-toggle="collapse" data-target="#flynavside">+</span>
-    </a>
+    <div class="btn-block btn-group m-0 border-0 mb-1  " style="text-decoration: none;">
+        <a href="/Fly/Index" class="btn  btn-block  text-left btn-danger nava">飛失</a><span class="btn-sm btn btn-danger bigfont px-3 " data-toggle="collapse" data-target="#flynavside">+</span>
+    </div>
     <div id="flynavside" class="collapse">
-        <a href="" class="  btn-block btn-group m-0 border-0 mb-1  "
+        <a href="/Fly/Index" class="  btn-block btn-group m-0 border-0 mb-1  "
            style="text-decoration: none; ">
-            <span class="btn  btn-block  text-left btn-danger nava">清單</span>
+            <span class="btn  btn-block  text-left btn-danger navaa">清單</span>
+        </a>
+        <a href="/Fly/picIndex" class="  btn-block btn-group m-0 border-0 mb-1  "
+           style="text-decoration: none; ">
+            <span class="btn  btn-block  text-left btn-danger navaa">圖示</span>
+        </a>
+        <a href="/Fly/mapIndex" class="  btn-block btn-group m-0 border-0 mb-1  "
+           style="text-decoration: none; ">
+            <span class="btn  btn-block  text-left btn-danger navaa">地圖</span>
+        </a>
+        <a href="/Fly/Create" class="  btn-block btn-group m-0 border-0 mb-1  "
+           style="text-decoration: none; ">
+            <span class="btn  btn-block  text-left btn-danger navaa">新增</span>
         </a>
     </div>
-    <a href="" class="  btn-block btn-group m-0 border-0 mb-1  " style="text-decoration: none;">
-        <span class="btn  btn-block  text-left btn-warning nava">拾獲</span><span class="btn-sm btn btn-danger bigfont px-3">+</span>
-    </a>
-    <a href="" class="  btn-block btn-group m-0 border-0 mb-1  " style="text-decoration: none;">
-        <span class="btn  btn-block  text-left btn-warning nava">目擊</span><span class="btn-sm btn btn-danger bigfont px-3">+</span>
-    </a>
-    <a href="" class="  btn-block btn-group m-0 border-0 mb-1  " style="text-decoration: none;">
-        <span class="btn  btn-block  text-left btn-warning nava">送養</span>
-    </a>
+    <div class="  btn-block btn-group m-0 border-0 mb-1  " style="text-decoration: none;">
+        <a href="/Catch/Index" class="btn  btn-block  text-left btn-danger nava">拾獲</a><span class="btn-sm btn btn-danger bigfont px-3 " data-toggle="collapse" data-target="#catchnavside">+</span>
+    </div>
+    <div id="catchnavside" class="collapse">
+        <a href="/Catch/Index" class="  btn-block btn-group m-0 border-0 mb-1  "
+           style="text-decoration: none; ">
+            <span class="btn  btn-block  text-left btn-danger navaa">清單</span>
+        </a>
+        <a href="/Catch/picIndex" class="  btn-block btn-group m-0 border-0 mb-1  "
+           style="text-decoration: none; ">
+            <span class="btn  btn-block  text-left btn-danger navaa">圖示</span>
+        </a>
+        <a href="/Catch/mapIndex" class="  btn-block btn-group m-0 border-0 mb-1  "
+           style="text-decoration: none; ">
+            <span class="btn  btn-block  text-left btn-danger navaa">地圖</span>
+        </a>
+    </div>
+    <div class="  btn-block btn-group m-0 border-0 mb-1  " style="text-decoration: none;">
+        <a href="/See/Index" class="btn  btn-block  text-left btn-danger nava">目擊</a><span class="btn-sm btn btn-danger bigfont px-3 " data-toggle="collapse" data-target="#seenavside">+</span>
+    </div>
+    <div id="seenavside" class="collapse">
+        <a href="/See/Index" class="  btn-block btn-group m-0 border-0 mb-1  "
+           style="text-decoration: none; ">
+            <span class="btn  btn-block  text-left btn-danger navaa">清單</span>
+        </a>
+        <a href="/See/picIndex" class="  btn-block btn-group m-0 border-0 mb-1  "
+           style="text-decoration: none; ">
+            <span class="btn  btn-block  text-left btn-danger navaa">圖示</span>
+        </a>
+        <a href="/See/mapIndex" class="  btn-block btn-group m-0 border-0 mb-1  "
+           style="text-decoration: none; ">
+            <span class="btn  btn-block  text-left btn-danger navaa">地圖</span>
+        </a>
+    </div>
+    <div class="  btn-block btn-group m-0 border-0 mb-1  " style="text-decoration: none;">
+        <a href="/Move/Index" class="btn  btn-block  text-left btn-danger nava">送養</a><span class="btn-sm btn btn-danger bigfont px-3 " data-toggle="collapse" data-target="#movenavside">+</span>
+    </div>
+    <div id="movenavside" class="collapse">
+        <a href="/Move/Index" class="  btn-block btn-group m-0 border-0 mb-1  "
+           style="text-decoration: none; ">
+            <span class="btn  btn-block  text-left btn-danger navaa">清單</span>
+        </a>
+        <a href="/Move/picIndex" class="  btn-block btn-group m-0 border-0 mb-1  "
+           style="text-decoration: none; ">
+            <span class="btn  btn-block  text-left btn-danger navaa">圖示</span>
+        </a>
+        <a href="/Move/mapIndex" class="  btn-block btn-group m-0 border-0 mb-1  "
+           style="text-decoration: none; ">
+            <span class="btn  btn-block  text-left btn-danger navaa">地圖</span>
+        </a>
+    </div>
 
 
 </nav>

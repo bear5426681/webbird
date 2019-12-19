@@ -21,16 +21,19 @@ namespace prjWebBird.Models
         public string mspecies { get; set; }
         public string mstate { get; set; }
         public Nullable<System.DateTime> mdate { get; set; }
+        public Nullable<System.DateTime> mtime { get; set; }
         public Nullable<System.DateTime> mdate_edit { get; set; }
+        public Nullable<System.DateTime> mdate_create { get; set; }
         public string mid { get; set; }
         public string mid2 { get; set; }
-        public string show_id { get; set; }
         public string mcolor { get; set; }
         public string mfeature { get; set; }
-        public string mremark { get; set; }
+        public string mremarks { get; set; }
         public string detect { get; set; }
         public string father { get; set; }
         public string mather { get; set; }
         public Nullable<bool> medit { get; set; }
+        public string show_id { get; set; }
+        public string filepath { get; set; }
     }
 }
