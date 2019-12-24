@@ -32,18 +32,19 @@
         @Scripts.Render("~/bundles/bootstrap")*@
 
     <link rel="icon" href="~/images/favicon.ico" type="image/x-icon" />
-    
+
     <link rel="shortcut icon" href="~/images/favicon.ico" type="image/x-icon" />
     <link href="~/css/index.css" rel="stylesheet" />
     <link href="~/css/boxcolor.css" rel="stylesheet" />
     @if (DateTime.Now.Hour > 18@*||DateTime.Now.Hour<6*@)
-    {
-        <link href="~/css/colornight.css" rel="stylesheet" />
-    }
-    else
-    {
-        <link href="~/css/colorday.css" rel="stylesheet" />
-    }
+{
+<link href="~/css/colornight.css" rel="stylesheet" />
+}
+else
+{
+<link href="~/css/colorday.css" rel="stylesheet" />
+
+}
 </head>
 <style>
     #mainhead{

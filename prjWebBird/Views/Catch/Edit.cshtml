@@ -1,0 +1,196 @@
+﻿@model prjWebBird.Models.z_func_catch
+
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layoutedit.cshtml";
+    ViewBag.locafail = "Catch";
+    ViewBag.locaAction = "Edit";
+}
+
+<h2>修改</h2>
+
+@using (Html.BeginForm("Edit", "Catch", FormMethod.Post, new { enctype = "multipart/form-data", @class = "col-12" }))
+{
+    @Html.AntiForgeryToken()
+
+
+
+<div class="px-2">
+    <h4 class="form-row">
+        拾獲修改列表 <span class="col text-right h6">
+            @Html.ActionLink("放棄修改", "Index")<small>@Model.mno</small>
+        </span>
+    </h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    @if (UserAccount.UserRole.ToString() == "User")
+    {
+    <div class="form-row">
+        <div class="form-group col-8  col-md-6">
+            @Html.LabelFor(model => model.mid, htmlAttributes: new { @class = "control-label " })
+            <div class="">
+                @Html.EditorFor(model => model.mid, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mid, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group col-8 col-md-6">
+            @Html.LabelFor(model => model.mid2, htmlAttributes: new { @class = "control-label  " })
+            <div class=" ">
+                @Html.EditorFor(model => model.mid2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mid2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>}
+    <div class="form-row">
+        <div class="form-group col-7 col-md-5">
+            @Html.LabelFor(model => model.mspecies, htmlAttributes: new { @class = "control-label  " })
+            <div class=" ">
+                @Html.EditorFor(model => model.mspecies, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mspecies, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group col-8 col-md-5">
+            @Html.LabelFor(model => model.mcolor, htmlAttributes: new { @class = "control-label  " })
+            <div class=" ">
+                @Html.EditorFor(model => model.mcolor, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mcolor, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group col-12">
+            @Html.LabelFor(model => model.mfeature, htmlAttributes: new { @class = "control-label  " })
+            <div class=" ">
+                @Html.EditorFor(model => model.mfeature, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.mfeature, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-8 col-md-6">
+            @Html.LabelFor(model => model.maddr, htmlAttributes: new { @class = "control-label  " })
+            <div class=" ">
+                <input readonly value="@Model.maddr" class="form-control" type="text" />
+                @*@Html.EditorFor(model => model.maddr, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.maddr, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group col-12">
+            @Html.LabelFor(model => model.maddr_detail, htmlAttributes: new { @class = "control-label  " })
+            <div class=" ">
+                @Html.EditorFor(model => model.maddr_detail, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.maddr_detail, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group col-12">
+            @Html.LabelFor(model => model.maddr_content, htmlAttributes: new { @class = "control-label  " })
+            <div class=" ">
+                @Html.EditorFor(model => model.maddr_content, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.maddr_content, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+
+        <div class="form-group col-12 col-md-6">
+            @Html.LabelFor(model => model.mtime, htmlAttributes: new { @class = "control-label  " })
+            <div class=" ">
+                <input readonly value="@Model.mtime" class="form-control" type="text" />
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-row">
+        <div class="form-group  col-12">
+
+            @Html.LabelFor(model => model.mstate, htmlAttributes: new { @class = "control-label  " })
+            @foreach (var item in @ViewData["mstate"] as List<prjWebBird.Models.z_sys_state>)
+            {
+                <label class="bg-info badge-pill mx-1" for=@item.mno>
+                    @Html.RadioButton("mstate", @item.mno, new { @id = @item.mno })
+                    @*@Html.Label(item.mname, new { @for = @item.mno })*@
+                    @item.mname
+                </label>
+            }
+
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-12">
+            @Html.LabelFor(model => model.mremarks, htmlAttributes: new { @class = "control-label  " })
+            <div class=" ">
+                <textarea class="form-control" name="mremarks" id="mremarks">@Model.mremarks</textarea>
+
+                @Html.ValidationMessageFor(model => model.mremarks, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-12">
+            <p>
+                上傳照片 1：<input type="file" name="photos" id="photos" accept="image/jpg" />
+            </p>
+            <p>
+                上傳照片 2：<input type="file" name="photos" id="photos" />
+            </p>
+            <p>
+                上傳照片 3：<input type="file" name="photos" id="photos" />
+            </p>
+            <p>
+                上傳照片 4：<input type="file" name="photos" id="photos" />
+            </p>
+        </div>
+    </div>
+    @using Securitys;
+    @if (UserAccount.IsLogin)
+    {
+        if (UserAccount.UserRole.ToString() == "User")
+        {
+            <div class="p-md-5 p-3 rounded " style="background:linear-gradient(rgb(128, 128, 128),rgb(240, 240, 240)5%,rgb(240, 240, 240)95%,rgb(128, 128, 128)100%)">
+
+                <div class="form-row">
+                    <div class="form-group col-7 col-md-5">
+                        <label for="connname" class="form-label">聯絡人（設定為該帳號之聯絡人）</label>
+                        <input class="form-control text-box single-line" data-val="true" id="connmname" name="connmname" placeholder="怎麼稱呼" type="text" value="@ViewBag.userInfo.mname">
+                        <span class="field-validation-valid text-danger" data-valmsg-for="connmname" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="form-group col-9 col-md-5">
+                        <label for="tel" class="form-label">聯絡電話（設定為該帳號之聯絡電話）</label>
+                        <input class="form-control text-box single-line" data-val="true" data-val-number="電話格式錯誤" id="tel" name="tel" placeholder="手機或市話" type="tel" value="@ViewBag.userInfo.mtel">
+                        <span class="field-validation-valid text-danger" data-valmsg-for="tel" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="connect" class="form-label">其他聯絡方式（設定為該帳號之聯絡方式）</label>
+                        <textarea class="form-control" name="connect" id="connect" placeholder="Facebook連結/LineID...">@ViewBag.userInfo.mconn</textarea>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="form-row mt-3">
+            <div class="form-group col">
+                <div class="col-md-offset-2  ">
+                    <input type="submit" value="修改" class="btn btn-default btn-danger" /><input hidden type="text" value="@Model.mno" name="mno" />
+                </div>
+            </div>
+            <div class="col text-right">
+                @Html.ActionLink("放棄修改", "Index")
+            </div>
+        </div>}
+</div>
+
+}
+
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

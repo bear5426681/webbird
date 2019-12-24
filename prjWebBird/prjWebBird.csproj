@@ -157,6 +157,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CatchController.cs" />
     <Compile Include="Controllers\FlyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegistController.cs" />
@@ -165,7 +166,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Metadata\vi_funcUNION.cs" />
+    <Compile Include="Models\Metadata\vi_user_catch.cs" />
     <Compile Include="Models\Metadata\vi_user_fly.cs" />
+    <Compile Include="Models\Metadata\z_func_catch.cs" />
     <Compile Include="Models\ViewModels\indexInfoViewModel.cs" />
     <Compile Include="Models\ViewModels\LoginViewModel.cs" />
     <Compile Include="Models\ViewModels\MembersRegisterViewModel.cs" />
@@ -270,6 +273,8 @@
     <Content Include="images\back\back %286%29.jpg" />
     <Content Include="images\back\back %287%29.jpg" />
     <Content Include="images\back\back1.jpg" />
+    <Content Include="images\favicon.ico" />
+    <Content Include="images\loading.gif" />
     <Content Include="images\LOGO-2.svg" />
     <Content Include="images\LOGO-3white.svg" />
     <Content Include="images\LOGO-4white-nofont.svg" />
@@ -288,27 +293,38 @@
       <DependentUpon>webbirdModel.edmx</DependentUpon>
       <LastGenOutput>webbirdModel.cs</LastGenOutput>
     </Content>
-    <Content Include="Photos\U20190325001\Fly\201912161627953\1.JPG" />
-    <Content Include="Photos\U20190325001\Fly\201912161627953\2.jpg" />
-    <Content Include="Photos\U20190325001\Fly\201912161627953\3.jpg" />
-    <Content Include="Photos\U20190325001\Fly\201912161628310\1.JPG" />
-    <Content Include="Photos\U20190325001\Fly\201912161628310\2.jpg" />
-    <Content Include="Photos\U20190325001\Fly\201912161628310\3.jpg" />
-    <Content Include="Photos\U20191209001\Fly\20190603155700\1.jpg" />
-    <Content Include="Photos\U20191209001\Fly\20190603155700\2.jpg" />
-    <Content Include="Photos\U20191209001\Fly\20190603155700\3.jpg" />
-    <Content Include="Photos\U20191209001\Fly\201909091030-4\1.jpg" />
-    <Content Include="Photos\U20191209001\Fly\201909091030-4\2.jpg" />
-    <Content Include="Photos\U20191209001\Fly\201909091030-4\3.jpg" />
-    <Content Include="Photos\U20191209001\Fly\2019090910303\1.jpg" />
-    <Content Include="Photos\U20191209001\Fly\2019090910303\2.jpg" />
-    <Content Include="Photos\U20191209001\Fly\2019090910303\3.jpg" />
-    <Content Include="Photos\U20191209001\Fly\20191104165800\1.jpg" />
-    <Content Include="Photos\U20191209001\Fly\2019\12\1\181146895_l.jpg" />
-    <Content Include="Photos\U20191209001\Fly\2019\12\1\20190306004501.jpg" />
+    <Content Include="Photos\U20190325001\Fly\F20190909005\1.jpg" />
+    <Content Include="Photos\U20190325001\Fly\F20190909005\2.jpg" />
+    <Content Include="Photos\U20190325001\Fly\F20190909005\4.jpg" />
+    <Content Include="Photos\U20190325001\Fly\F20190909006\1.JPG" />
+    <Content Include="Photos\U20190325001\Fly\F20190909006\2.jpg" />
+    <Content Include="Photos\U20190325001\Fly\F20190909006\3.jpg" />
+    <Content Include="Photos\U20191209001\Fly\F20190603001\1.jpg" />
+    <Content Include="Photos\U20191209001\Fly\F20190603001\2.jpg" />
+    <Content Include="Photos\U20191209001\Fly\F20190603001\3.jpg" />
+    <Content Include="Photos\U20191209001\Fly\F20190713001\1.jpg" />
+    <Content Include="Photos\U20191209001\Fly\F20190713001\2.jpg" />
+    <Content Include="Photos\U20191209001\Fly\F20190713001\3.jpg" />
+    <Content Include="Photos\U20191209001\Fly\F20190713001\4.jpg" />
+    <Content Include="Photos\U20191209001\Fly\F20190909001\1.jpg" />
+    <Content Include="Photos\U20191209001\Fly\F20190909001\2.jpg" />
+    <Content Include="Photos\U20191209001\Fly\F20190909001\3.jpg" />
+    <Content Include="Photos\U20191209001\Fly\F20190909002\1.jpg" />
+    <Content Include="Photos\U20191209001\Fly\F20190909002\2.jpg" />
+    <Content Include="Photos\U20191209001\Fly\F20190909002\3.jpg" />
+    <Content Include="Photos\U20191209001\Fly\F20190909003\1.jpg" />
+    <Content Include="Photos\U20191209001\Fly\F20190909003\2.jpg" />
+    <Content Include="Photos\U20191209001\Fly\F20190909003\3.jpg" />
+    <Content Include="Photos\U20191209001\Fly\F20191201001\1.jpg" />
+    <Content Include="Photos\U20191209001\Fly\F20191201001\2.jpg" />
+    <Content Include="Photos\U20191209001\Fly\F20191201001\3.jpg" />
+    <Content Include="Photos\U20191209001\Fly\F20191216001\1.jpg" />
+    <Content Include="Photos\U20191209001\Fly\F20191216001\2.JPG" />
+    <Content Include="Photos\U20191209001\Fly\F20191217001\1.jpg" />
+    <Content Include="Photos\U20191209001\Fly\F20191217001\2.jpg" />
+    <Content Include="Photos\U20191209001\Fly\F20191217001\3.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Photos\U20191209001\Fly\20190501150500\1" />
     <EntityDeploy Include="Models\webbirdModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>webbirdModel.Designer.cs</LastGenOutput>
@@ -316,6 +332,8 @@
     <Content Include="Models\webbirdModel.edmx.diagram">
       <DependentUpon>webbirdModel.edmx</DependentUpon>
     </Content>
+    <Content Include="libman.json" />
+    <None Include="Properties\PublishProfiles\Johnson.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -365,9 +383,13 @@
     <Content Include="Views\Fly\Edit.cshtml" />
     <Content Include="Views\Shared\_LayoutPageWellcome.cshtml" />
     <Content Include="Views\Shared\_lgSearch.cshtml" />
+    <Content Include="Views\Catch\Index.cshtml" />
+    <Content Include="Views\Catch\picIndex.cshtml" />
+    <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="Views\Catch\Edit.cshtml" />
+    <Content Include="Views\Catch\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Photos\U20191209001\Fly\20195701135700\" />
     <Folder Include="Views\Regist\" />
   </ItemGroup>
   <ItemGroup>

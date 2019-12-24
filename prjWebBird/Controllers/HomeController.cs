@@ -47,6 +47,24 @@ namespace prjWebBird.Controllers
             
         }
 
+        public ActionResult Edit()
+        {
+           
+            var userinfo = db.z_bas_user.Where(m => m.mno == UserAccount.UserNo).FirstOrDefault();
+
+            return View(userinfo);
+        }
+
+
+        [HttpPost]
+        public ActionResult Edit(z_bas_user user)
+        {
+           
+
+            return RedirectToAction("picIndex");
+        }
+
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

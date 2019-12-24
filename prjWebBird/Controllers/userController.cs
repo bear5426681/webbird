@@ -71,7 +71,7 @@ namespace prjWebBird.Controllers
                     }            
                 }            
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 throw;
             }

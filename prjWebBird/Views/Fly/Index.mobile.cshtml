@@ -9,18 +9,16 @@
 }
 <h2 class="d-none d-lg-block">飛失協尋清單</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <div class="table-responsive">
     @if (DateTime.Now.Hour > 18 || DateTime.Now.Hour < 6)
     {
-        @:<table class="table table-light table-hover table-striped">
+        @:<table class="table table-light table-hover table-striped table-sm">
             @:<tr class="table-warning ">
             }
             else
             {
-                @:<table class="table table-light table-hover table-striped">
+                @:<table class="table table-light table-hover table-striped  table-sm">
                     @:<tr class="table-secondary ">
                     }
 

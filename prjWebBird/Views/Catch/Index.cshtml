@@ -1,17 +1,14 @@
-﻿@model IEnumerable<prjWebBird.Models.vi_funcUNION>
+﻿@model IEnumerable<prjWebBird.Models.z_func_catch>
 
 @{
-    ViewBag.Title = "首頁-清單";
-    Layout = "~/Views/Shared/_LayoutPageWellcome.cshtml";
-    ViewBag.locafail = "Home";
+    ViewBag.Title = "拾獲列表-清單";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.locafail = "Catch";
+
     ViewBag.locaAction = "Index";
 }
-<style>
-    .fa,.fas,.far{
-        line-height: unset;
-    }
 
-</style>
+<h2 class="d-none d-lg-block">拾獲協尋清單</h2>
 
 <div class="table-responsive d-none d-lg-block">
     @if (DateTime.Now.Hour > 18 || DateTime.Now.Hour < 6)
@@ -25,9 +22,7 @@
                     @:<tr class="table-secondary ">
                     }
 
-    <th class="text-nowrap">
-        @Html.DisplayNameFor(model => model.mname)
-    </th>
+   
     <th class="text-nowrap">
         @Html.DisplayNameFor(model => model.show_id)
     </th>
@@ -48,18 +43,22 @@
         @Html.DisplayNameFor(model => model.mdate_edit)
     </th>
     <th class="text-nowrap">
-        @Html.DisplayNameFor(model => model.statename)
+        @Html.DisplayNameFor(model => model.mstate)
 
     </th>
+    @if (UserAccount.IsLogin)
+    {
+        <th class="text-nowrap">
+
+        </th>
+    }
+
 </tr>
 
 @foreach (var item in Model)
 {
     <tr>
 
-        <td class="text-nowrap">
-            @Html.DisplayFor(modelItem => item.mname)
-        </td>
         <td>
             @if (item.mid2 == null)
             {@Html.DisplayFor(modelItem => item.show_id)
@@ -84,28 +83,29 @@
             @Html.DisplayFor(modelItem => item.mdate)
         </td>
         <td class="text-nowrap">
-            @*@Html.DisplayFor(modelItem => item.mdate_edit?.ToString("yyyy/MM/dd"))*@
             @string.Format("{0:yyyy/MM/dd}", item.mdate_edit)<br /><span class="small">@string.Format("{0:HH:mm}", item.mdate_edit)</span>
         </td>
+        <td class="text-nowrap">
+            @Html.DisplayFor(modelItem => item.mstate)
+        </td>
 
-        @if (item.mno.Substring(0, 1) == "F")
-        {
-            <td class="text-nowrap text-warning">
-                @Html.DisplayFor(modelItem => item.statename)
+        @using Securitys;
 
-            </td>
-        }
-        else if (item.mno.Substring(0, 1) == "C")
+        @if (UserAccount.IsLogin)
         {
-            <td class="text-nowrap text-danger">
-                @Html.DisplayFor(modelItem => item.statename)
+            <td class="text-nowrap">
 
-            </td>
-        }
-        else if (item.mno.Substring(0, 1) == "S")
-        {
-            <td class="text-nowrap text-info">
-                @Html.DisplayFor(modelItem => item.statename)
+                @if (item.edit == true)
+                {
+                    if (UserAccount.mno == item.user_no || UserAccount.UserRole == enUserRole.Admin)
+                    {
+                        @Html.ActionLink("修改", "Edit", new { id = item.mno })
+                        if (UserAccount.UserRole == enUserRole.Admin)
+                        {
+                            @:| @Html.ActionLink("刪除", "Delete", new { id = item.mno }, new { onclick = "return confirm('確定要刪除嗎?')" })
+                        }
+                    }
+                }
 
             </td>
         }
@@ -126,9 +126,7 @@
                     @:<tr class="table-secondary ">
                     }
 
-    <th class="text-nowrap">
-        @Html.DisplayNameFor(model => model.mname)
-    </th>
+   
     <th class="text-nowrap">
         @Html.DisplayNameFor(model => model.show_id)
     </th>
@@ -142,17 +140,21 @@
         @Html.DisplayNameFor(model => model.mdate)
     </th>
     <th class="text-nowrap">
-        @Html.DisplayNameFor(model => model.statename)
+        @Html.DisplayNameFor(model => model.mstate)
     </th>
+    @if (UserAccount.IsLogin)
+    {
+        <th class="text-nowrap">
+
+        </th>
+    }
 </tr>
 
 @foreach (var item in Model)
 {
     <tr>
 
-        <td class="text-nowrap">
-            @Html.DisplayFor(modelItem => item.mname)
-        </td>
+       
         <td>
             @if (item.mid2 == null)
             {@Html.DisplayFor(modelItem => item.show_id)
@@ -163,8 +165,6 @@
 
             @arr[0]<br>@arr[1]
         }
-
-
         </td>
 
         <td class="text-nowrap">
@@ -178,31 +178,31 @@
             @Html.DisplayFor(modelItem => item.mdate)
         </td>
 
+        <td class="text-nowrap">
+            @Html.DisplayFor(modelItem => item.mstate)
 
-        @if (item.mno.Substring(0, 1) == "F")
+        </td>
+        @if (UserAccount.IsLogin)
         {
-            <td class="text-nowrap text-warning">
-                @Html.DisplayFor(modelItem => item.statename)
+            <td class="text-nowrap">
+
+                @if (item.edit == true)
+                {
+                    if (UserAccount.mno == item.user_no || UserAccount.UserRole == enUserRole.Admin)
+                    {
+                        @Html.ActionLink("修改", "Edit", new { id = item.mno })
+                        if (UserAccount.UserRole == enUserRole.Admin)
+                        {
+                            @:| @Html.ActionLink("刪除", "Delete", new { id = item.mno }, new { onclick = "return confirm('確定要刪除嗎?')" })
+                        }
+                    }
+                }
 
             </td>
         }
-        else if (item.mno.Substring(0, 1) == "C")
-        {
-            <td class="text-nowrap text-danger">
-                @Html.DisplayFor(modelItem => item.statename)
-
-            </td>
-        }
-        else if (item.mno.Substring(0, 1) == "S")
-        {
-            <td class="text-nowrap text-info">
-                @Html.DisplayFor(modelItem => item.statename)
-
-            </td>
-        }
-
     </tr>
 }
 
 </table>
 </div>
+
